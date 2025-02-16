@@ -116,32 +116,32 @@ typedef u_long128       u_int128;       /* 128-bit unsigned integer */
 /*---------------------------------------------------------------------------*/
 
 typedef struct CVECTOR {
-	u_char r, g, b, a;
+    u_char r, g, b, a;
 } CVECTOR;
 
 typedef struct SVECTOR {
-	short vx;
-	short vy;
-	short vz;
-	short vw;
+    short vx;
+    short vy;
+    short vz;
+    short vw;
 } ALIGN8 SVECTOR;
 
 typedef struct IVECTOR {
-	int vx;
-	int vy;
-	int vz;
-	int vw;
+    int vx;
+    int vy;
+    int vz;
+    int vw;
 } ALIGN16 IVECTOR;
 
 typedef struct FVECTOR {
-	float vx;
-	float vy;
-	float vz;
-	float vw;
+    float vx;
+    float vy;
+    float vz;
+    float vw;
 } ALIGN16 FVECTOR;
 
 typedef struct FMATRIX {
-	float m[4][4];
+    float m[4][4];
 } ALIGN16 FMATRIX;
 
 #endif // {{{ END OF FILE }}}

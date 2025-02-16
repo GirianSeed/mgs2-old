@@ -6,8 +6,8 @@
 typedef void *(*NEWCHARA)();
 
 typedef struct {
-	unsigned int class_id;
-	NEWCHARA func;
+    unsigned int class_id;
+    NEWCHARA func;
 } CHARA;
 
 #endif // {{{ END OF FILE }}}
