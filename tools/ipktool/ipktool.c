@@ -91,17 +91,10 @@ typedef struct {
 
 static void get_ipk_taginfo(const ipkModuleTag *modtag, iopMetaData *mdata)
 {
-#ifdef WORDS_BIGENDIAN
-    mdata->paksize = my_bswap32(modtag->paksize);
-    mdata->elfsize = my_bswap32(modtag->elfsize);
-    mdata->namelen = my_bswap32(modtag->namelen);
-    mdata->pad0    = my_bswap32(modtag->pad0);
-#else
-    mdata->paksize = modtag->paksize;
-    mdata->elfsize = modtag->elfsize;
-    mdata->namelen = modtag->namelen;
-    mdata->pad0    = modtag->pad0;
-#endif
+    mdata->paksize = my_le32toh(modtag->paksize);
+    mdata->elfsize = my_le32toh(modtag->elfsize);
+    mdata->namelen = my_le32toh(modtag->namelen);
+    mdata->pad0    = my_le32toh(modtag->pad0);
 }
 
 static void *get_ipk_modinfo(const ipkModuleTag *modtag, iopMetaData *mdata)
