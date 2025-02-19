@@ -1,0 +1,70 @@
+/* -*- mode: c; tab-width: 4; indent-tabs-mode: t; -*- */
+#ifndef __MGS2_FILE_CNF__
+#define __MGS2_FILE_CNF__
+
+/*
+ * CD/DVD から読み出すファイル
+ */
+
+FS_FILE_INFO fs_file_info[] = {
+#ifdef SUBSTANCE
+#ifdef _XBOX
+	{ "stage.dat",   0x00000000, 0, 0, 0, 0 },
+	{ "codec.dat",   0x00000000, 0, 0, 0, 0 },
+	{ "face.dat",    0x00000000, 0, 0, 0, 0 },
+	{ "movie.dat",   0x00000000, 0, 0, 0, 0 },
+	{ "vox.dat",     0x00000000, 0, 0, 0, 0 },
+	{ "demo.dat",    0x00000000, 0, 0, 0, 0 },
+	{ "movievr.dat", 0x00000000, 0, 0, 0, 0 },
+	{ NULL,          0x00000000, 0, 0, 0, 0 }
+#else
+	{ "stage.dat",   0x00000000, 0, 1, 7, 0 },  // layer: 1 alt: stage2.dat
+	{ "codec.dat",   0x00000000, 0, 1, 1, 0 },  // layer: 1 alt: codec.dat
+	{ "face.dat",    0x00000000, 0, 1, 2, 0 },  // layer: 1 alt: face.dat
+	{ "movie.dat",   0x00000000, 0, 1, 6, 0 },  // layer: 1 alt: movievr.dat
+	{ "vox.dat",     0x00000000, 0, 1, 8, 0 },  // layer: 1 alt: vox2.dat
+	{ "demo.dat",    0x00000000, 0, 1, 9, 0 },  // layer: 1 alt: demo2.dat
+	{ "movievr.dat", 0x00000000, 0, 0, 6, 0 },  // layer: 1 alt: movievr.dat
+	{ "stage2.dat",  0x00000000, 0, 0, 0, 0 },  // layer: 0
+	{ "vox2.dat",    0x00000000, 0, 0, 0, 0 },  // layer: 0
+	{ "demo2.dat",   0x00000000, 0, 0, 0, 0 },  // layer: 0
+	{ NULL,          0x00000000, 0, 0, 0, 0 }   // layer: 0
+#endif
+#elif defined(DOCUMENT_OF_MGS2)
+	{ "stage.dat",  0x00000000, 0, 0, 0, 0 },
+	{ "codec.dat",  0x00000000, 0, 0, 0, 0 },
+	{ "face.dat",   0x00000000, 0, 0, 0, 0 },
+	{ "movie.dat",  0x00000000, 0, 0, 0, 0 },
+	{ "vox.dat",    0x00000000, 0, 0, 0, 0 },
+	{ "demo.dat",   0x00000000, 0, 0, 0, 0 },
+	{ "movie2.dat", 0x00000000, 0, 0, 0, 0 },
+	{ NULL,         0x00000000, 0, 0, 0, 0 }
+#else // SONS_OF_LIBERTY
+	{ "stage.dat",  0x00000000, 0, 0, 0, 0 },
+	{ "codec.dat",  0x00000000, 0, 0, 0, 0 },
+	{ "face.dat",   0x00000000, 0, 0, 0, 0 },
+	{ "movie.dat",  0x00000000, 0, 0, 0, 0 },
+	{ "vox.dat",    0x00000000, 0, 0, 0, 0 },
+	{ "demo.dat",   0x00000000, 0, 0, 0, 0 },
+	{ NULL,         0x00000000, 0, 0, 0, 0 }
+#endif
+};
+
+#if 0 // 体験版
+FS_FILE_INFO fs_file_info[] = {
+	{ "STAGE.DAT", 0x00000000, 0, 0, 0, 0 },
+	{ "CODEC.DAT", 0x00000000, 0, 0, 0, 0 },
+	{ "FACE.DAT",  0x00000000, 0, 0, 0, 0 },
+	{ "MOVIE.DAT", 0x00000000, 0, 0, 0, 0 },
+	{ "VOX.DAT",   0x00000000, 0, 0, 0, 0 },
+	{ "DEMO.DAT",  0x00000000, 0, 0, 0, 0 },
+	{ NULL,        0x00000000, 0, 0, 0, 0 }
+};
+#endif
+
+#endif // {{{ END OF FILE }}}
+
+/* Local variables: */
+/* tab-width: 4 */
+/* End: */
+/* vi:set tabstop=4: */
