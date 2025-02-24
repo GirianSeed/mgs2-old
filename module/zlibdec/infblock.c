@@ -72,8 +72,6 @@ uLongf *c;
 {
   if (c != Z_NULL)
     *c = s->check;
-  if (s->mode == BTREE || s->mode == DTREE)
-    ZFREE(z, s->sub.trees.blens);
   if (s->mode == CODES)
     inflate_codes_free(s->sub.decode.codes, z);
   s->mode = TYPE;
@@ -93,21 +91,9 @@ uInt w;
 {
   inflate_blocks_statef *s;
 
-  if ((s = (inflate_blocks_statef *)ZALLOC
-       (z,1,sizeof(struct inflate_blocks_state))) == Z_NULL)
-    return s;
-  if ((s->hufts =
-       (inflate_huft *)ZALLOC(z, sizeof(inflate_huft), MANY)) == Z_NULL)
-  {
-    ZFREE(z, s);
-    return Z_NULL;
-  }
-  if ((s->window = (Bytef *)ZALLOC(z, 1, w)) == Z_NULL)
-  {
-    ZFREE(z, s->hufts);
-    ZFREE(z, s);
-    return Z_NULL;
-  }
+  s = (inflate_blocks_statef *)ZALLOC(z,1,sizeof(struct inflate_blocks_state));
+  s->hufts = (inflate_huft *)ZALLOC(z, sizeof(inflate_huft), MANY);
+  s->window = (Bytef *)ZALLOC(z, 1, w);
   s->end = s->window + w;
   s->checkfn = c;
   s->mode = TYPE;
@@ -226,11 +212,8 @@ int r;
       }
 #endif
       t = 258 + (t & 0x1f) + ((t >> 5) & 0x1f);
-      if ((s->sub.trees.blens = (uIntf*)ZALLOC(z, t, sizeof(uInt))) == Z_NULL)
-      {
-        r = Z_MEM_ERROR;
-        LEAVE
-      }
+      /* WARNING: alloc size is broken here */
+      s->sub.trees.blens = (uIntf*)ZALLOC(z, t, 0);
       DUMPBITS(14)
       s->sub.trees.index = 0;
       Tracev((stderr, "inflate:       table sizes ok\n"));
@@ -249,7 +232,6 @@ int r;
                              &s->sub.trees.tb, s->hufts, z);
       if (t != Z_OK)
       {
-        ZFREE(z, s->sub.trees.blens);
         r = t;
         if (r == Z_DATA_ERROR)
           s->mode = BAD;
@@ -288,7 +270,6 @@ int r;
           if (i + j > 258 + (t & 0x1f) + ((t >> 5) & 0x1f) ||
               (c == 16 && i < 1))
           {
-            ZFREE(z, s->sub.trees.blens);
             s->mode = BAD;
             z->msg = (char*)"invalid bit length repeat";
             r = Z_DATA_ERROR;
@@ -313,7 +294,6 @@ int r;
         t = inflate_trees_dynamic(257 + (t & 0x1f), 1 + ((t >> 5) & 0x1f),
                                   s->sub.trees.blens, &bl, &bd, &tl, &td,
                                   s->hufts, z);
-        ZFREE(z, s->sub.trees.blens);
         if (t != Z_OK)
         {
           if (t == (uInt)Z_DATA_ERROR)
@@ -369,9 +349,6 @@ inflate_blocks_statef *s;
 z_streamp z;
 {
   inflate_blocks_reset(s, z, Z_NULL);
-  ZFREE(z, s->window);
-  ZFREE(z, s->hufts);
-  ZFREE(z, s);
   Tracev((stderr, "inflate:   blocks freed\n"));
   return Z_OK;
 }

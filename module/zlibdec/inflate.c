@@ -67,11 +67,8 @@ z_streamp z;
 int ZEXPORT inflateEnd(z)
 z_streamp z;
 {
-  if (z == Z_NULL || z->state == Z_NULL || z->zfree == Z_NULL)
-    return Z_STREAM_ERROR;
   if (z->state->blocks != Z_NULL)
     inflate_blocks_free(z->state->blocks, z);
-  ZFREE(z, z->state);
   z->state = Z_NULL;
   Tracev((stderr, "inflate: end\n"));
   return Z_OK;
@@ -92,15 +89,7 @@ int stream_size;
   if (z == Z_NULL)
     return Z_STREAM_ERROR;
   z->msg = Z_NULL;
-  if (z->zalloc == Z_NULL)
-  {
-    z->zalloc = zcalloc;
-    z->opaque = (voidpf)0;
-  }
-  if (z->zfree == Z_NULL) z->zfree = zcfree;
-  if ((z->state = (struct internal_state FAR *)
-       ZALLOC(z,1,sizeof(struct internal_state))) == Z_NULL)
-    return Z_MEM_ERROR;
+  z->state = ZALLOC(z,1,sizeof(struct internal_state));
   z->state->blocks = Z_NULL;
 
   /* handle undocumented nowrap option (no zlib header or check) */
