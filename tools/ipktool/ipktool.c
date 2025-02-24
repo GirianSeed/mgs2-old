@@ -67,6 +67,16 @@ void decode_in(void *buffer, size_t size)
 }
 
 /******************************************************************************
+ * internal defines
+ */
+
+#ifdef USE_PS2TOOL_MEMSIZE
+#define IOP_TOTAL_MEMORY ((1024 * 1024) * 8)
+#else
+#define IOP_TOTAL_MEMORY ((1024 * 1024) * 2)
+#endif
+
+/******************************************************************************
  * internal flags
  */
 
@@ -121,7 +131,7 @@ static int probe_ipk_file(FILE *fp, const char *fname, const size_t ipksize)
         eprintf("Invalid file: '%s' is too small!", fname);
         return -1;
     }
-    if (ipksize >= (0x00100000 * 2)) { /* 2MiB */
+    if (ipksize >= IOP_TOTAL_MEMORY) {
         /* file is bigger than the's IOP total memory */
         eprintf("Invalid file: '%s' is too large!", fname);
         return -1;
