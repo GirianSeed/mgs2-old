@@ -376,23 +376,3 @@ z_streamp z;
   return Z_OK;
 }
 
-
-void inflate_set_dictionary(s, d, n)
-inflate_blocks_statef *s;
-const Bytef *d;
-uInt  n;
-{
-  zmemcpy(s->window, d, n);
-  s->read = s->write = s->window + n;
-}
-
-
-/* Returns true if inflate is currently at the end of a block generated
- * by Z_SYNC_FLUSH or Z_FULL_FLUSH. 
- * IN assertion: s != Z_NULL
- */
-int inflate_blocks_sync_point(s)
-inflate_blocks_statef *s;
-{
-  return s->mode == LENS;
-}
