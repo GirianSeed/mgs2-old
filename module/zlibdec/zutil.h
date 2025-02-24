@@ -209,12 +209,8 @@ extern const char *z_errmsg[10]; /* indexed by 2-zlib_error */
 
 typedef uLong (ZEXPORT *check_func) OF((uLong check, const Bytef *buf,
 				       uInt len));
-voidpf zcalloc OF((voidpf opaque, unsigned items, unsigned size));
-void   zcfree  OF((voidpf opaque, voidpf ptr));
-
 #define ZALLOC(strm, items, size) \
-           (*((strm)->zalloc))((strm)->opaque, (items), (size))
-#define ZFREE(strm, addr)  (*((strm)->zfree))((strm)->opaque, (voidpf)(addr))
-#define TRY_FREE(s, p) {if (p) ZFREE(s, p);}
+    (strm)->opaque; \
+    (strm)->opaque = (char *)((strm)->opaque) + (items) * (size);
 
 #endif /* _Z_UTIL_H */

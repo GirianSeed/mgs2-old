@@ -6,10 +6,6 @@
 #include "zutil.h"
 #include "inftrees.h"
 
-#if !defined(BUILDFIXED) && !defined(STDC)
-#  define BUILDFIXED   /* non ANSI compilers may not accept inffixed.h */
-#endif
-
 const char inflate_copyright[] =
    " inflate 1.1.3 Copyright 1995-1998 Mark Adler ";
 /*
@@ -300,10 +296,8 @@ z_streamp z;            /* for messages */
 {
   int r;
   uInt hn = 0;          /* hufts used in space */
-  uIntf *v;             /* work area for huft_build */
+  uIntf v[19];          /* work area for huft_build */
 
-  if ((v = (uIntf*)ZALLOC(z, 19, sizeof(uInt))) == Z_NULL)
-    return Z_MEM_ERROR;
   r = huft_build(c, 19, 19, (uIntf*)Z_NULL, (uIntf*)Z_NULL,
                  tb, bb, hp, &hn, v);
   if (r == Z_DATA_ERROR)
@@ -313,7 +307,6 @@ z_streamp z;            /* for messages */
     z->msg = (char*)"incomplete dynamic bit lengths tree";
     r = Z_DATA_ERROR;
   }
-  ZFREE(z, v);
   return r;
 }
 
@@ -331,11 +324,7 @@ z_streamp z;            /* for messages */
 {
   int r;
   uInt hn = 0;          /* hufts used in space */
-  uIntf *v;             /* work area for huft_build */
-
-  /* allocate work area */
-  if ((v = (uIntf*)ZALLOC(z, 288, sizeof(uInt))) == Z_NULL)
-    return Z_MEM_ERROR;
+  uIntf v[288];         /* work area for huft_build */
 
   /* build literal/length tree */
   r = huft_build(c, nl, 257, cplens, cplext, tl, bl, hp, &hn, v);
@@ -348,7 +337,6 @@ z_streamp z;            /* for messages */
       z->msg = (char*)"incomplete literal/length tree";
       r = Z_DATA_ERROR;
     }
-    ZFREE(z, v);
     return r;
   }
 
@@ -371,29 +359,17 @@ z_streamp z;            /* for messages */
       z->msg = (char*)"empty distance tree with lengths";
       r = Z_DATA_ERROR;
     }
-    ZFREE(z, v);
     return r;
 #endif
   }
 
   /* done */
-  ZFREE(z, v);
   return Z_OK;
 }
 
 
 /* build fixed tables only once--keep them here */
-#ifdef BUILDFIXED
-local int fixed_built = 0;
-#define FIXEDH 544      /* number of hufts used by fixed tables */
-local inflate_huft fixed_mem[FIXEDH];
-local uInt fixed_bl;
-local uInt fixed_bd;
-local inflate_huft *fixed_tl;
-local inflate_huft *fixed_td;
-#else
 #include "inffixed.h"
-#endif
 
 
 int inflate_trees_fixed(bl, bd, tl, td, z)
@@ -403,50 +379,6 @@ inflate_huft * FAR *tl;  /* literal/length tree result */
 inflate_huft * FAR *td;  /* distance tree result */
 z_streamp z;             /* for memory allocation */
 {
-#ifdef BUILDFIXED
-  /* build fixed tables if not already */
-  if (!fixed_built)
-  {
-    int k;              /* temporary variable */
-    uInt f = 0;         /* number of hufts used in fixed_mem */
-    uIntf *c;           /* length list for huft_build */
-    uIntf *v;           /* work area for huft_build */
-
-    /* allocate memory */
-    if ((c = (uIntf*)ZALLOC(z, 288, sizeof(uInt))) == Z_NULL)
-      return Z_MEM_ERROR;
-    if ((v = (uIntf*)ZALLOC(z, 288, sizeof(uInt))) == Z_NULL)
-    {
-      ZFREE(z, c);
-      return Z_MEM_ERROR;
-    }
-
-    /* literal table */
-    for (k = 0; k < 144; k++)
-      c[k] = 8;
-    for (; k < 256; k++)
-      c[k] = 9;
-    for (; k < 280; k++)
-      c[k] = 7;
-    for (; k < 288; k++)
-      c[k] = 8;
-    fixed_bl = 9;
-    huft_build(c, 288, 257, cplens, cplext, &fixed_tl, &fixed_bl,
-               fixed_mem, &f, v);
-
-    /* distance table */
-    for (k = 0; k < 30; k++)
-      c[k] = 5;
-    fixed_bd = 5;
-    huft_build(c, 30, 0, cpdist, cpdext, &fixed_td, &fixed_bd,
-               fixed_mem, &f, v);
-
-    /* done */
-    ZFREE(z, v);
-    ZFREE(z, c);
-    fixed_built = 1;
-  }
-#endif
   *bl = fixed_bl;
   *bd = fixed_bd;
   *tl = fixed_tl;

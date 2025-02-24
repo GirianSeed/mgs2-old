@@ -77,13 +77,10 @@ typedef struct z_stream_s {
     char     *msg;      /* last error message, NULL if no error */
     struct internal_state FAR *state; /* not visible by applications */
 
-    alloc_func zalloc;  /* used to allocate the internal state */
-    free_func  zfree;   /* used to free the internal state */
-    voidpf     opaque;  /* private data object passed to zalloc and zfree */
-
     int     data_type;  /* best guess about the data type: ascii or binary */
     uLong   adler;      /* adler32 value of the uncompressed data */
-    uLong   reserved;   /* reserved for future use */
+
+    voidpf  opaque;  /* private data object passed to zalloc and zfree */
 } z_stream;
 
 typedef z_stream FAR *z_streamp;

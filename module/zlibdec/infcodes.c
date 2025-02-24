@@ -62,18 +62,15 @@ inflate_huft *tl;
 inflate_huft *td; /* need separate declaration for Borland C++ */
 z_streamp z;
 {
-  inflate_codes_statef *c;
+  extern inflate_codes_statef D_001C9848;
+  inflate_codes_statef *c = &D_001C9848;
 
-  if ((c = (inflate_codes_statef *)
-       ZALLOC(z,1,sizeof(struct inflate_codes_state))) != Z_NULL)
-  {
-    c->mode = START;
-    c->lbits = (Byte)bl;
-    c->dbits = (Byte)bd;
-    c->ltree = tl;
-    c->dtree = td;
-    Tracev((stderr, "inflate:       codes new\n"));
-  }
+  c->mode = START;
+  c->lbits = (Byte)bl;
+  c->dbits = (Byte)bd;
+  c->ltree = tl;
+  c->dtree = td;
+  Tracev((stderr, "inflate:       codes new\n"));
   return c;
 }
 
@@ -252,6 +249,5 @@ void inflate_codes_free(c, z)
 inflate_codes_statef *c;
 z_streamp z;
 {
-  ZFREE(z, c);
   Tracev((stderr, "inflate:       codes free\n"));
 }
