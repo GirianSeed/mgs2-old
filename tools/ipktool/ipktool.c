@@ -20,10 +20,10 @@
  */
 
 typedef struct {
-    uint32_t paksize;   /* */
-    uint32_t elfsize;   /* */
-    uint32_t namelen;   /* strlen(name)+1 */
-    uint32_t pad0;      /* padding */
+    uint32_t paksize;   /* size of block    */
+    uint32_t elfsize;   /* size of module   */
+    uint32_t strsize;   /* strlen(name)+1   */
+    uint32_t pad0;      /* padding          */
 } ipkModuleTag;
 
 static_assert(sizeof(ipkModuleTag) == 16, "sizeof ipkModuleTag is wrong!");
@@ -89,21 +89,21 @@ static int set_timestamp = 0;   /* todo: implement */
  */
 
 typedef struct {
-    void        *elf;       /* ptr to irx data      */
-    const char  *name;      /* ptr to irx filename  */
-    const char  *argp;      /* ptr to argument(s)   */
-    uint32_t    args;       /* size of argument(s)  */
-    uint32_t    paksize;    /* (ipkModuleTag)->paksize */
-    uint32_t    elfsize;    /* (ipkModuleTag)->elfsize */
-    uint32_t    namelen;    /* (ipkModuleTag)->namelen */
-    uint32_t    pad0;       /* (ipkModuleTag)->pad0    */
+    void        *elf;       /* ptr to IRX data          */
+    const char  *name;      /* ptr to IRX filename      */
+    const char  *argp;      /* ptr to argument(s)       */
+    uint32_t    args;       /* size of argument(s)      */
+    uint32_t    paksize;    /* (ipkModuleTag)->paksize  */
+    uint32_t    elfsize;    /* (ipkModuleTag)->elfsize  */
+    uint32_t    strsize;    /* (ipkModuleTag)->strsize  */
+    uint32_t    pad0;       /* (ipkModuleTag)->pad0     */
 } iopMetaData;
 
 static void get_ipk_taginfo(const ipkModuleTag *modtag, iopMetaData *mdata)
 {
     mdata->paksize = my_le32toh(modtag->paksize);
     mdata->elfsize = my_le32toh(modtag->elfsize);
-    mdata->namelen = my_le32toh(modtag->namelen);
+    mdata->strsize = my_le32toh(modtag->strsize);
     mdata->pad0    = my_le32toh(modtag->pad0);
 }
 
@@ -119,7 +119,7 @@ static void *get_ipk_modinfo(const ipkModuleTag *modtag, iopMetaData *mdata)
 
     mdata->name = (const char *)(ptr + mdata->elfsize);
     mdata->argp = (const char *)((uintptr_t)mdata->name + (strlen(mdata->name) + 1));
-    mdata->args = ((mdata->namelen - 1) - strlen(mdata->name));
+    mdata->args = (mdata->strsize - (strlen(mdata->name) + 1));
     mdata->elf = ptr;
 
     return ptr += mdata->paksize;
@@ -159,7 +159,7 @@ static int probe_ipk_file(FILE *fp, const char *fname, const size_t ipksize)
         eprintf("Corrupt module tag.");
         return -1;
     }
-    if (mdata.paksize < (mdata.elfsize + mdata.namelen)) {
+    if (mdata.paksize < (mdata.elfsize + mdata.strsize)) {
         eprintf("Corrupt module tag.");
         return -1;
     }
@@ -278,14 +278,14 @@ static int sub_extract(const char *infile)
 
     while (( modtag = get_ipk_modinfo(modtag, &mdata) )) {
         if (verbose_flag) {
-            printf("module : %.*s\n", mdata.namelen, mdata.name);
+            printf("module : %.*s\n", mdata.strsize, mdata.name);
             printf("argv   : %.*s\n", mdata.args, mdata.argp);
-            printf("packsize elfsize  namelen  padding\n");
+            printf("packsize elfsize  strsize  padding\n");
             printf("%08x %08x %08x %08x%s\n",
                 mdata.paksize, mdata.elfsize,
-                mdata.namelen, mdata.pad0, (mdata.pad0!=0)?"(*)":"");
+                mdata.strsize, mdata.pad0, (mdata.pad0!=0)?"(*)":"");
         }
-        if ((mdata.namelen) > FILENAME_MAX) {
+        if ((mdata.strsize) > FILENAME_MAX) {
             eprintf("ERROR: module name is too long!\n");
             ret = EXIT_FAILURE;
             continue;
