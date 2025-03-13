@@ -37,7 +37,7 @@
 #define CHARA_abs               0x000190b3  // GV_StrCode("abs") NewGclAbs
 #define CHARA_cos               0x00019a53  // GV_StrCode("cos") NewGclCos
 #define CHARA_0001a4f3          0x0001a4f3  // rad_point.c
-#define CHARA_0001a6dd          0x0001a6dd  // line_sph.c
+#define CHARA_LINE_SPLASH       0x0001a6dd  // GV_StrCode("ライン水飛沫") line_sph.c
 #define CHARA_sin               0x0001d98e  // GV_StrCode("sin") NewGclSin
 #define CHARA_00020bd1          0x00020bd1
 #define CHARA_000223d1          0x000223d1
@@ -115,7 +115,7 @@
 #define CHARA_001cb7b7          0x001cb7b7
 #define CHARA_FATMAN            0x001cbd93  // GV_StrCode("ファットマン") fatman.c
 #define CHARA_001d32ed          0x001d32ed
-#define CHARA_001d5983          0x001d5983  // vr_sys.c
+#define CHARA_VR_SYSTEM         0x001d5983  // GV_StrCode("ＶＲシステム") vr_sys.c
 #define CHARA_001d9c73          0x001d9c73
 #define CHARA_001de43b          0x001de43b
 #define CHARA_001dfdfb          0x001dfdfb
@@ -130,13 +130,13 @@
 #define CHARA_0022ae7d          0x0022ae7d  // clear_result.c
 #define CHARA_00231fa7          0x00231fa7
 #define CHARA_00247947          0x00247947
-#define CHARA_0024c03e          0x0024c03e  // vr_window.c
+#define CHARA_VR_WINDOW         0x0024c03e  // GV_StrCode("ＶＲウィンドウ") vr_window.c
 #define CHARA_0024c830          0x0024c830
 #define CHARA_0024d360          0x0024d360
 #define CHARA_00256eee          0x00256eee
 #define CHARA_00262b46          0x00262b46  // st_select.c
 #define CHARA_00264c7d          0x00264c7d  // chim_smo.c
-#define CHARA_00264d3f          0x00264d3f
+#define CHARA_TANKER_CAM_STATUS 0x00264d3f  // GV_StrCode("タンカーカメラステータス")
 #define CHARA_0026aab9          0x0026aab9
 #define CHARA_00274b60          0x00274b60
 #define CHARA_00276926          0x00276926
@@ -146,7 +146,7 @@
 #define CHARA_0029c817          0x0029c817
 #define CHARA_0029d24d          0x0029d24d
 #define CHARA_002a088b          0x002a088b  // gnrl_poly.c
-#define CHARA_002a0b46          0x002a0b46  // kan.c
+#define CHARA_OKIKAN            0x002a0b46  // GV_StrCode("あきかん") kan.c
 #define CHARA_002a41c7          0x002a41c7  // dm_fr.c
 #define CHARA_002a4246          0x002a4246  // map_3d.c
 #define CHARA_002b8e16          0x002b8e16  // vamp.c
@@ -166,7 +166,7 @@
 #define CHARA_003124a2          0x003124a2  // scncamvib.c
 #define CHARA_003129d0          0x003129d0
 #define CHARA_0031d58b          0x0031d58b  // strmfadr.c
-#define CHARA_003259e5          0x003259e5  // defender.c
+#define CHARA_DEFENDER          0x003259e5  // GV_StrCode("長廊下兵") defender.c
 #define CHARA_atan              0x00325c8e  // GV_StrCode("atan") NewGclAtan
 #define CHARA_0032fb70          0x0032fb70
 #define CHARA_00339bd9          0x00339bd9
@@ -187,10 +187,10 @@
 #define CHARA_00374069          0x00374069  // har_sdmng.c
 #define CHARA_00374bbe          0x00374bbe  // gunspin.c
 #define CHARA_00374cb5          0x00374cb5
-#define CHARA_0037700f          0x0037700f
+#define CHARA_VR_GAMEOVER       0x0037700f  // GV_StrCode("特殊ＶＲゲームオーバー")
 #define CHARA_003780f6          0x003780f6  // play_ap.c
 #define CHARA_0038d44e          0x0038d44e  // command.c (clearing?)
-#define CHARA_00397fd4          0x00397fd4  // previous_story.c
+#define CHARA_SHADOW_MOSES      0x00397fd4  // GV_StrCode("シャドーモセス") previous_story.c
 #define CHARA_003a6f25          0x003a6f25  // bul_c4.c
 #define CHARA_rand              0x003a9224  // GV_StrCode("rand") NewRand
 #define CHARA_003af581          0x003af581
@@ -203,269 +203,269 @@
 #define CHARA_003dfd0b          0x003dfd0b
 #define CHARA_003e7b6f          0x003e7b6f
 #define CHARA_003ef35f          0x003ef35f  // lens_flr_gm.c
-#define CHARA_003f0a3f          0x003f0a3f
+#define CHARA_003f0a3f          0x003f0a3f  // NewGetLapTime
 #define CHARA_003f46ec          0x003f46ec
-#define CHARA_003f55fc          0x003f55fc
-#define CHARA_003f9531          0x003f9531
-#define CHARA_003fcd73          0x003fcd73
-#define CHARA_0040f2ae          0x0040f2ae
-#define CHARA_00413144          0x00413144
-#define CHARA_004147a5          0x004147a5
-#define CHARA_004152df          0x004152df
+#define CHARA_003f55fc          0x003f55fc  // brooklyn.c
+#define CHARA_003f9531          0x003f9531  // mcchkscrx.c
+#define CHARA_003fcd73          0x003fcd73  // command5.c
+#define CHARA_0040f2ae          0x0040f2ae  // brk_icebox.c
+#define CHARA_00413144          0x00413144  // beltobj.c
+#define CHARA_004147a5          0x004147a5  // sejimaku.c (sejimaku.h)
+#define CHARA_004152df          0x004152df  // body_slater.c
 #define CHARA_0041cf4e          0x0041cf4e
-#define CHARA_0041f1f7          0x0041f1f7
+#define CHARA_0041f1f7          0x0041f1f7  // beltconv.c
 #define CHARA_0042181a          0x0042181a
-#define CHARA_00438ffa          0x00438ffa
+#define CHARA_00438ffa          0x00438ffa  // scr_waterfilm.c
 #define CHARA_CAMERA_SET        0x0043f718  // GV_StrCode("カメラ設定") COM_SetCamera
 #define CHARA_004481ed          0x004481ed
 #define CHARA_004508c2          0x004508c2
 #define CHARA_00450c64          0x00450c64
 #define CHARA_0045e12e          0x0045e12e
 #define CHARA_004610f8          0x004610f8
-#define CHARA_0046139a          0x0046139a
+#define CHARA_0046139a          0x0046139a  // glass_scar.c:NewGlassScarBase
 #define CHARA_004683b0          0x004683b0
 #define CHARA_00469b3a          0x00469b3a
 #define CHARA_0046b814          0x0046b814
-#define CHARA_0046fcd2          0x0046fcd2
-#define CHARA_00470def          0x00470def
+#define CHARA_0046fcd2          0x0046fcd2  // ENEMEM_GclRenewMemory
+#define CHARA_00470def          0x00470def  // automenu.c
 #define CHARA_00475ca4          0x00475ca4
 #define CHARA_00476790          0x00476790
-#define CHARA_0047d37a          0x0047d37a  // NewKbdExec (?)
-#define CHARA_004847d2          0x004847d2
-#define CHARA_0048f8f8          0x0048f8f8
+#define CHARA_KBD_EXEC          0x0047d37a  // kbdexec.c:NewKbdExec
+#define CHARA_004847d2          0x004847d2  // set_t_fc.c
+#define CHARA_0048f8f8          0x0048f8f8  // spottex.c
 #define CHARA_004909b5          0x004909b5
-#define CHARA_00492a40          0x00492a40
-#define CHARA_00494239          0x00494239
+#define CHARA_00492a40          0x00492a40  // routemdl.c
+#define CHARA_00494239          0x00494239  // get_newitem.c
 #define CHARA_00497be6          0x00497be6
-#define CHARA_0049c14f          0x0049c14f
-#define CHARA_0049d6f1          0x0049d6f1
+#define CHARA_0049c14f          0x0049c14f  // emma_equip.c
+#define CHARA_0049d6f1          0x0049d6f1  // putatach_scn.c
 #define CHARA_0049eb5e          0x0049eb5e
-#define CHARA_004a0018          0x004a0018
+#define CHARA_004a0018          0x004a0018  // easylayout.c
 #define CHARA_CODEC_SET         0x004a243a  // GV_StrCode("無線設定")
 #define CHARA_004a3697          0x004a3697
 #define CHARA_004a65ba          0x004a65ba
-#define CHARA_004a777d          0x004a777d
+#define CHARA_004a777d          0x004a777d  // wave2.c
 #define CHARA_004a8b88          0x004a8b88
 #define CHARA_004a8df9          0x004a8df9
 #define CHARA_004a90a1          0x004a90a1
-#define CHARA_004b5435          0x004b5435
-#define CHARA_004baafe          0x004baafe
-#define CHARA_004bab34          0x004bab34
+#define CHARA_004b5435          0x004b5435  // put_flag.c
+#define CHARA_SPLASH_FALL       0x004baafe  // GV_StrCode("落下水飛沫") d_splash_fall.c
+#define CHARA_004bab34          0x004bab34  // charaspread.c
 #define CHARA_004bf8e6          0x004bf8e6
-#define CHARA_004cbfc5          0x004cbfc5
-#define CHARA_004cefc1          0x004cefc1
-#define CHARA_004cfe6e          0x004cfe6e
-#define CHARA_004e1bd6          0x004e1bd6
+#define CHARA_004cbfc5          0x004cbfc5  // elevator_lamp.c
+#define CHARA_004cefc1          0x004cefc1  // shiftmem.c
+#define CHARA_VR_SELECT         0x004cfe6e  // GV_StrCode("ＶＲセレクト") vr_select.c
+#define CHARA_004e1bd6          0x004e1bd6  // mirror2.c
 #define CHARA_004e8280          0x004e8280
-#define CHARA_004f576c          0x004f576c
-#define CHARA_004fb2ca          0x004fb2ca
-#define CHARA_004fe997          0x004fe997
-#define CHARA_00502332          0x00502332
-#define CHARA_00502681          0x00502681
+#define CHARA_004f576c          0x004f576c  // rai_nude_ik.c
+#define CHARA_004fb2ca          0x004fb2ca  // orga_obj.c
+#define CHARA_PARALLEL_LIGHT    0x004fe997  // GV_StrCode("平行光")
+#define CHARA_00502332          0x00502332  // waterfall.c
+#define CHARA_00502681          0x00502681  // bridge_exp.c
 #define CHARA_0050396f          0x0050396f
 #define CHARA_005141af          0x005141af
 #define CHARA_00515453          0x00515453
 #define CHARA_0051dc64          0x0051dc64
-#define CHARA_00522db5          0x00522db5
+#define CHARA_SV_CAMERA         0x00522db5  // GV_StrCode("監視カメラ") sv_camera.c
 #define CHARA_005282a9          0x005282a9
-#define CHARA_0053209a          0x0053209a
-#define CHARA_00532262          0x00532262
-#define CHARA_00532f32          0x00532f32
-#define CHARA_0053baf5          0x0053baf5
-#define CHARA_0053cffa          0x0053cffa
-#define CHARA_0053e970          0x0053e970
+#define CHARA_0053209a          0x0053209a  // orga_hid.c
+#define CHARA_00532262          0x00532262  // brk_object.c
+#define CHARA_00532f32          0x00532f32  // brk_radle.c
+#define CHARA_0053baf5          0x0053baf5  // efct_flow.c
+#define CHARA_0053cffa          0x0053cffa  // har_main.c
+#define CHARA_0053e970          0x0053e970  // xstagebreak.c
 #define CHARA_00540ac2          0x00540ac2
 #define CHARA_foreach           0x00542b2d  // GV_StrCode("foreach") NewForeach
-#define CHARA_00547041          0x00547041
-#define CHARA_0054b365          0x0054b365
-#define CHARA_0054eca9          0x0054eca9
-#define CHARA_0055080c          0x0055080c
-#define CHARA_00552c76          0x00552c76
-#define CHARA_DOOR              0x0055b942  // GV_StrCode("ドア")
+#define CHARA_00547041          0x00547041  // rising_smoke.c
+#define CHARA_DOOR_LAMP         0x0054b365  // GV_StrCode("ドアランプ") door_lamp.c
+#define CHARA_0054eca9          0x0054eca9  // c_light_spot.c
+#define CHARA_0055080c          0x0055080c  // bgscr.c
+#define CHARA_00552c76          0x00552c76  // c4_ice_mng.c
+#define CHARA_DOOR              0x0055b942  // GV_StrCode("ドア") door.c
 #define CHARA_005686ae          0x005686ae
-#define CHARA_0056b5cb          0x0056b5cb
-#define CHARA_MAP_JOIN          0x0056e234  // GV_StrCode("マップ接合")
+#define CHARA_0056b5cb          0x0056b5cb  // bladeply.c
+#define CHARA_MAP_CONNECT       0x0056e234  // GV_StrCode("マップ接合") mapcnct.c
 #define CHARA_MAP_SET           0x0056ef97  // GV_StrCode("マップ設定")
-#define CHARA_005734c7          0x005734c7
+#define CHARA_005734c7          0x005734c7  // x_patch.c
 #define CHARA_005738f0          0x005738f0
-#define CHARA_00577fb3          0x00577fb3
+#define CHARA_00577fb3          0x00577fb3  // sv_camera.c
 #define CHARA_0057a485          0x0057a485
-#define CHARA_0059eda8          0x0059eda8
-#define CHARA_0059f23c          0x0059f23c
+#define CHARA_GUARD_COMMANDER   0x0059eda8  // GV_StrCode("警備コマンダー") wccomm.c
+#define CHARA_0059f23c          0x0059f23c  // drop_body_splush_prog.c
 #define CHARA_005a4652          0x005a4652
-#define CHARA_005a4809          0x005a4809
+#define CHARA_005a4809          0x005a4809  // brk_glass.c
 #define CHARA_005ae655          0x005ae655
 #define CHARA_varsave           0x005b316e  // GV_StrCode("varsave") NewSaveVariable
-#define CHARA_005b6e21          0x005b6e21
-#define CHARA_005bb4d4          0x005bb4d4
+#define CHARA_005b6e21          0x005b6e21  // sp_menu_eng.c
+#define CHARA_ATTACK_COMMANDER  0x005bb4d4  // GV_StrCode("攻撃コマンダー") atcomm.c
 #define CHARA_005bfe1d          0x005bfe1d
-#define CHARA_PAD_DEMO          0x005c0bae  // GV_StrCode("パッドデモ")
-#define CHARA_GHOST             0x005c2eae  // GV_StrCode("怨霊")
-#define CHARA_005c3a78          0x005c3a78
+#define CHARA_PAD_DEMO          0x005c0bae  // GV_StrCode("パッドデモ") paddemo.c
+#define CHARA_GHOST             0x005c2eae  // GV_StrCode("怨霊") ghost.c
+#define CHARA_005c3a78          0x005c3a78  // pool_water.c
 #define CHARA_005c526a          0x005c526a
 #define CHARA_005caa88          0x005caa88
-#define CHARA_005cb281          0x005cb281
-#define CHARA_005da36d          0x005da36d
-#define CHARA_005dad0e          0x005dad0e
+#define CHARA_005cb281          0x005cb281  // manhat3d.c
+#define CHARA_005da36d          0x005da36d  // cypher4snipe.c
+#define CHARA_005dad0e          0x005dad0e  // sara_umi.c
 #define CHARA_005de390          0x005de390
 #define CHARA_005eb488          0x005eb488
-#define CHARA_005ec9c1          0x005ec9c1
-#define CHARA_005ed347          0x005ed347
+#define CHARA_005ec9c1          0x005ec9c1  // gll.c
+#define CHARA_VR_PAUSE          0x005ed347  // GV_StrCode("ＶＲポーズ") vr_pause.c
 #define CHARA_005f8469          0x005f8469
-#define CHARA_005fbe23          0x005fbe23
+#define CHARA_005fbe23          0x005fbe23  // windnoisx.c
 #define CHARA_00604185          0x00604185
 #define CHARA_00608b23          0x00608b23
 #define CHARA_0060c857          0x0060c857
-#define CHARA_0060cf19          0x0060cf19
+#define CHARA_0060cf19          0x0060cf19  // wave4.c
 #define CHARA_0060d52e          0x0060d52e
-#define CHARA_0061274d          0x0061274d
-#define CHARA_0061514e          0x0061514e
+#define CHARA_0061274d          0x0061274d  // vr_target1.c
+#define CHARA_SEA_SLATER        0x0061514e  // GV_StrCode("舟虫") sea_slater.c
 #define CHARA_0061676d          0x0061676d
-#define CHARA_EFFECT_BOUND_INIT 0x006263f9  // GV_StrCode("エフェクトバウンド初期化")
-#define CHARA_006273b5          0x006273b5
-#define CHARA_0062b1fd          0x0062b1fd
+#define CHARA_EFFECT_BOUND_INIT 0x006263f9  // GV_StrCode("エフェクトバウンド初期化") InitEffectBound
+#define CHARA_006273b5          0x006273b5  // sky_prev.c
+#define CHARA_BGM_FADER         0x0062b1fd  // GV_StrCode("ＢＧＭフェーダー") bgmfader.c
 #define CHARA_00635875          0x00635875
 #define CHARA_006376d3          0x006376d3
-#define CHARA_SUN               0x00641a7b  // GV_StrCode("太陽")
-#define CHARA_006442cb          0x006442cb
-#define CHARA_00645113          0x00645113
-#define CHARA_00645c5b          0x00645c5b
+#define CHARA_SUN               0x00641a7b  // GV_StrCode("太陽") plant_sun.c
+#define CHARA_WINDOW_RAIN       0x006442cb  // GV_StrCode("窓雨") win_rain.c
+#define CHARA_00645113          0x00645113  // corp.c
+#define CHARA_00645c5b          0x00645c5b  // emma_clay.c
 #define CHARA_00646de9          0x00646de9
-#define CHARA_0064afef          0x0064afef
-#define CHARA_0064fb35          0x0064fb35
-#define CHARA_0064fe6e          0x0064fe6e
+#define CHARA_BULLET_HOLE       0x0064afef  // GV_StrCode("弾痕") wall_scar.c
+#define CHARA_0064fb35          0x0064fb35  // show_pic.c
+#define CHARA_0064fe6e          0x0064fe6e  // water_front_prim.c
 #define CHARA_0065180b          0x0065180b
-#define CHARA_00657385          0x00657385
+#define CHARA_SKY_COLUMN        0x00657385  // GV_StrCode("天球") sky_column.c
 #define CHARA_00661bee          0x00661bee
-#define CHARA_00662f7c          0x00662f7c
+#define CHARA_BODY_SPLASH       0x00662f7c  // GV_StrCode("身体水飛沫") body_sph.c
 #define CHARA_00663387          0x00663387
-#define CHARA_0066b097          0x0066b097
-#define CHARA_0066ba4c          0x0066ba4c
-#define CHARA_RIPPLE            0x0066ba66  // GV_StrCode("波紋")
+#define CHARA_0066b097          0x0066b097  // fog_control.c
+#define CHARA_WAVE              0x0066ba4c  // GV_StrCode("波面") wave.c
+#define CHARA_RIPPLE            0x0066ba66  // GV_StrCode("波紋") ripple.c
 #define CHARA_0066f439          0x0066f439
-#define CHARA_00675145          0x00675145
-#define CHARA_006760e9          0x006760e9
-#define CHARA_006779ad          0x006779ad
-#define CHARA_EXPLOSION         0x006781af  // GV_StrCode("爆発")
+#define CHARA_00675145          0x00675145  // trample_slater.c
+#define CHARA_006760e9          0x006760e9  // breath.c
+#define CHARA_006779ad          0x006779ad  // set_tex.c
+#define CHARA_EXPLOSION         0x006781af  // GV_StrCode("爆発") bomb.c
 #define CHARA_0068392d          0x0068392d
-#define CHARA_00683bcc          0x00683bcc
+#define CHARA_00683bcc          0x00683bcc  // blood_wl.c
 #define CHARA_006856c1          0x006856c1
-#define CHARA_0068cb9c          0x0068cb9c
-#define CHARA_DRIZZLE           0x0068f6cb  // GV_StrCode("霧雨")
-#define CHARA_CINEMA_SCREEN     0x00690610  // GV_StrCode("シネマスクリーン")
-#define CHARA_006926d0          0x006926d0
-#define CHARA_006a030a          0x006a030a
-#define CHARA_006a0cda          0x006a0cda
+#define CHARA_0068cb9c          0x0068cb9c  // vibrate.c
+#define CHARA_DRIZZLE           0x0068f6cb  // GV_StrCode("霧雨") rain_gas_pers.c
+#define CHARA_CINEMA_SCREEN     0x00690610  // GV_StrCode("シネマスクリーン") cinema_scr.c
+#define CHARA_HOSTAGE_COMMANDER 0x006926d0  // GV_StrCode("人質コマンダー") hostcomm.c
+#define CHARA_006a030a          0x006a030a  // scr_shimmer.c
+#define CHARA_006a0cda          0x006a0cda  // brk_hang_light.c
 #define CHARA_PAD_OPERATION     0x006a725a  // GV_StrCode("パッド操作")
 #define CHARA_006a9667          0x006a9667
-#define CHARA_006ad20f          0x006ad20f
-#define CHARA_006ae654          0x006ae654
+#define CHARA_006ad20f          0x006ad20f  // pl_dummy.c
+#define CHARA_PLANT_WAVE        0x006ae654  // GV_StrCode("プラント海面") wave5.c
 #define CHARA_assert            0x006b237d  // GV_StrCode("assert") NewGclAssert
-#define CHARA_006b8ee3          0x006b8ee3
-#define CHARA_006b8fe4          0x006b8fe4
-#define CHARA_006b921a          0x006b921a
+#define CHARA_CAMERA_RAIN       0x006b8ee3  // GV_StrCode("カメラ雨") rain_cm.c
+#define CHARA_CAMERA_BLOOD      0x006b8fe4  // GV_StrCode("カメラ血") blood_cm.c
+#define CHARA_CAMERA_BUBBLE     0x006b921a  // GV_StrCode("カメラ泡") bubble_cm.c
 #define CHARA_006c274d          0x006c274d
-#define CHARA_006c577d          0x006c577d
+#define CHARA_006c577d          0x006c577d  // brk_potato.c
 #define CHARA_006d61f3          0x006d61f3
 #define CHARA_006d841b          0x006d841b
 #define CHARA_006d85be          0x006d85be
-#define CHARA_006ddd6a          0x006ddd6a
+#define CHARA_006ddd6a          0x006ddd6a  // sp_menu_page.c
 #define CHARA_006de9bc          0x006de9bc
-#define CHARA_006e0fa8          0x006e0fa8
-#define CHARA_006e6572          0x006e6572
-#define CHARA_006e7f78          0x006e7f78
+#define CHARA_006e0fa8          0x006e0fa8  // brk_vent.c
+#define CHARA_006e6572          0x006e6572  // dogtag_mng.c
+#define CHARA_006e7f78          0x006e7f78  // shipworm.c
 #define CHARA_006ecc1a          0x006ecc1a
-#define CHARA_006eeb2f          0x006eeb2f
+#define CHARA_006eeb2f          0x006eeb2f  // special.c
 #define CHARA_006f5b0f          0x006f5b0f
 #define CHARA_006f7d4d          0x006f7d4d  // NewGameInit
-#define CHARA_006fa0a2          0x006fa0a2
+#define CHARA_006fa0a2          0x006fa0a2  // slit_light2.c
 #define CHARA_006fa5f5          0x006fa5f5
-#define CHARA_006fda0f          0x006fda0f
+#define CHARA_006fda0f          0x006fda0f  // fort_obj.c
 #define CHARA_00709df6          0x00709df6
-#define CHARA_0070a68a          0x0070a68a
+#define CHARA_BGM_MANAGER       0x0070a68a  // GV_StrCode("ＢＧＭマネージャー") bgmanage.c
 #define CHARA_00718756          0x00718756
-#define CHARA_00727b5e          0x00727b5e
+#define CHARA_00727b5e          0x00727b5e  // splash_rot.c
 #define CHARA_0072ead4          0x0072ead4
-#define CHARA_0072f23c          0x0072f23c
+#define CHARA_0072f23c          0x0072f23c  // putmodel.c
 #define CHARA_007334af          0x007334af
 #define CHARA_0073e084          0x0073e084
-#define CHARA_00741b7a          0x00741b7a
-#define CHARA_delay             0x00743c9f  // GV_StrCode("delay") NewDelay
-#define CHARA_0074cd16          0x0074cd16
+#define CHARA_00741b7a          0x00741b7a  // orga_holo.c
+#define CHARA_delay             0x00743c9f  // GV_StrCode("delay") delay.c:NewDelay
+#define CHARA_0074cd16          0x0074cd16  // f_bridge.c
 #define CHARA_0074e86b          0x0074e86b  // NewGclLangUpdate
 #define CHARA_0075513c          0x0075513c
 #define CHARA_00755e2e          0x00755e2e
-#define CHARA_007561ae          0x007561ae
-#define CHARA_0075e815          0x0075e815
-#define CHARA_0076a03c          0x0076a03c
+#define CHARA_007561ae          0x007561ae  // orga_lgt.c
+#define CHARA_0075e815          0x0075e815  // brk_tv.c
+#define CHARA_BOMB_DETECT_AREA  0x0076a03c  // GV_StrCode("爆弾検知領域") bomb.c
 #define CHARA_00770ec3          0x00770ec3
 #define CHARA_0077318d          0x0077318d
-#define CHARA_0077568d          0x0077568d
-#define CHARA_007798f6          0x007798f6
+#define CHARA_0077568d          0x0077568d  // wall_marker.c
+#define CHARA_007798f6          0x007798f6  // orga.c
 #define CHARA_0077ffc8          0x0077ffc8
-#define CHARA_0078d685          0x0078d685
-#define CHARA_007919e8          0x007919e8
+#define CHARA_0078d685          0x0078d685  // bul_clay.c
+#define CHARA_007919e8          0x007919e8  // gll_ef.c
 #define CHARA_00797edf          0x00797edf
-#define CHARA_007a3dbf          0x007a3dbf
-#define CHARA_007a8ec1          0x007a8ec1
-#define CHARA_007a94a9          0x007a94a9
+#define CHARA_007a3dbf          0x007a3dbf  // set_t_dr.c
+#define CHARA_PUT_OBJECT        0x007a8ec1  // GV_StrCode("プットオブジェ") putobj.c
+#define CHARA_007a94a9          0x007a94a9  // dg_cam.c
 #define CHARA_Stream            0x007aa13a  // GV_StrCode("Stream")
 #define CHARA_007ad92b          0x007ad92b
 #define CHARA_007b35e0          0x007b35e0
 #define CHARA_007c7e31          0x007c7e31
 #define CHARA_007dda2e          0x007dda2e
-#define CHARA_007e3320          0x007e3320
+#define CHARA_007e3320          0x007e3320  // option_x.c
 #define CHARA_007f3c88          0x007f3c88
 #define CHARA_007f7acf          0x007f7acf
 #define CHARA_0080b977          0x0080b977
 #define CHARA_0080fb82          0x0080fb82
-#define CHARA_008155f1          0x008155f1
+#define CHARA_008155f1          0x008155f1  // clearcode_layout.c
 #define CHARA_0081584f          0x0081584f
-#define CHARA_0081767c          0x0081767c
-#define CHARA_00818b2c          0x00818b2c
+#define CHARA_0081767c          0x0081767c  // konami_logo.c
+#define CHARA_VR_CLEAR          0x00818b2c  // GV_StrCode("ＶＲクリア") vr_clear.c
 #define CHARA_0081e7f6          0x0081e7f6
 #define CHARA_0082a05e          0x0082a05e
 #define CHARA_VecLen            0x0082bdc0  // GV_StrCode("VecLen")
-#define CHARA_reboot            0x0082cb3e  // GV_StrCode("reboot")
+#define CHARA_reboot            0x0082cb3e  // GV_StrCode("reboot") (calls the printf stub??)
 #define CHARA_0082cb77          0x0082cb77
-#define CHARA_0083c0c3          0x0083c0c3
-#define CHARA_0083d857          0x0083d857
-#define CHARA_0083dd4d          0x0083dd4d
+#define CHARA_0083c0c3          0x0083c0c3  // vamp.c
+#define CHARA_0083d857          0x0083d857  // lit_man.c
+#define CHARA_0083dd4d          0x0083dd4d  // har_kasacka.c
 #define CHARA_008422f6          0x008422f6
 #define CHARA_00843c09          0x00843c09
 #define CHARA_00848e57          0x00848e57
-#define CHARA_0084b931          0x0084b931
-#define CHARA_0085e8f4          0x0085e8f4
-#define CHARA_0086301d          0x0086301d
+#define CHARA_0084b931          0x0084b931  // between_cam.c
+#define CHARA_0085e8f4          0x0085e8f4  // lockerd.c
+#define CHARA_0086301d          0x0086301d  // vr_child.c
 #define CHARA_0086d1cf          0x0086d1cf
-#define CHARA_0086d382          0x0086d382
-#define CHARA_00873375          0x00873375
-#define CHARA_select            0x0087a1c0  // GV_StrCode("select") NewSelect
-#define CHARA_008826b9          0x008826b9
-#define CHARA_008862f6          0x008862f6
+#define CHARA_0086d382          0x0086d382  // demo_snakearm.c
+#define CHARA_00873375          0x00873375  // wdustmng.c
+#define CHARA_select            0x0087a1c0  // GV_StrCode("select") select.c:NewSelect
+#define CHARA_008826b9          0x008826b9  // doll.c
+#define CHARA_008862f6          0x008862f6  // rot_y_object.c
 #define CHARA_0088cbf1          0x0088cbf1
 #define CHARA_0088ed39          0x0088ed39
 #define CHARA_0088f9b0          0x0088f9b0
-#define CHARA_008975e6          0x008975e6
-#define CHARA_0089778a          0x0089778a
-#define CHARA_0089af5e          0x0089af5e
-#define CHARA_0089c365          0x0089c365
-#define CHARA_0089fec2          0x0089fec2
-#define CHARA_008a0c96          0x008a0c96
-#define CHARA_008a43f9          0x008a43f9
-#define CHARA_008a8857          0x008a8857
+#define CHARA_008975e6          0x008975e6  // flow_paper.c
+#define CHARA_FLOATING_DUST     0x0089778a  // GV_StrCode("浮遊物") float_dust.c
+#define CHARA_0089af5e          0x0089af5e  // thund_flash.c
+#define CHARA_LOCKER_CORPSE     0x0089c365  // GV_StrCode("ロッカー死体") lockercp.c
+#define CHARA_VR_BULLET_HOLE    0x0089fec2  // GV_StrCode("ＶＲ弾痕") vr_wall_scar.c
+#define CHARA_008a0c96          0x008a0c96  // boss_result2.c
+#define CHARA_008a43f9          0x008a43f9  // vr_spark.c
+#define CHARA_008a8857          0x008a8857  // dummytrg.c
 #define CHARA_LOCKER            0x008aa572  // GV_StrCode("ロッカー")
-#define CHARA_008ac901          0x008ac901
+#define CHARA_008ac901          0x008ac901  // george_bonbori.c
 #define CHARA_008b12d1          0x008b12d1
 #define CHARA_008b19f0          0x008b19f0
 #define CHARA_008b6086          0x008b6086  // GM_COM_PadCheck
 #define CHARA_LOCKER_STATUS     0x008b976d  // GV_StrCode("ロッカー状態")
-#define CHARA_008c4a5b          0x008c4a5b
-#define CHARA_EXTINGUISHER      0x008c58f7  // GV_StrCode("消火器")
+#define CHARA_SCREENSHOT        0x008c4a5b  // GV_StrCode("スクリーンショット")
+#define CHARA_EXTINGUISHER      0x008c58f7  // GV_StrCode("消火器") extinguisher.c
 #define CHARA_008dfe63          0x008dfe63
 #define CHARA_008e0676          0x008e0676
-#define CHARA_008e298d          0x008e298d
-#define CHARA_008f27ac          0x008f27ac
+#define CHARA_008e298d          0x008e298d  // cancel.c
+#define CHARA_008f27ac          0x008f27ac  // demo_c4.c
 #define CHARA_008ff6ad          0x008ff6ad
 #define CHARA_00901fd7          0x00901fd7
 #define CHARA_0090342e          0x0090342e
@@ -480,7 +480,7 @@
 #define CHARA_00926341          0x00926341
 #define CHARA_00926ace          0x00926ace
 #define CHARA_0092a625          0x0092a625
-#define CHARA_0092eb54          0x0092eb54
+#define CHARA_0092eb54          0x0092eb54  // (calls the printf stub??)
 #define CHARA_009307ab          0x009307ab
 #define CHARA_0093eeea          0x0093eeea
 #define CHARA_0094193b          0x0094193b
@@ -499,20 +499,20 @@
 #define CHARA_00987e81          0x00987e81
 #define CHARA_009890d0          0x009890d0
 #define CHARA_0098a49d          0x0098a49d
-#define CHARA_0098bd5b          0x0098bd5b
+#define CHARA_SPLASH_MANAGER    0x0098bd5b  // GV_StrCode("水飛沫管理") splush_man.c
 #define CHARA_0099615d          0x0099615d
 #define CHARA_009a75e7          0x009a75e7
 #define CHARA_009a97b2          0x009a97b2
 #define CHARA_ITEM              0x009aff54  // GV_StrCode("アイテム")
 #define CHARA_009b3b8b          0x009b3b8b
-#define CHARA_009b3fd5          0x009b3fd5
+#define CHARA_CYPHER            0x009b3fd5  // GV_StrCode("サイファ")
 #define CHARA_TIMER             0x009b65f0  // GV_StrCode("タイマー")
 #define CHARA_009bc66f          0x009bc66f
 #define CHARA_009bc670          0x009bc670
 #define CHARA_009c403e          0x009c403e
 #define CHARA_009cf455          0x009cf455
 #define CHARA_009d73d7          0x009d73d7
-#define CHARA_009dcd6b          0x009dcd6b
+#define CHARA_AMBIENT_LIGHT     0x009dcd6b  // GV_StrCode("環境光")
 #define CHARA_009dd632          0x009dd632
 #define CHARA_009e1df3          0x009e1df3
 #define CHARA_009e3c4f          0x009e3c4f
@@ -526,12 +526,12 @@
 #define CHARA_00a1a665          0x00a1a665
 #define CHARA_00a3d28a          0x00a3d28a
 #define CHARA_00a3e408          0x00a3e408
-#define CHARA_00a53aa7          0x00a53aa7
-#define CHARA_00a58f8a          0x00a58f8a
+#define CHARA_FOG               0x00a53aa7  // GV_StrCode("フォグ")
+#define CHARA_VR_SCREEN         0x00a58f8a  // GV_StrCode("ＶＲスクリーン")
 #define CHARA_00a58fa5          0x00a58fa5
-#define CHARA_00a60221          0x00a60221
+#define CHARA_GOLCAP_ON         0x00a60221  // GV_StrCode("ゴルキャップあり")
 #define CHARA_00a63d3b          0x00a63d3b
-#define CHARA_00a6a1ee          0x00a6a1ee
+#define CHARA_GOLCAP_OFF        0x00a6a1ee  // GV_StrCode("ゴルキャップなし")
 #define CHARA_00a6d9cf          0x00a6d9cf
 #define CHARA_00a710db          0x00a710db
 #define CHARA_00a7195f          0x00a7195f
@@ -545,13 +545,13 @@
 #define CHARA_00a9ed03          0x00a9ed03
 #define CHARA_00ab381c          0x00ab381c
 #define CHARA_RESIDENT_RES_SET  0x00ab5a2a  // GV_StrCode("常駐リソース設定")
-#define CHARA_00abfd5f          0x00abfd5f
+#define CHARA_WT_DOOR_MANAGER   0x00abfd5f  // GV_StrCode("水密ドア管理")
 #define CHARA_00ace3ff          0x00ace3ff
 #define CHARA_00ad8864          0x00ad8864
 #define CHARA_00ae0f36          0x00ae0f36
 #define CHARA_00af0a7a          0x00af0a7a
 #define CHARA_00af2208          0x00af2208
-#define CHARA_00af4cf6          0x00af4cf6
+#define CHARA_SEAGULL_MANAGER   0x00af4cf6  // GV_StrCode("かもめマネージャ")
 #define CHARA_00afa5e7          0x00afa5e7
 #define CHARA_00afdee4          0x00afdee4
 #define CHARA_00b030e4          0x00b030e4
@@ -564,14 +564,14 @@
 #define CHARA_00b35703          0x00b35703
 #define CHARA_00b3aa52          0x00b3aa52
 #define CHARA_00b3d54e          0x00b3d54e
-#define CHARA_00b3e388          0x00b3e388
+#define CHARA_CARGO_HOLD        0x00b3e388  // GV_StrCode("船倉兵")
 #define CHARA_00b414ae          0x00b414ae
 #define CHARA_00b431c3          0x00b431c3
 #define CHARA_00b44bbb          0x00b44bbb
-#define CHARA_00b4e108          0x00b4e108
-#define CHARA_00b4e35c          0x00b4e35c
+#define CHARA_VR_SKY            0x00b4e108  // GV_StrCode("ＶＲ空")
+#define CHARA_VR_WALL           0x00b4e35c  // GV_StrCode("ＶＲ壁")
 #define CHARA_00b53158          0x00b53158
-#define CHARA_00b63a33          0x00b63a33
+#define CHARA_BLUR              0x00b63a33  // GV_StrCode("ブラー")
 #define CHARA_00b63e47          0x00b63e47
 #define CHARA_00b66ae4          0x00b66ae4
 #define CHARA_00b6e522          0x00b6e522
@@ -596,7 +596,7 @@
 #define CHARA_00bd673f          0x00bd673f
 #define CHARA_00bd9cc1          0x00bd9cc1
 #define CHARA_00bdd6a9          0x00bdd6a9
-#define CHARA_00be0863          0x00be0863
+#define CHARA_SPLASH_FLOOR      0x00be0863  // GV_StrCode("床水飛沫") d_splash_floor.c
 #define CHARA_00bed0ff          0x00bed0ff
 #define CHARA_00bf97ed          0x00bf97ed
 #define CHARA_00bfb0a1          0x00bfb0a1
@@ -612,7 +612,7 @@
 #define CHARA_00c27387          0x00c27387
 #define CHARA_00c2ad32          0x00c2ad32
 #define CHARA_00c2eb8d          0x00c2eb8d
-#define CHARA_00c3189a          0x00c3189a
+#define CHARA_PLAYER_INSTAKILL  0x00c3189a  // GV_StrCode("プレイヤー瞬殺")
 #define CHARA_00c34b14          0x00c34b14
 #define CHARA_00c3515f          0x00c3515f
 #define CHARA_00c3c46c          0x00c3c46c
@@ -621,22 +621,22 @@
 #define CHARA_00c547a7          0x00c547a7
 #define CHARA_00c5994d          0x00c5994d
 #define CHARA_00c5d24c          0x00c5d24c
-#define CHARA_00c622a4          0x00c622a4
+#define CHARA_DEMO_BUG          0x00c622a4  // GV_StrCode("デモ虫")
 #define CHARA_00c64ecb          0x00c64ecb
 #define CHARA_00c6f28e          0x00c6f28e
-#define CHARA_00c7280a          0x00c7280a
+#define CHARA_DEFENSE_COMMANDER 0x00c7280a  // GV_StrCode("長廊下コマンダー") defcomm.c
 #define CHARA_ARRAY_SET         0x00c74f97  // GV_StrCode("配列セット") NewArraySet
 #define CHARA_00c76d6e          0x00c76d6e
 #define CHARA_00c7853f          0x00c7853f
 #define CHARA_00c7ee15          0x00c7ee15
 #define CHARA_00c84c1d          0x00c84c1d
-#define CHARA_00c88afa          0x00c88afa
+#define CHARA_SOUND_MANAGER     0x00c88afa  // GV_StrCode("サウンドマネージャー")
 #define CHARA_00c8dbcc          0x00c8dbcc
-#define CHARA_00c9dd51          0x00c9dd51
+#define CHARA_SKY_UTIL          0x00c9dd51  // GV_StrCode("汎用空") sky_util.c
 #define CHARA_00cb2c3e          0x00cb2c3e
 #define CHARA_00cb6bed          0x00cb6bed
 #define CHARA_00cb6ec4          0x00cb6ec4
-#define CHARA_00cb7de8          0x00cb7de8
+#define CHARA_FLASHLIGHT        0x00cb7de8  // GV_StrCode("懐中電灯")
 #define CHARA_00cba568          0x00cba568
 #define CHARA_00cbb124          0x00cbb124
 #define CHARA_00cbd98b          0x00cbd98b
@@ -644,16 +644,16 @@
 #define CHARA_ATTACKER          0x00cc9a07  // GV_StrCode("アタッカー")
 #define CHARA_00cd2045          0x00cd2045
 #define CHARA_00cdb878          0x00cdb878
-#define CHARA_00cdc7bd          0x00cdc7bd
+#define CHARA_WEAPON_SPLASH     0x00cdc7bd  // GV_StrCode("武器水飛沫") weapon_sph.c
 #define CHARA_00cec17c          0x00cec17c
-#define CHARA_00ced375          0x00ced375
+#define CHARA_VR_GOAL           0x00ced375  // GV_StrCode("ＶＲゴール")
 #define CHARA_00cf777f          0x00cf777f
 #define CHARA_00d0e799          0x00d0e799
 #define CHARA_00d10066          0x00d10066
 #define CHARA_00d110e2          0x00d110e2
 #define CHARA_00d1279a          0x00d1279a
 #define CHARA_00d1699d          0x00d1699d
-#define CHARA_00d16c76          0x00d16c76
+#define CHARA_UNDERWATER_CAMERA 0x00d16c76  // GV_StrCode("水中カメラ")
 #define CHARA_00d20fde          0x00d20fde
 #define CHARA_00d219b8          0x00d219b8
 #define CHARA_00d2bd87          0x00d2bd87
@@ -665,11 +665,11 @@
 #define CHARA_00d51601          0x00d51601
 #define CHARA_00d5d6ef          0x00d5d6ef
 #define CHARA_00d5ff97          0x00d5ff97
-#define CHARA_00d612a2          0x00d612a2
+#define CHARA_EMMA_BUG          0x00d612a2  // GV_StrCode("エマ虫")
 #define CHARA_BROOKLYN          0x00d6ed95  // GV_StrCode("ブルックリン")
 #define CHARA_00d72c78          0x00d72c78
 #define CHARA_00d75a89          0x00d75a89
-#define CHARA_00d8cff4          0x00d8cff4
+#define CHARA_TANKER_DOGTAG_NUM 0x00d8cff4  // GV_StrCode("タンカー編総ドッグタグ数")
 #define CHARA_00d90540          0x00d90540
 #define CHARA_00d978ac          0x00d978ac
 #define CHARA_00d99a89          0x00d99a89
@@ -682,13 +682,13 @@
 #define CHARA_00dba0d1          0x00dba0d1
 #define CHARA_00dbd1fa          0x00dbd1fa
 #define CHARA_00dc2f1b          0x00dc2f1b
-#define CHARA_00dc323f          0x00dc323f
-#define CHARA_00dc80bf          0x00dc80bf
+#define CHARA_CAMERA_DUST       0x00dc323f  // GV_StrCode("カメラダスト")
+#define CHARA_RAVEN_DOLL        0x00dc80bf  // GV_StrCode("レイブン人形")
 #define CHARA_LOAD_SOUND_PACK   0x00dc83c5  // GV_StrCode("ロードサウンドパック")
 #define CHARA_00dcb281          0x00dcb281
 #define CHARA_00ddd2a3          0x00ddd2a3
 #define CHARA_00ddf457          0x00ddf457
-#define CHARA_00ddf5ca          0x00ddf5ca
+#define CHARA_COMMANDER         0x00ddf5ca  // GV_StrCode("コマンダー")
 #define CHARA_00de0400          0x00de0400
 #define CHARA_00de0401          0x00de0401
 #define CHARA_00de0402          0x00de0402
@@ -702,7 +702,7 @@
 #define CHARA_00e0dbba          0x00e0dbba
 #define CHARA_00e0dcba          0x00e0dcba
 #define CHARA_00e1c26c          0x00e1c26c
-#define CHARA_00e22388          0x00e22388
+#define CHARA_FADE_INOUT        0x00e22388  // GV_StrCode("フェードインアウト")
 #define CHARA_00e2488b          0x00e2488b
 #define CHARA_SCN_DEMO_START    0x00e29adb  // GV_StrCode("シナリオデモ開始")
 #define CHARA_00e2a088          0x00e2a088
@@ -718,31 +718,31 @@
 #define CHARA_00e48f2f          0x00e48f2f
 #define CHARA_00e4c507          0x00e4c507
 #define CHARA_00e4cea2          0x00e4cea2
-#define CHARA_00e4d016          0x00e4d016
+#define CHARA_PROJECTOR_LIGHT   0x00e4d016  // GV_StrCode("プロジェクタライト")
 #define CHARA_00e52073          0x00e52073
 #define CHARA_00e5ff03          0x00e5ff03
 #define CHARA_00e6b658          0x00e6b658
 #define CHARA_00e73ac4          0x00e73ac4
 #define CHARA_00e74f46          0x00e74f46
-#define CHARA_00e76d74          0x00e76d74  // NewGclVariableMove
+#define CHARA_00e76d74          0x00e76d74  // NewGclVariableMove (calls the printf stub??)
 #define CHARA_SCN_DEMO_END      0x00e79927  // GV_StrCode("シナリオデモ終了")
 #define CHARA_00e9021d          0x00e9021d
 #define CHARA_CODEC_SYSTEM      0x00e96d82  // GV_StrCode("無線システム")
 #define CHARA_00ea5215          0x00ea5215
 #define CHARA_00ead648          0x00ead648
 #define CHARA_00eb7eda          0x00eb7eda
-#define CHARA_00ebec24          0x00ebec24
+#define CHARA_WT_DOOR           0x00ebec24  // GV_StrCode("水密ドア")
 #define CHARA_00ec084b          0x00ec084b
 #define CHARA_00ec40c7          0x00ec40c7
-#define CHARA_00ecc9de          0x00ecc9de
-#define CHARA_00ed1e0b          0x00ed1e0b
+#define CHARA_AMERICAN_FLOUR    0x00ecc9de  // GV_StrCode("メリケン粉")
+#define CHARA_VR_OBJECT         0x00ed1e0b  // GV_StrCode("ＶＲオブジェ")
 #define CHARA_00ed4678          0x00ed4678
 #define CHARA_00ee8700          0x00ee8700
 #define CHARA_00ee8b90          0x00ee8b90
 #define CHARA_00eee657          0x00eee657
 #define CHARA_00efd440          0x00efd440
 #define CHARA_00effdac          0x00effdac
-#define CHARA_00f005a3          0x00f005a3
+#define CHARA_CLEARING_CANCEL   0x00f005a3  // GV_StrCode("クリアリングキャンセル")
 #define CHARA_00f0f504          0x00f0f504
 #define CHARA_00f15e47          0x00f15e47
 #define CHARA_00f26728          0x00f26728
@@ -760,17 +760,17 @@
 #define CHARA_00f706cd          0x00f706cd
 #define CHARA_00f74020          0x00f74020
 #define CHARA_00f77507          0x00f77507
-#define CHARA_00f7e492          0x00f7e492
-#define CHARA_00f7f777          0x00f7f777
+#define CHARA_LADDER_SET        0x00f7e492  // GV_StrCode("はしご設定")
+#define CHARA_SOLDIER           0x00f7f777  // GV_StrCode("警備兵")
 #define CHARA_00f8f4e8          0x00f8f4e8
-#define CHARA_00f91a08          0x00f91a08
-#define CHARA_00f91b9f          0x00f91b9f
+#define CHARA_TRANSPARENT_FLOOR 0x00f91a08  // GV_StrCode("透明床")
+#define CHARA_TRANSPARENT_WALL  0x00f91b9f  // GV_StrCode("透明壁")
 #define CHARA_00f92b8e          0x00f92b8e
 #define CHARA_00f9711e          0x00f9711e
 #define CHARA_00f9c62d          0x00f9c62d
 #define CHARA_00fa4e80          0x00fa4e80
 #define CHARA_00fad3ae          0x00fad3ae
-#define CHARA_00faedf1          0x00faedf1
+#define CHARA_SOLIDUS           0x00faedf1  // GV_StrCode("ソリダス")
 #define CHARA_00fb029a          0x00fb029a
 #define CHARA_00fbeb7f          0x00fbeb7f
 #define CHARA_00fc14a5          0x00fc14a5
@@ -785,12 +785,12 @@
 #define CHARA_00fe6f50          0x00fe6f50
 #define CHARA_00fea0c9          0x00fea0c9
 #define CHARA_00fef2d9          0x00fef2d9
-#define CHARA_00ff5b55          0x00ff5b55
+#define CHARA_PLANT_DOGTAG_NUM  0x00ff5b55  // GV_StrCode("プラント編総ドッグタグ数")
 #define CHARA_00ffbece          0x00ffbece
-#define CHARA_00ffc196          0x00ffc196
+#define CHARA_STAGE_OUTLINE     0x00ffc196  // GV_StrCode("ステージアウトライン")
 #define CHARA_00ffd75e          0x00ffd75e
 #define CHARA_00ffe7a7          0x00ffe7a7
-#define CHARA_00ffed03          0x00ffed03
+#define CHARA_PROC_SEQ_EXEC     0x00ffed03  // GV_StrCode("プロック連続実行")
 #define CHARA_00fff6c6          0x00fff6c6
 
 /*--- Polygon Demo Charas ---*/
