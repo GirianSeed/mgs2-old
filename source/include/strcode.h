@@ -146,7 +146,7 @@
 #define CHARA_0029c817          0x0029c817
 #define CHARA_0029d24d          0x0029d24d
 #define CHARA_002a088b          0x002a088b  // gnrl_poly.c
-#define CHARA_OKIKAN            0x002a0b46  // GV_StrCode("あきかん") kan.c
+#define CHARA_AKIKAN            0x002a0b46  // GV_StrCode("あきかん") kan.c
 #define CHARA_002a41c7          0x002a41c7  // dm_fr.c
 #define CHARA_002a4246          0x002a4246  // map_3d.c
 #define CHARA_002b8e16          0x002b8e16  // vamp.c
