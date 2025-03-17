@@ -95,7 +95,7 @@
 #define CHARA_00164ee0          0x00164ee0  // bullet_bar.c
 #define CHARA_00170393          0x00170393  // waterlinefall.c
 #define CHARA_0017078b          0x0017078b
-#define CHARA_00175436          0x00175436  // brk_paper.c
+#define CHARA_BREAK_PAPER       0x00175436  // GV_StrCode("プット紙オブジェ") brk_paper.c
 #define CHARA_0017a315          0x0017a315  // command.c
 #define CHARA_0017ea77          0x0017ea77  // tng_monitor_control_42a.c
 #define CHARA_0017eab7          0x0017eab7  // tng_monitor_control_44a.c
@@ -178,10 +178,10 @@
 #define CHARA_0035804e          0x0035804e
 #define CHARA_00358d2f          0x00358d2f
 #define CHARA_MAP               0x0035a2cf  // GV_StrCode("マップ") map.c
-#define CHARA_003625b1          0x003625b1  // brk_magazine.c
+#define CHARA_BREAK_MAGAZINE    0x003625b1  // GV_StrCode("プット雑誌オブジェ") brk_magazine.c
 #define CHARA_00363be8          0x00363be8
 #define CHARA_003640f6          0x003640f6  // play_disap.c
-#define CHARA_00365dee          0x00365dee  // brk_spotlgt.c
+#define CHARA_BREAK_SPOTLIGHT   0x00365dee  // GV_StrCode("プットスポットライトオブジェ") brk_spotlgt.c
 #define CHARA_00368f7d          0x00368f7d
 #define CHARA_0037014d          0x0037014d  // gllcom.c
 #define CHARA_00374069          0x00374069  // har_sdmng.c
@@ -208,7 +208,7 @@
 #define CHARA_003f55fc          0x003f55fc  // brooklyn.c
 #define CHARA_003f9531          0x003f9531  // mcchkscrx.c
 #define CHARA_003fcd73          0x003fcd73  // command5.c
-#define CHARA_0040f2ae          0x0040f2ae  // brk_icebox.c
+#define CHARA_BREAK_ICEBOX      0x0040f2ae  // GV_StrCode("プットアイスボックスオブジェ") brk_icebox.c
 #define CHARA_00413144          0x00413144  // beltobj.c
 #define CHARA_004147a5          0x004147a5  // sejimaku.c (sejimaku.h)
 #define CHARA_004152df          0x004152df  // body_slater.c
@@ -293,7 +293,7 @@
 #define CHARA_GUARD_COMMANDER   0x0059eda8  // GV_StrCode("警備コマンダー") wccomm.c
 #define CHARA_0059f23c          0x0059f23c  // drop_body_splush_prog.c
 #define CHARA_005a4652          0x005a4652
-#define CHARA_005a4809          0x005a4809  // brk_glass.c
+#define CHARA_BREAK_GLASS       0x005a4809  // GV_StrCode("プットガラスオブジェ") brk_glass.c
 #define CHARA_005ae655          0x005ae655
 #define CHARA_varsave           0x005b316e  // GV_StrCode("varsave") NewSaveVariable
 #define CHARA_005b6e21          0x005b6e21  // sp_menu_eng.c
@@ -365,7 +365,7 @@
 #define CHARA_CAMERA_BLOOD      0x006b8fe4  // GV_StrCode("カメラ血") blood_cm.c
 #define CHARA_CAMERA_BUBBLE     0x006b921a  // GV_StrCode("カメラ泡") bubble_cm.c
 #define CHARA_006c274d          0x006c274d
-#define CHARA_006c577d          0x006c577d  // brk_potato.c
+#define CHARA_BREAK_POTATO      0x006c577d  // GV_StrCode("プットポテトオブジェ") brk_potato.c
 #define CHARA_006d61f3          0x006d61f3
 #define CHARA_006d841b          0x006d841b
 #define CHARA_006d85be          0x006d85be
@@ -396,7 +396,7 @@
 #define CHARA_0075513c          0x0075513c
 #define CHARA_00755e2e          0x00755e2e
 #define CHARA_007561ae          0x007561ae  // orga_lgt.c
-#define CHARA_0075e815          0x0075e815  // brk_tv.c
+#define CHARA_BREAK_TV          0x0075e815  // GV_StrCode("プットテレビオブジェ") brk_tv.c
 #define CHARA_BOMB_DETECT_AREA  0x0076a03c  // GV_StrCode("爆弾検知領域") bomb.c
 #define CHARA_00770ec3          0x00770ec3
 #define CHARA_0077318d          0x0077318d
@@ -617,7 +617,7 @@
 #define CHARA_00c3515f          0x00c3515f
 #define CHARA_00c3c46c          0x00c3c46c
 #define CHARA_00c41872          0x00c41872
-#define CHARA_00c45437          0x00c45437
+#define CHARA_BREAK_BOTTLE      0x00c45437  // GV_StrCode("プット瓶オブジェ")
 #define CHARA_00c547a7          0x00c547a7
 #define CHARA_00c5994d          0x00c5994d
 #define CHARA_00c5d24c          0x00c5d24c
@@ -637,7 +637,7 @@
 #define CHARA_00cb6bed          0x00cb6bed
 #define CHARA_00cb6ec4          0x00cb6ec4
 #define CHARA_FLASHLIGHT        0x00cb7de8  // GV_StrCode("懐中電灯")
-#define CHARA_00cba568          0x00cba568
+#define CHARA_BREAK_BIGGLASS    0x00cba568  // GV_StrCode("プット大ガラスオブジェ")
 #define CHARA_00cbb124          0x00cbb124
 #define CHARA_00cbd98b          0x00cbd98b
 #define CHARA_00cc87a2          0x00cc87a2
@@ -695,7 +695,7 @@
 #define CHARA_00de07c0          0x00de07c0
 #define CHARA_00de4430          0x00de4430
 #define CHARA_00dedde1          0x00dedde1
-#define CHARA_00df5435          0x00df5435
+#define CHARA_BREAK_PLATE       0x00df5435  // GV_StrCode("プット皿オブジェ")
 #define CHARA_00e00fd1          0x00e00fd1
 #define CHARA_00e0344c          0x00e0344c
 #define CHARA_00e0568b          0x00e0568b
