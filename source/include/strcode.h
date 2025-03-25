@@ -794,188 +794,188 @@
 #define CHARA_00fff6c6          0x00fff6c6
 
 /*--- Polygon Demo Charas ---*/
-#define CHARA_01000000          0x01000000  // d_fog_set.c
-#define CHARA_01000001          0x01000001  // f_focus.c
-#define CHARA_01000002          0x01000002  // n_focus.c
-#define CHARA_01000003          0x01000003  // d_fade_io_prog.c
-#define CHARA_01000004          0x01000004  // d_rain_cm.c
-#define CHARA_01000005          0x01000005  // flush_man.c
+#define CHARA_01000000          0x01000000  // --> d_fog_set.c
+#define CHARA_01000001          0x01000001  // --> f_focus.c
+#define CHARA_01000002          0x01000002  // --> n_focus.c
+#define CHARA_01000003          0x01000003  // --> d_fade_io_prog.c
+#define CHARA_01000004          0x01000004  // --> d_rain_cm.c
+#define CHARA_01000005          0x01000005  // --> flush_man.c
 #define CHARA_01000006          0x01000006
 #define CHARA_01000007          0x01000007
-#define CHARA_01000008          0x01000008  // d_fade_io_prog.c
-#define CHARA_01000009          0x01000009  // d_contrast.c
-#define CHARA_0100000a          0x0100000a  // d_contrast.c
-#define CHARA_0100000b          0x0100000b  // scope_layout.c
-#define CHARA_0100000c          0x0100000c  // scr_crack.c
-#define CHARA_0100000d          0x0100000d  // 2d_sprt.c
-#define CHARA_0100000e          0x0100000e  // cigarette.c
-#define CHARA_0100000f          0x0100000f  // lens_flare.c
-#define CHARA_01000011          0x01000011  // blur.c
-#define CHARA_01000012          0x01000012  // crosfade.c
-#define CHARA_01000013          0x01000013  // crosfade.c
-#define CHARA_01000014          0x01000014  // scr_water_demo.c
-#define CHARA_01000015          0x01000015  // scr_conblur.c
-#define CHARA_01000016          0x01000016  // ray_layout.c
-#define CHARA_01000017          0x01000017  // vtr_layout.c
+#define CHARA_01000008          0x01000008  // --> d_fade_io_prog.c
+#define CHARA_01000009          0x01000009  // --> d_contrast.c
+#define CHARA_0100000a          0x0100000a  // --> d_contrast.c
+#define CHARA_0100000b          0x0100000b  // --> scope_layout.c
+#define CHARA_0100000c          0x0100000c  // --> scr_crack.c
+#define CHARA_0100000d          0x0100000d  // --> 2d_sprt.c
+#define CHARA_0100000e          0x0100000e  // --> cigarette.c
+#define CHARA_0100000f          0x0100000f  // --> lens_flare.c
+#define CHARA_01000011          0x01000011  // --> blur.c
+#define CHARA_01000012          0x01000012  // --> crosfade.c
+#define CHARA_01000013          0x01000013  // --> crosfade.c
+#define CHARA_01000014          0x01000014  // --> scr_water_demo.c
+#define CHARA_01000015          0x01000015  // --> scr_conblur.c
+#define CHARA_01000016          0x01000016  // --> ray_layout.c
+#define CHARA_01000017          0x01000017  // --> vtr_layout.c
 #define CHARA_01000018          0x01000018
-#define CHARA_01000019          0x01000019  // gas_pers_fast.c
-#define CHARA_0100001a          0x0100001a  // demo_dgcam_mng.c
-#define CHARA_0100001c          0x0100001c  // psg_layout.c
-#define CHARA_0100001d          0x0100001d  // equip_layout.c
-#define CHARA_0100001f          0x0100001f  // demo_sun.c
-#define CHARA_01000020          0x01000020  // ai_ray_layout.c
-#define CHARA_01000021          0x01000021  // explosion_controler.c
-#define CHARA_01000022          0x01000022  // blood_bio.c
-#define CHARA_01000023          0x01000023  // forttear.c
-#define CHARA_01000024          0x01000024  // scr_goggles_demo.c
-#define CHARA_01000025          0x01000025  // scr_drop_demo.c --> NewScrDrop
-#define CHARA_01000026          0x01000026  // scr_waterfilm.c
-#define CHARA_01000031          0x01000031  // gas2_pers_fast.c
-#define CHARA_01000033          0x01000033  // rain_gas_pers_demo.c
-#define CHARA_01000100          0x01000100  // d_splash_motion.c
-#define CHARA_01000101          0x01000101  // d_splash_ripple.c
-#define CHARA_01000103          0x01000103  // ft_splsh.c
-#define CHARA_01000104          0x01000104  // body_sph.c
-#define CHARA_01000105          0x01000105  // dive_splash.c
-#define CHARA_01000106          0x01000106  // splush_big.c
-#define CHARA_01000107          0x01000107  // splash.c
-#define CHARA_01000108          0x01000108  // wall_tidal.c
-#define CHARA_01000109          0x01000109  // water_wind.c
-#define CHARA_01000201          0x01000201  // ripple_bubble.c
-#define CHARA_01000202          0x01000202  // raiden_mask_bubble.c
-#define CHARA_010007d1          0x010007d1  // traffic.c
-#define CHARA_01001000          0x01001000  // drop_shadow.c
-#define CHARA_01001001          0x01001001  // foot_shadow.c
-#define CHARA_01001002          0x01001002  // eneequip.c
-#define CHARA_01001005          0x01001005  // raincoat.c
-#define CHARA_01001006          0x01001006  // putatach.c
-#define CHARA_01001007          0x01001007  // putatach.c
-#define CHARA_01001008          0x01001008  // source/user/sigeno/effect/handanim.c
-#define CHARA_01001009          0x01001009  // facedemo.c
-#define CHARA_0100100a          0x0100100a  // d_vol_shadow.c
-#define CHARA_0100100c          0x0100100c  // putatach.c
-#define CHARA_0100100d          0x0100100d  // eye_ctrl.c
-#define CHARA_0100100f          0x0100100f  // demo_arkms.c
-#define CHARA_01001010          0x01001010  // arms_con.c
-#define CHARA_01001011          0x01001011  // demo_arkms_nyp.c
-#define CHARA_01001012          0x01001012  // equip.c
-#define CHARA_01001013          0x01001013  // eye_ctrl2.c
-#define CHARA_01001014          0x01001014  // fort_equip.c
-#define CHARA_01001015          0x01001015  // emma_equip.c
-#define CHARA_01001016          0x01001016  // demo_eye.c
-#define CHARA_01001017          0x01001017  // fort_sling.c
-#define CHARA_01001018          0x01001018  // fort_bul.c
-#define CHARA_01001019          0x01001019  // liner_gun_init.c
-#define CHARA_0100101a          0x0100101a  // orn_face.c
-#define CHARA_0100101b          0x0100101b  // demo_arms.c --> NewDemoArmControl
-#define CHARA_0100101c          0x0100101c  // depend_arms.c
-#define CHARA_0100101d          0x0100101d  // depend_arms2.c
-#define CHARA_0100101e          0x0100101e  // breath_demo.c
-#define CHARA_0100101f          0x0100101f  // putatach.c
-#define CHARA_01001020          0x01001020  // rai_equip.c
-#define CHARA_01001021          0x01001021  // depend_arms3.c
-#define CHARA_01001022          0x01001022  // demo_evm_skirt.c
-#define CHARA_01001023          0x01001023  // demo_evm_skirt.c
-#define CHARA_01001024          0x01001024  // fort_sling2.c
-#define CHARA_01001027          0x01001027  // wine.c
-#define CHARA_01001028          0x01001028  // demo_arkms_cit_m.c
-#define CHARA_01001029          0x01001029  // demo_arkms_cit_f.c
-#define CHARA_0100102a          0x0100102a  // depend_arms4.c
-#define CHARA_01002000          0x01002000  // d_thunder.c
-#define CHARA_01002002          0x01002002  // wind_local.c
-#define CHARA_01002003          0x01002003  // slow_man.c
-#define CHARA_01002004          0x01002004  // wind_local2.c
-#define CHARA_01003000          0x01003000  // ropemain.c
-#define CHARA_01003004          0x01003004  // ropemain.c
-#define CHARA_01003007          0x01003007  // hairevm.c
-#define CHARA_01003009          0x01003009  // hairevm.c
-#define CHARA_01003010          0x01003010  // waving_cloth.c
-#define CHARA_01003011          0x01003011  // mm_orga_evm_main.c
-#define CHARA_01003012          0x01003012  // cergei_eri.c
-#define CHARA_01003013          0x01003013  // solmant2.c
-#define CHARA_01003014          0x01003014  // ropemain.c
-#define CHARA_01003015          0x01003015  // handcuff.c
-#define CHARA_01003017          0x01003017  // ropemain.c
-#define CHARA_01003019          0x01003019  // ropemain.c
-#define CHARA_01004000          0x01004000  // put_stanime.c
+#define CHARA_01000019          0x01000019  // --> gas_pers_fast.c
+#define CHARA_0100001a          0x0100001a  // --> demo_dgcam_mng.c
+#define CHARA_0100001c          0x0100001c  // --> psg_layout.c
+#define CHARA_0100001d          0x0100001d  // --> equip_layout.c
+#define CHARA_0100001f          0x0100001f  // --> demo_sun.c
+#define CHARA_01000020          0x01000020  // --> ai_ray_layout.c
+#define CHARA_01000021          0x01000021  // --> explosion_controler.c
+#define CHARA_01000022          0x01000022  // --> blood_bio.c
+#define CHARA_01000023          0x01000023  // --> forttear.c
+#define CHARA_01000024          0x01000024  // --> scr_goggles_demo.c
+#define CHARA_01000025          0x01000025  // --> scr_drop_demo.c --> NewScrDrop
+#define CHARA_01000026          0x01000026  // --> scr_waterfilm.c
+#define CHARA_01000031          0x01000031  // --> gas2_pers_fast.c
+#define CHARA_01000033          0x01000033  // --> rain_gas_pers_demo.c
+#define CHARA_01000100          0x01000100  // --> d_splash_motion.c
+#define CHARA_01000101          0x01000101  // --> d_splash_ripple.c
+#define CHARA_01000103          0x01000103  // --> ft_splsh.c
+#define CHARA_01000104          0x01000104  // --> body_sph.c
+#define CHARA_01000105          0x01000105  // --> dive_splash.c
+#define CHARA_01000106          0x01000106  // --> splush_big.c
+#define CHARA_01000107          0x01000107  // --> splash.c
+#define CHARA_01000108          0x01000108  // --> wall_tidal.c
+#define CHARA_01000109          0x01000109  // --> water_wind.c
+#define CHARA_01000201          0x01000201  // --> ripple_bubble.c
+#define CHARA_01000202          0x01000202  // --> raiden_mask_bubble.c
+#define CHARA_010007d1          0x010007d1  // --> traffic.c
+#define CHARA_01001000          0x01001000  // --> drop_shadow.c
+#define CHARA_01001001          0x01001001  // --> foot_shadow.c
+#define CHARA_01001002          0x01001002  // --> eneequip.c
+#define CHARA_01001005          0x01001005  // --> raincoat.c
+#define CHARA_01001006          0x01001006  // --> putatach.c
+#define CHARA_01001007          0x01001007  // --> putatach.c
+#define CHARA_01001008          0x01001008  // --> source/user/sigeno/effect/handanim.c
+#define CHARA_01001009          0x01001009  // --> facedemo.c
+#define CHARA_0100100a          0x0100100a  // --> d_vol_shadow.c
+#define CHARA_0100100c          0x0100100c  // --> putatach.c
+#define CHARA_0100100d          0x0100100d  // --> eye_ctrl.c
+#define CHARA_0100100f          0x0100100f  // --> demo_arkms.c
+#define CHARA_01001010          0x01001010  // --> arms_con.c
+#define CHARA_01001011          0x01001011  // --> demo_arkms_nyp.c
+#define CHARA_01001012          0x01001012  // --> equip.c
+#define CHARA_01001013          0x01001013  // --> eye_ctrl2.c
+#define CHARA_01001014          0x01001014  // --> fort_equip.c
+#define CHARA_01001015          0x01001015  // --> emma_equip.c
+#define CHARA_01001016          0x01001016  // --> demo_eye.c
+#define CHARA_01001017          0x01001017  // --> fort_sling.c
+#define CHARA_01001018          0x01001018  // --> fort_bul.c
+#define CHARA_01001019          0x01001019  // --> liner_gun_init.c
+#define CHARA_0100101a          0x0100101a  // --> orn_face.c
+#define CHARA_0100101b          0x0100101b  // --> demo_arms.c --> NewDemoArmControl
+#define CHARA_0100101c          0x0100101c  // --> depend_arms.c
+#define CHARA_0100101d          0x0100101d  // --> depend_arms2.c
+#define CHARA_0100101e          0x0100101e  // --> breath_demo.c
+#define CHARA_0100101f          0x0100101f  // --> putatach.c
+#define CHARA_01001020          0x01001020  // --> rai_equip.c
+#define CHARA_01001021          0x01001021  // --> depend_arms3.c
+#define CHARA_01001022          0x01001022  // --> demo_evm_skirt.c
+#define CHARA_01001023          0x01001023  // --> demo_evm_skirt.c
+#define CHARA_01001024          0x01001024  // --> fort_sling2.c
+#define CHARA_01001027          0x01001027  // --> wine.c
+#define CHARA_01001028          0x01001028  // --> demo_arkms_cit_m.c
+#define CHARA_01001029          0x01001029  // --> demo_arkms_cit_f.c
+#define CHARA_0100102a          0x0100102a  // --> depend_arms4.c
+#define CHARA_01002000          0x01002000  // --> d_thunder.c
+#define CHARA_01002002          0x01002002  // --> wind_local.c
+#define CHARA_01002003          0x01002003  // --> slow_man.c
+#define CHARA_01002004          0x01002004  // --> wind_local2.c
+#define CHARA_01003000          0x01003000  // --> ropemain.c
+#define CHARA_01003004          0x01003004  // --> ropemain.c
+#define CHARA_01003007          0x01003007  // --> hairevm.c
+#define CHARA_01003009          0x01003009  // --> hairevm.c
+#define CHARA_01003010          0x01003010  // --> waving_cloth.c
+#define CHARA_01003011          0x01003011  // --> mm_orga_evm_main.c
+#define CHARA_01003012          0x01003012  // --> cergei_eri.c
+#define CHARA_01003013          0x01003013  // --> solmant2.c
+#define CHARA_01003014          0x01003014  // --> ropemain.c
+#define CHARA_01003015          0x01003015  // --> handcuff.c
+#define CHARA_01003017          0x01003017  // --> ropemain.c
+#define CHARA_01003019          0x01003019  // --> ropemain.c
+#define CHARA_01004000          0x01004000  // --> put_stanime.c
 #define CHARA_01004001          0x01004001
-#define CHARA_01004002          0x01004002  // d_inter_poly.c
-#define CHARA_01004004          0x01004004  // va_demo.c
-#define CHARA_01006000          0x01006000  // spark.c
-#define CHARA_01006002          0x01006002  // d_plasma_poly.c
-#define CHARA_01006005          0x01006005  // demo_bullet.c
-#define CHARA_01006006          0x01006006  // optcmfbr.c
-#define CHARA_01006007          0x01006007  // debris_cm.c
-#define CHARA_01006008          0x01006008  // debris_tex.c
-#define CHARA_01006009          0x01006009  // bomb.c
-#define CHARA_0100600a          0x0100600a  // flying_smoke.c
-#define CHARA_0100600b          0x0100600b  // bomb_gas.c
-#define CHARA_0100600e          0x0100600e  // ts_spark.c
-#define CHARA_01006010          0x01006010  // mesg_bomb2.c
-#define CHARA_01006011          0x01006011  // gnrl_sprt2.c
-#define CHARA_01006012          0x01006012  // sonic_wave.c
-#define CHARA_01006013          0x01006013  // mesg_bomb3.c
-#define CHARA_01006014          0x01006014  // fort_barrier.c
-#define CHARA_01006015          0x01006015  // debris_cm.c
-#define CHARA_01006016          0x01006016  // debris_tex.c
-#define CHARA_01006017          0x01006017  // harrier_missile_fire2.c
-#define CHARA_01006018          0x01006018  // stage_fire.c
-#define CHARA_01006019          0x01006019  // solidas_dash_fire.c
-#define CHARA_0100601a          0x0100601a  // parfeather.c
-#define CHARA_0100601b          0x0100601b  // solidas_dash_fire.c
-#define CHARA_0100601c          0x0100601c  // maoparticle.c
-#define CHARA_0100601d          0x0100601d  // kmfeather.c
-#define CHARA_0100601f          0x0100601f  // hexagonal.c
-#define CHARA_01006020          0x01006020  // demo_body_plasma.c
-#define CHARA_01006021          0x01006021  // demo_electric_floor.c
-#define CHARA_01006022          0x01006022  // solidus_missile_fire.c
-#define CHARA_01006023          0x01006023  // solidus_missile_smoke.c
-#define CHARA_01006024          0x01006024  // blade_spark.c
-#define CHARA_01006025          0x01006025  // solidus_snakearm_flow.c
-#define CHARA_01006026          0x01006026  // solidus_blade_light.c
-#define CHARA_01006027          0x01006027  // solidus_energy_prim.c
-#define CHARA_01006028          0x01006028  // blade_flow.c
-#define CHARA_01006029          0x01006029  // plasmaevade.c
-#define CHARA_0100602a          0x0100602a  // demo_plasma_color.c
-#define CHARA_0100602c          0x0100602c  // cypher_plasma.c
-#define CHARA_01006030          0x01006030  // debris_cm.c
-#define CHARA_01006031          0x01006031  // debris_tex.c
-#define CHARA_01007001          0x01007001  // d_blood.c
-#define CHARA_01007002          0x01007002
-#define CHARA_01007003          0x01007003
-#define CHARA_0100700b          0x0100700b
-#define CHARA_0100700c          0x0100700c
-#define CHARA_0100700d          0x0100700d
-#define CHARA_0100700e          0x0100700e
-#define CHARA_0100700f          0x0100700f
-#define CHARA_01007100          0x01007100
-#define CHARA_01007101          0x01007101
-#define CHARA_01007102          0x01007102
-#define CHARA_01007103          0x01007103
-#define CHARA_01007104          0x01007104
-#define CHARA_01007105          0x01007105
-#define CHARA_01007106          0x01007106
-#define CHARA_01007107          0x01007107
-#define CHARA_01007108          0x01007108
-#define CHARA_01007109          0x01007109
-#define CHARA_0100710a          0x0100710a
-#define CHARA_0100710c          0x0100710c
-#define CHARA_0100710d          0x0100710d
-#define CHARA_0100710e          0x0100710e
-#define CHARA_0100710f          0x0100710f
+#define CHARA_01004002          0x01004002  // --> d_inter_poly.c
+#define CHARA_01004004          0x01004004  // --> va_demo.c
+#define CHARA_01006000          0x01006000  // --> spark.c
+#define CHARA_01006002          0x01006002  // --> d_plasma_poly.c
+#define CHARA_01006005          0x01006005  // --> demo_bullet.c
+#define CHARA_01006006          0x01006006  // --> optcmfbr.c
+#define CHARA_01006007          0x01006007  // --> debris_cm.c
+#define CHARA_01006008          0x01006008  // --> debris_tex.c
+#define CHARA_01006009          0x01006009  // --> bomb.c
+#define CHARA_0100600a          0x0100600a  // --> flying_smoke.c
+#define CHARA_0100600b          0x0100600b  // --> bomb_gas.c
+#define CHARA_0100600e          0x0100600e  // --> ts_spark.c
+#define CHARA_01006010          0x01006010  // --> mesg_bomb2.c
+#define CHARA_01006011          0x01006011  // --> gnrl_sprt2.c
+#define CHARA_01006012          0x01006012  // --> sonic_wave.c
+#define CHARA_01006013          0x01006013  // --> mesg_bomb3.c
+#define CHARA_01006014          0x01006014  // --> fort_barrier.c
+#define CHARA_01006015          0x01006015  // --> debris_cm.c
+#define CHARA_01006016          0x01006016  // --> debris_tex.c
+#define CHARA_01006017          0x01006017  // --> harrier_missile_fire2.c
+#define CHARA_01006018          0x01006018  // --> stage_fire.c
+#define CHARA_01006019          0x01006019  // --> solidas_dash_fire.c
+#define CHARA_0100601a          0x0100601a  // --> parfeather.c
+#define CHARA_0100601b          0x0100601b  // --> solidas_dash_fire.c
+#define CHARA_0100601c          0x0100601c  // --> maoparticle.c
+#define CHARA_0100601d          0x0100601d  // --> kmfeather.c
+#define CHARA_0100601f          0x0100601f  // --> hexagonal.c
+#define CHARA_01006020          0x01006020  // --> demo_body_plasma.c
+#define CHARA_01006021          0x01006021  // --> demo_electric_floor.c
+#define CHARA_01006022          0x01006022  // --> solidus_missile_fire.c
+#define CHARA_01006023          0x01006023  // --> solidus_missile_smoke.c
+#define CHARA_01006024          0x01006024  // --> blade_spark.c
+#define CHARA_01006025          0x01006025  // --> solidus_snakearm_flow.c
+#define CHARA_01006026          0x01006026  // --> solidus_blade_light.c
+#define CHARA_01006027          0x01006027  // --> solidus_energy_prim.c
+#define CHARA_01006028          0x01006028  // --> blade_flow.c
+#define CHARA_01006029          0x01006029  // --> plasmaevade.c
+#define CHARA_0100602a          0x0100602a  // --> demo_plasma_color.c
+#define CHARA_0100602c          0x0100602c  // --> cypher_plasma.c
+#define CHARA_01006030          0x01006030  // --> debris_cm.c
+#define CHARA_01006031          0x01006031  // --> debris_tex.c
+#define CHARA_01007001          0x01007001  // --> d_blood.c
+#define CHARA_01007002          0x01007002  // --> d_blood2.c
+#define CHARA_01007003          0x01007003  // --> anime.c
+#define CHARA_0100700b          0x0100700b  // --> bloodweep.c
+#define CHARA_0100700c          0x0100700c  // --> peter_blood.c
+#define CHARA_0100700d          0x0100700d  // --> demo_splash_blood.c
+#define CHARA_0100700e          0x0100700e  // --> demo_dummypoint_blood.c
+#define CHARA_0100700f          0x0100700f  // --> d_blood.c
+#define CHARA_01007100          0x01007100  // --> smk_blur.c
+#define CHARA_01007101          0x01007101  // --> common_smoke.c
+#define CHARA_01007102          0x01007102  // --> dynamic_flow.c
+#define CHARA_01007103          0x01007103  // --> line_smoke.c
+#define CHARA_01007104          0x01007104  // --> harrier_missile_smoke2.c
+#define CHARA_01007105          0x01007105  // --> har_demoeffect.c
+#define CHARA_01007106          0x01007106  // --> harrier_damage_smoke.c
+#define CHARA_01007107          0x01007107  // --> demo_rising_smoke.c
+#define CHARA_01007108          0x01007108  // --> smkreact.c
+#define CHARA_01007109          0x01007109  // --> demo_rising_smoke.c
+#define CHARA_0100710a          0x0100710a  // --> demo_rising_smoke.c
+#define CHARA_0100710c          0x0100710c  // --> fatman_demo_scratch_smoke.c
+#define CHARA_0100710d          0x0100710d  // --> smoke_strip_control.c
+#define CHARA_0100710e          0x0100710e  // --> smoke_mitsukoshi_man.c
+#define CHARA_0100710f          0x0100710f  // --> peter_blood.c
 #define CHARA_01008000          0x01008000
-#define CHARA_01009000          0x01009000
-#define CHARA_0100a002          0x0100a002
-#define CHARA_0100a003          0x0100a003
-#define CHARA_0100a004          0x0100a004
-#define CHARA_0100b000          0x0100b000
-#define CHARA_0100b001          0x0100b001
+#define CHARA_01009000          0x01009000  // --> vibrate.c
+#define CHARA_0100a002          0x0100a002  // --> telop_trial.c
+#define CHARA_0100a003          0x0100a003  // --> splush_surface_man.c
+#define CHARA_0100a004          0x0100a004  // --> ripple_man.c
+#define CHARA_0100b000          0x0100b000  // --> water_con.c
+#define CHARA_0100b001          0x0100b001  // --> drop_body_splush.c
 #define CHARA_0100b002          0x0100b002
-#define CHARA_0100b003          0x0100b003
-#define CHARA_0100b004          0x0100b004
+#define CHARA_0100b003          0x0100b003  // --> splush_tidal.c
+#define CHARA_0100b004          0x0100b004  // --> de_wave5.c
 #define CHARA_0100b005          0x0100b005
-#define CHARA_0100b006          0x0100b006
-#define CHARA_0100b007          0x0100b007
+#define CHARA_0100b006          0x0100b006  // --> auto_splush.c
+#define CHARA_0100b007          0x0100b007  // --> blood_water_demo.c
 #define CHARA_0100b040          0x0100b040
 #define CHARA_0100c100          0x0100c100
 #define CHARA_0100d000          0x0100d000
@@ -988,14 +988,14 @@
 #define CHARA_0100d007          0x0100d007
 #define CHARA_0100d008          0x0100d008
 #define CHARA_0100d009          0x0100d009
-#define CHARA_0100d00a          0x0100d00a
-#define CHARA_0100d00b          0x0100d00b
-#define CHARA_010fff00          0x010fff00
+#define CHARA_0100d00a          0x0100d00a  // --> ray_fall_blood.c
+#define CHARA_0100d00b          0x0100d00b  // --> ef_shck2.c
+#define CHARA_010fff00          0x010fff00  // --> (calls the printf stub??)
 #define CHARA_010fff01          0x010fff01
 #define CHARA_010fff02          0x010fff02
-#define CHARA_010fff03          0x010fff03
-#define CHARA_010fff04          0x010fff04
-#define CHARA_010fff05          0x010fff05
+#define CHARA_010fff03          0x010fff03  // --> demo_frmcnt.c
+#define CHARA_010fff04          0x010fff04  // --> demo_control.c
+#define CHARA_010fff05          0x010fff05  // --> demo_init.c
 #define CHARA_010ffff0          0x010ffff0
 
 #endif // {{{ END OF FILE }}}
