@@ -7,6 +7,8 @@
 #include <inttypes.h>
 #include <limits.h>
 
+#include "strcode.h"
+
 /******************************************************************************
  * global #defines
  */
@@ -18,14 +20,6 @@
 # define eprintf(format, ...) fprintf(stderr, format __VA_OPT__(,) __VA_ARGS__)
 # define oprintf(format, ...) fprintf(stdout, format __VA_OPT__(,) __VA_ARGS__)
 #endif
-
-/******************************************************************************
- * external functions
- */
-
-extern uint32_t GV_StrCode16( const char *string );
-extern uint32_t GV_StrCode24( const char *string );
-extern uint32_t GV_StrCode32( const char *string );
 
 /******************************************************************************
  * main routine
