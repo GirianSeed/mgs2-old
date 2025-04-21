@@ -6,12 +6,12 @@ CFLAGS      += -Wall -Wno-unused-function -Wno-unused-label
 LDFLAGS     += -Wl,-Map,$@.map
 
 TARGET      ?= ipktool
-SRC_FILES   := ipktool.c myfsutil.c xmalloc.c
-OBJ_FILES   := ipktool.o myfsutil.o xmalloc.o
+SRCS        := ipktool.c myfsutil.c xmalloc.c
+OBJS        := $(SRCS:.c=.o)
 
 all: $(TARGET)
 
-$(TARGET): $(OBJ_FILES)
+$(TARGET): $(OBJS)
 
 clean:
 	-$(RM) *.o *.map
