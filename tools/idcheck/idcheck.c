@@ -57,14 +57,14 @@ static char *split_filename(char *const filename)
 
 /*---------------------------------------------------------------------------*/
 
-// Usage message:
+// Original message:
 // "id_check : id conflict checker for MGS\n"
 // "usage : id_check file1 file2 [file3 ...]\n"
 
 static void usage(const char *self)
 {
     eprintf("%s : id conflict checker for MGS\n", self);
-    eprintf("usage : id_check file1 file2 [file3 ...]\n");
+    eprintf("usage : %s file1 file2 [file3 ...]\n", self);
     exit(1);
 }
 
