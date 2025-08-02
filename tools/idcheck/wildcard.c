@@ -1,7 +1,6 @@
 // https://www.msys2.org/news/#2024-11-03-disabling-mingw-w64-wildcard-support-by-default
 // https://www.msys2.org/docs/c/#expanding-wildcard-arguments
 
-// https://github.com/Alexpux/mingw-w64/blob/master/mingw-w64-crt/crt/wildcard.c
 #if (defined(__MINGW32__) || defined(__MINGW64__))
 /**
  * This file has no copyright assigned and is placed in the Public Domain.
