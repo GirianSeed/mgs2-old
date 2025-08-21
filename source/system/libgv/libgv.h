@@ -61,11 +61,7 @@ typedef struct _GV_ACT {
     /* +0x24 */ int     field_24;
     /* +0x28 */ const char *filename;
     /* +0x2C */ int     field_2C;
-    /* +0x30 */ struct _GV_ACT *child;
-    /* +0x34 */ struct _GV_ACT *c_prev;
-    /* +0x38 */ struct _GV_ACT *c_next;
-    /* +0x3C */ int (*hook)(struct _GV_ACT *, int, int);
-} GV_ACT; /* sizeof:0x40 */
+} GV_ACT; /* sizeof:0x30 */
 
 typedef int (*GV_LOADFUNC)(void *, int);
 
