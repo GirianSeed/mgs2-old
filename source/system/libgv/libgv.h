@@ -55,13 +55,20 @@ typedef struct _GV_ACT {
     /* +0x10 */ struct _GV_ACT *prev;
     /* +0x14 */ void (*die)(struct _GV_ACT *);
     /* +0x18 */ void (*free)(void *);
-    /* +0x1C */ short   field_1C;
+    /* +0x1C */ short   priority;
     /* +0x1E */ short   field_1E;
-    /* +0x20 */ int     field_20;
-    /* +0x24 */ int     field_24;
+    /* +0x20 */ int     runtime;
+    /* +0x24 */ int     count;
     /* +0x28 */ const char *filename;
-    /* +0x2C */ int     field_2C;
+    /* +0x2C */ int     res1;
 } GV_ACT; /* sizeof:0x30 */
+
+typedef struct _GV_HOOK {
+    /* +0x00 */ GV_ACT *actor;
+    /* +0x04 */ GV_ACT *prev;
+    /* +0x08 */ GV_ACT *next;
+    /* +0x0C */ int (*func)(GV_ACT *, int, int);
+} GV_HOOK; /* sizeof:0x10 */
 
 typedef int (*GV_LOADFUNC)(void *, int);
 
