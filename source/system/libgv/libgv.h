@@ -72,11 +72,29 @@ typedef struct _GV_HOOK {
 
 typedef int (*GV_LOADFUNC)(void *, int);
 
+#define GV_NORMAL_MEMORY_TOP    ((void *)0xC00000)
+
+enum {
+    GV_REGION_RESIDENT = 3,
+};
+
 /* gvd.c */
 void GV_StartDaemon( void );
 
 /* strcode.c */
 int GV_StrCode( const char *string );
+
+/* cache.c */
+void GV_LoadInit(void *ptr, int name, int region);
+
+/* resident.c */
+void GV_InitResidentMemory(void);
+void GV_SetSystemResident(void);
+void GV_ResetResidentMemory(void);
+void *GV_AllocResidentMemory(int size, int id);
+void *GV_AllocResidentMemoryAligned(int size, int id, int align);
+void GV_LoadResidentMemory(void);
+int GV_GetResidentDataSize(void *ptr);
 
 #ifdef __cplusplus
 }
