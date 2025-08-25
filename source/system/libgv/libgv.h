@@ -50,11 +50,11 @@ extern "C" {
 #define GV_NORMAL_MEMORY        2
 #define GV_MEMORY_MAX           3
 
-#define GV_NORMAL_MEMORY_TOP    ((void *)0xC00000)
+#define GV_NORMAL_MEMORY_TOP    ((void *)0x00C00000)
 #define GV_NORMAL_MEMORY_SIZE   0xf00000 /* 15MiB */
 
-#define GV_PACKET_MEMORY0_TOP   ((void *))0x1b00000)
-#define GV_PACKET_MEMORY1_TOP   ((void *)0x1d00000)
+#define GV_PACKET_MEMORY0_TOP   ((void *)0x01b00000)
+#define GV_PACKET_MEMORY1_TOP   ((void *)0x01d00000)
 #define GV_PACKET_MEMORY_SIZE   0x200000 /* 2MiB */
 
 /*---------------------------------------------------------------------------*/
