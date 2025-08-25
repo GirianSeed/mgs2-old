@@ -70,6 +70,13 @@ typedef struct _GV_HOOK {
     /* +0x0C */ int (*func)(GV_ACT *, int, int);
 } GV_HOOK; /* sizeof:0x10 */
 
+typedef struct _GV_MEMALLOC {
+    /* +0x00 */ int size;
+    /* +0x04 */ int id;
+    /* +0x08 */ int res1;
+    /* +0x0C */ int res2;
+} GV_MEMALLOC /* sizeof:0x10 */;
+
 typedef int (*GV_LOADFUNC)(void *, int);
 
 #define GV_NORMAL_MEMORY_TOP    ((void *)0xC00000)
