@@ -5,11 +5,7 @@
 extern "C" {
 #endif
 
-//
-//
-//
-//
-//
+void MT_StartDaemon( void );
 
 #ifdef __cplusplus
 }

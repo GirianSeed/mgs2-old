@@ -87,7 +87,7 @@ static inline int GCL_GetStrCode( char *ptr )
 
 /* gcl_init.c */
 void GCL_ChangeSenerioCode( int code );
-void GCL_Initialize( void );
+void GCL_StartDaemon( void );
 void GCL_ResetSystem( void );
 
 /* basic.c */

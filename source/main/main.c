@@ -7,16 +7,70 @@
 #include <libdma.h>
 #include <libgraph.h>
 
+#include "../system/libgv/libgv.h"
+#include "../system/libfs/libfs.h"
+#include "../system/libdg/libdg.h"
+#include "../system/libhzx/libhzx.h"
+#include "../system/libgcl/libgcl.h"
+#include "../system/libmt/libmt.h"
+#include "../game/game.h"
+
 // from module/mts/mts.c
 extern void MTS_BootThread( char *name, void (*func)(), int pri,
                 void *stack_top, int stack_size, void *arg );
 
+// from module/sound/sd_ee.c
+extern void sd_init( void );
+
+// local to main/main.c
 extern int main_argc;
 extern char **main_argv;
 extern int main_thid;
 
 extern char main_stack[0x4000];
-extern void Main();
+
+// temporary externs
+extern void ResetIOP( void );
+extern void LoadModules( int addr );
+extern void DG_InitGraph( void );
+extern void MC_Init( int, int );
+extern void GV_ActorSystemExec( void );
+
+void Main()
+{
+    sceDevVif0Reset();
+    sceDevVif1Reset();
+    sceDevVu0Reset();
+    sceDevVu1Reset();
+    sceGsResetPath();
+    CacheOn();
+    sceDmaReset(1);
+    sceSifInitRpc(0);
+
+    for (int i = 0; i < main_argc; i++) {
+        /* do nothing */
+    }
+
+    ResetIOP();
+    LoadModules( GV_NORMAL_MEMORY_TOP );
+    DG_InitGraph();
+    GV_StartDaemon();
+    FS_StartDaemon();
+    DG_StartDaemon();
+    HZX_StartDaemon();
+    GCL_StartDaemon();
+    MT_StartDaemon();
+    GM_StartDaemon();
+    GV_SetSystemResident();
+    MC_Init(0, 1);
+    sd_init();
+
+    rand();
+
+    while (1) {
+        GV_ActorSystemExec();
+    }
+}
 
 int main( int argc, char *argv[] )
 {
