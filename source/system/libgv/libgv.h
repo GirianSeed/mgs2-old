@@ -45,6 +45,18 @@ extern "C" {
 #define PAD_L3          PAD_AL          // L3
 #define PAD_R3          PAD_AR          // R3
 
+#define GV_PACKET_MEMORY0       0
+#define GV_PACKET_MEMORY1       1
+#define GV_NORMAL_MEMORY        2
+#define GV_MEMORY_MAX           3
+
+#define GV_NORMAL_MEMORY_TOP    ((void *)0xC00000)
+#define GV_NORMAL_MEMORY_SIZE   0xf00000 /* 15MiB */
+
+#define GV_PACKET_MEMORY0_TOP   ((void *))0x1b00000)
+#define GV_PACKET_MEMORY1_TOP   ((void *)0x1d00000)
+#define GV_PACKET_MEMORY_SIZE   0x200000 /* 2MiB */
+
 /*---------------------------------------------------------------------------*/
 
 typedef struct _GV_ACT {
@@ -70,9 +82,30 @@ typedef struct _GV_HOOK {
     /* +0x0C */ int (*func)(GV_ACT *, int, int);
 } GV_HOOK; /* sizeof:0x10 */
 
-typedef int (*GV_LOADFUNC)(void *, int);
+typedef struct _GV_MEMALLOC {
+    /* +0x00 */ int size;
+    /* +0x04 */ int id;
+    /* +0x08 */ int res1;
+    /* +0x0C */ int res2;
+} GV_MEMALLOC /* sizeof:0x10 */;
 
-#define GV_NORMAL_MEMORY_TOP    ((void *)0xC00000)
+typedef struct _GV_MEMTAG {
+    /* +0x00 */ void *next;
+    /* +0x04 */ int size;
+    /* +0x08 */ int res1;
+    /* +0x0C */ int res2;
+} GV_MEMTAG; /* sizeof:0x10 */
+
+typedef struct _GV_MEMLIST {
+    /* +0x00 */ char *name;
+    /* +0x04 */ void *top;
+    /* +0x08 */ void *bottom;
+    /* +0x0C */ void *now_bottom;
+    /* +0x10 */ int align;
+    /* +0x14 */ GV_MEMTAG empty;
+} GV_MEMLIST; /* sizeof 0x24 */
+
+typedef int (*GV_LOADFUNC)(void *, int);
 
 enum {
     GV_REGION_RESIDENT = 3,
@@ -95,6 +128,11 @@ void *GV_AllocResidentMemory(int size, int id);
 void *GV_AllocResidentMemoryAligned(int size, int id, int align);
 void GV_LoadResidentMemory(void);
 int GV_GetResidentDataSize(void *ptr);
+
+/* memlist.c */
+void GV_MlBufferInit(GV_MEMLIST *list, char *name, void *top, void *bottom, int align);
+void *GV_MlMalloc(GV_MEMLIST *list, int size);
+void GV_MlFree(GV_MEMLIST *list, void *ptr, int size);
 
 #ifdef __cplusplus
 }
