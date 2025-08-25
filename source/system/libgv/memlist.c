@@ -73,9 +73,9 @@ void GV_MlFree(GV_MEMLIST *list, void *ptr, int size)
             tag->next = iter->next;
             tag->size = iter->size + size;
             prev->next = tag;
-        
+
             if (tag->next != NULL)
-            {            
+            {
                 if (((char *)tag->next + tag->next->size) == (char *)tag)
                 {
                     tag->next->size += tag->size;
@@ -85,7 +85,7 @@ void GV_MlFree(GV_MEMLIST *list, void *ptr, int size)
 
             return;
         }
-       
+
         if (((char *)iter + iter->size) == (char *)tag)
         {
             iter->size += size;
