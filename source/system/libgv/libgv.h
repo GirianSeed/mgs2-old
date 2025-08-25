@@ -45,6 +45,18 @@ extern "C" {
 #define PAD_L3          PAD_AL          // L3
 #define PAD_R3          PAD_AR          // R3
 
+#define GV_PACKET_MEMORY0       0
+#define GV_PACKET_MEMORY1       1
+#define GV_NORMAL_MEMORY        2
+#define GV_MEMORY_MAX           3
+
+#define GV_NORMAL_MEMORY_TOP    ((void *)0xC00000)
+#define GV_NORMAL_MEMORY_SIZE   0xf00000 /* 15MiB */
+
+#define GV_PACKET_MEMORY0_TOP   ((void *))0x1b00000)
+#define GV_PACKET_MEMORY1_TOP   ((void *)0x1d00000)
+#define GV_PACKET_MEMORY_SIZE   0x200000 /* 2MiB */
+
 /*---------------------------------------------------------------------------*/
 
 typedef struct _GV_ACT {
@@ -94,8 +106,6 @@ typedef struct _GV_MEMLIST {
 } GV_MEMLIST; /* sizeof 0x24 */
 
 typedef int (*GV_LOADFUNC)(void *, int);
-
-#define GV_NORMAL_MEMORY_TOP    ((void *)0xC00000)
 
 enum {
     GV_REGION_RESIDENT = 3,
