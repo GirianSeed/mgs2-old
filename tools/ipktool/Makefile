@@ -1,4 +1,7 @@
 #!/usr/bin/make -f
+#
+# ipktool Makefile
+#
 .PHONY: all clean clear
 
 CPPFLAGS    += -DDEBUG_PRINT

@@ -1,4 +1,7 @@
 #!/usr/bin/make -f
+#
+# StrCode Makefile
+#
 .PHONY: all clean
 
 CFLAGS          += -Wall

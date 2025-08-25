@@ -1,4 +1,7 @@
 #!/usr/bin/make -f
+#
+# idcheck Makefile
+#
 .PHONY: all clean
 
 CPPFLAGS    += -I../ipktool
