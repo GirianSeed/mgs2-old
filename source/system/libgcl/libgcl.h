@@ -98,15 +98,17 @@ extern GCL_ARGS gcl_null_args;
 
 void GCL_ResetCommList( void );
 int GCL_AddCommMulti( GCL_COMMANDDEF *def );
+int GCL_LoadScript( char *datatop );
 
 /* expr.c */
-int GCL_Expr( char *data );
+int GCL_Expr( char *data, int *retval );
 
 /* parse.c */
-//...
+void GCL_ParseInit( void );
 
 /* variable.c */
-//...
+void GCL_InitVar( void );
+void GCL_ResetLocalVar( void );
 
 #ifdef __cplusplus
 }

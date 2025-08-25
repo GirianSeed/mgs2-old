@@ -119,6 +119,7 @@ int GV_StrCode( const char *string );
 
 /* cache.c */
 void GV_LoadInit(void *ptr, int name, int region);
+void GV_SetLoader(int ext, GV_LOADFUNC);
 
 /* resident.c */
 void GV_InitResidentMemory(void);
