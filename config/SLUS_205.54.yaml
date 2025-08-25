@@ -1,0 +1,75 @@
+name: SLUS_205.54
+sha1: 0dce210e0d3fce2158141187cd6dc12dca57f02c
+options:
+  basename: cdrom.img/SLUS_205.54
+  target_path: cdrom.img/SLUS_205.54
+  base_path: ..
+  compiler: EEGCC
+  find_file_boundaries: True
+  platform: ps2
+  mips_abi_gpr: o32
+  mips_abi_float_regs: o32
+  create_undefined_funcs_auto: True
+  undefined_funcs_auto_path: config/undefined_funcs_auto.txt
+  create_undefined_syms_auto: True
+  undefined_syms_auto_path: config/undefined_syms_auto.txt
+  symbol_addrs_path: [config/symbol_addrs.txt, config/lib_symbol_addrs.txt]
+  asm_path: asm
+  src_path: .
+  build_path: build
+  extensions_path: tools/splat_ext
+  section_order: [".text", ".data", ".rodata", ".bss"]
+  auto_link_sections: [".rodata", ".data", ".bss"]
+  subalign: 16
+  disasm_unknown: True
+  hasm_in_src_path: True
+segments:
+  - [0, databin, header]
+  - name: main
+    type: code
+    start: 0x80
+    vram: 0x100000
+    bss_size: 0x3d364
+    subsegments:
+    - [0x80, asm, timestamp]
+    - [0x90, asm, sdk/crt0]
+    - [0x260, c, source/main/main]
+    - [0x3d0, c, source/system/libfs/libfs]
+    - [0x2e20, c, source/system/libmc/libmc]
+    - [0x4bc8, c, source/game/game]
+    - [0x1d500, c, source/system/libma/libma]
+    - [0x1ddc0, c, source/system/libmt/libmt]
+    - [0x1e318, c, source/system/libdg/libdg]
+
+    - [0x3ff20, c, source/system/libgv/gvd]
+    - [0x400c8, c, source/system/libgv/actor]
+    - [0x409e8, c, source/system/libgv/memory]
+    - [0x41100, c, source/system/libgv/pad]
+    - [0x42548, c, source/system/libgv/strcode]
+    - [0x42590, c, source/system/libgv/cache]
+    - [0x42a60, c, source/system/libgv/math]
+    - [0x444b0, c, source/system/libgv/message]
+    - [0x449b8, c, source/system/libgv/resident]
+    - [0x44af0, c, source/system/libgv/memlist]
+
+    - [0x44cd8, c, source/system/libhzx/libhzx]
+    - [0x54238, c, source/system/libgcl/libgcl]
+    - [0x56690, c, source/user/user] # maybe game+user
+    - [0x5fa48, c, module/mts/mts]
+    - [0x60298, c, module/cdbios/cdbios]
+    - [0x60698, c, module/sound/sound]
+    - [0x60808, c, module/jsifman/jsifman]
+    - [0x60eb8, c, module/zlibdec/zlibdec]
+    - [0x639f8, asm, sdk]
+    - [0x809e0, bin, vutext]
+    - [0x80b80, .data, main]
+    - [0x9884c, bin, ctors]
+    - [0x98854, bin, dtors]
+    - [0x98860, eh_frame]
+    - [0x98870, bin, vudata]
+    - [0xb2400, .rodata, main]
+    - [0xb5200, bin, reginfo]
+    - [0xb5218, bin, dvp]
+    - [0xcef01, bin, shstrtab]
+    - [0xcef01, bin, sect_headers]
+  - [0xd0323]
