@@ -60,7 +60,7 @@ void GV_LoadResidentMemory(void)
     GV_MEMALLOC *alloc;
 
     ptr = GV_ResidentMemoryTop;
-    while (ptr < GV_NORMAL_MEMORY_TOP)
+    while (ptr < (char *)GV_NORMAL_MEMORY_TOP)
     {
         alloc = (GV_MEMALLOC *)ptr;
 

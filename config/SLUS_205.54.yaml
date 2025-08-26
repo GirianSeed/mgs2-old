@@ -55,7 +55,11 @@ segments:
     - [0x44cd8, c, source/system/libhzx/libhzx]
     - [0x54238, c, source/system/libgcl/libgcl]
     - [0x56690, c, source/user/user] # maybe game+user
+
     - [0x5fa48, c, module/mts/mts]
+    - [0x5fdf8, c, module/mts/exception]
+    - [0x5fee8, c, module/mts/event]
+
     - [0x60298, c, module/cdbios/cdbios]
     - [0x60698, c, module/sound/sound]
     - [0x60808, c, module/jsifman/jsifman]
