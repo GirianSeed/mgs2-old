@@ -59,6 +59,7 @@ segments:
     - [0x5fa48, c, module/mts/mts]
     - [0x5fdf8, c, module/mts/exception]
     - [0x5fee8, c, module/mts/event]
+    - [0x601d0, c, module/mts/delay]
 
     - [0x60298, c, module/cdbios/cdbios]
     - [0x60698, c, module/sound/sound]

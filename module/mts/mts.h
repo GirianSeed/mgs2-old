@@ -31,7 +31,9 @@ int MTS_CreateEvent( MTS_EVENTFLAG *ef, int mask, int mode, int time );
 int MTS_IntrSetEvent( MTS_EVENTFLAG *ef, int value );
 int MTS_SetEvent( MTS_EVENTFLAG *ef, int value );
 int MTS_ClearEvent( MTS_EVENTFLAG *ef );
-void MTS_SleepThread( int time );
+
+/* delay.c */
+void MTS_DelayThread( int time );
 
 #ifdef __cplusplus
 }
