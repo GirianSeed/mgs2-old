@@ -1,4 +1,5 @@
 #include "mts.h"
+#include "mts_private.h"
 
 #include <eekernel.h>
 

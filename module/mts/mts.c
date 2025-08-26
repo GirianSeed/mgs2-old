@@ -1,4 +1,5 @@
 #include "mts.h"
+#include "mts_private.h"
 
 #include <eekernel.h>
 
@@ -153,6 +154,6 @@ void MTS_Exit(void)
 void MTS_Panic(void)
 {
 #if 0
-    *(int *)1 = 0;
+    MTS_HANGUP();
 #endif
 }

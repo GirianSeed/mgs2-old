@@ -1,4 +1,5 @@
 #include "mts.h"
+#include "mts_private.h"
 
 void MTS_SetPrintFunc(void (*func)(char *))
 {
