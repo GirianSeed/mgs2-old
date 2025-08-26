@@ -4,3 +4,6 @@
 
 # fmt_hzx.h: align whitespace to tabstops
 b890a9cd5899c840e6a8a4fffcdb5a44fe887cf1
+
+# Convert line endings for config directory
+0b622a18939eb33c76c7c4bdc3002743bd10a00c
