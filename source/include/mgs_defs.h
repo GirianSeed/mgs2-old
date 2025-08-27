@@ -1,8 +1,12 @@
 #ifndef __MGS2_MGS_DEFS_H__
 #define __MGS2_MGS_DEFS_H__
 
-#include <stddef.h>
+#include <stddef.h>     // for NULL
 #include <limits.h>
+
+// NOTE: ee-gcc 2.9/2.96's limits.h wrongly defines the minimum and maximum
+// values of 'long int' as if it were 32-bits wide, when it's actually 64-bits.
+// This problem was fixed with ee-gcc 3.2.
 
 /* MSVC defines _countof as an extension to stdlib.h */
 #ifndef _countof
@@ -89,6 +93,13 @@
 #define UNUSED          __attribute__((unused))
 #else
 #define UNUSED          /* discard */
+#endif
+
+// #define USE_STATIC_KEYWORD
+#ifdef USE_STATIC_KEYWORD
+#define STATIC          static
+#else
+#define STATIC          /* fake keyword for documentation */
 #endif
 
 /*---------------------------------------------------------------------------*/
