@@ -30,7 +30,7 @@ static int GCL_InitFunc( void *top, int id )
  * @brief   Sets which GCX script to load.
  *
  * Any additional GCX scripts loaded from the stage will be ignored.
- * The default script filename is "scenerio.gcx" (\c 0x00180720).
+ * The default script filename is "scenerio.gcx" ( \c 0x00180720 ).
  *
  * @remark  Yes I know the function name is spelled wrong.
  *
