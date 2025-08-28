@@ -1,5 +1,5 @@
 #include "common.h"
-#include "libgv.h"
+#include "memlist.h"
 
 void GV_MlBufferInit(GV_MEMLIST *list, char *name, void *top, void *bottom, int align)
 {
