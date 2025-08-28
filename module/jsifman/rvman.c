@@ -1,7 +1,7 @@
 #include "jsifman.h"
 
 #include <eekernel.h>
-#include <sifcmd.h>
+#include <sifcmd.h>     // for sceSifCmdHdr
 
 #define NUM_QUEUES 8
 

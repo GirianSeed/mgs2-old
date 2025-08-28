@@ -1,11 +1,11 @@
-#ifndef __KCEJ_SIFMAN_H__
-#define __KCEJ_SIFMAN_H__
+#ifndef __KCEJ_JSIFMAN_H__
+#define __KCEJ_JSIFMAN_H__
+
+#include <sys/types.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-#include <eetypes.h>
 
 /* libmain.c */
 int sif_set_callback_func(u_int pos, void (*func)(void *, void *), void *data);

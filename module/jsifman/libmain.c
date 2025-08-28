@@ -1,10 +1,10 @@
 #include "jsifman.h"
 
+#include <stdio.h>
 #include <eekernel.h>
 #include <sif.h>
 #include <sifcmd.h>
 #include <sifrpc.h>
-#include <stdio.h>
 
 #define CMDBUF_SIZE 3
 #define PACKET_SIZE 76
