@@ -61,9 +61,13 @@ segments:
     - [0x5fee8, c, module/mts/event]
     - [0x601d0, c, module/mts/delay]
 
-    - [0x60298, c, module/cdbios/cdbios]
-    - [0x60698, c, module/sound/sound]
-    - [0x60808, c, module/jsifman/jsifman]
+    - [0x60298, c, module/cdbios/cdbios_ee]
+
+    - [0x60698, c, module/sound/sd_ee]
+
+    - [0x60808, c, module/jsifman/libmain]
+    - [0x60bc0, c, module/jsifman/rvman]
+
     - [0x60eb8, c, module/zlibdec/zlibdec]
     - [0x639f8, asm, sdk]
     - [0x809e0, bin, vutext]
