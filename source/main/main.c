@@ -7,6 +7,9 @@
 #include <libdma.h>
 #include <libgraph.h>
 
+#include "iopload.h"
+#include "mts.h"
+
 #include "../system/libgv/libgv.h"
 #include "../system/libfs/libfs.h"
 #include "../system/libdg/libdg.h"
@@ -14,10 +17,6 @@
 #include "../system/libgcl/libgcl.h"
 #include "../system/libmt/libmt.h"
 #include "../game/game.h"
-
-// from module/mts/mts.c
-extern void MTS_BootThread( char *name, void (*func)(), int pri,
-                void *stack_top, int stack_size, void *arg );
 
 // from module/sound/sd_ee.c
 extern void sd_init( void );
@@ -30,14 +29,14 @@ extern int main_thid;
 extern char main_stack[0x4000];
 
 // temporary externs
-extern void ResetIOP( void );
-extern void LoadModules( int addr );
 extern void DG_InitGraph( void );
 extern void MC_Init( int, int );
 extern void GV_ActorSystemExec( void );
 
 void Main()
 {
+    int i;
+
     sceDevVif0Reset();
     sceDevVif1Reset();
     sceDevVu0Reset();
@@ -47,7 +46,7 @@ void Main()
     sceDmaReset(1);
     sceSifInitRpc(0);
 
-    for (int i = 0; i < main_argc; i++) {
+    for (i = 0; i < main_argc; i++) {
         /* do nothing */
     }
 
