@@ -94,7 +94,7 @@ int main(int argc, char *argv[])
         tbl[i].base_name = argv[i];
         tbl[i].ext_name = split_filename(argv[i]);
         tbl[i].strcode = MakeStrCodeId(
-            GV_StrCode24(tbl[i].base_name), (tbl[i].ext_name[0] - 'a'));
+            StrCode24(tbl[i].base_name), (tbl[i].ext_name[0] - 'a'));
     }
 
     for (int i=0; i < argc; i++) {

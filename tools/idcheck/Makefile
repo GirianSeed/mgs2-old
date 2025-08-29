@@ -4,19 +4,21 @@
 #
 .PHONY: all clean
 
-CPPFLAGS    += -I../ipktool
+CPPFLAGS    += -I../ipktool -I../strcode
 #CPPFLAGS    += -DALLOW_DOT_IN_BASENAME
 
 CFLAGS      += -Wall -Wno-unused-function -Wno-unused-label
-LDFLAGS     += #-Wl,-Map,$@.map
+LDFLAGS     += -L../strcode #-Wl,-Map,$@.map
+LDLIBS      += -lstrcode
 
 TARGET      ?= idcheck
-SRCS        := idcheck.c strcode.c wildcard.c
+SRCS        := idcheck.c wildcard.c
 OBJS        := $(SRCS:.c=.o)
 
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
+	$(CC) $(CFLAGS) $^ $(LDFLAGS) $(LDLIBS) -o $@
 
 # enable wildcard expansion for mingw-w64
 wildcard.o: CPPFLAGS += -D__ENABLE_GLOBBING=-1

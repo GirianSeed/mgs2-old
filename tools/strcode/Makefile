@@ -2,22 +2,27 @@
 #
 # StrCode Makefile
 #
-.PHONY: all clean
+.PHONY: all lib clean
 
 CFLAGS          += -Wall
 LDFLAGS         += -L. #-Wl,-Map,$@.map
 LDLIBS          += -lstrcode
 ARFLAGS         = -crsU
 
-LIBNAME         = libstrcode
-TARGET          = strcode
-TARGET1         = strcode16
-TARGET2         = strcode24
-TARGET3         = strcode32
+LIBNAME         := libstrcode
+LIBSRCS         += strcode.c
+LIBOBJS         := $(LIBSRCS:.c=.o)
 
-all: $(LIBNAME).a $(TARGET) $(TARGET1) $(TARGET2) $(TARGET3)
+TARGET          := strcode
+TARGET1         := strcode16
+TARGET2         := strcode24
+TARGET3         := strcode32
 
-$(LIBNAME).a: strcode.o
+all: lib $(TARGET) $(TARGET1) $(TARGET2) $(TARGET3)
+
+lib: $(LIBNAME).a
+
+$(LIBNAME).a: $(LIBOBJS)
 	$(AR) $(ARFLAGS) $@ $^
 
 $(TARGET): main.c

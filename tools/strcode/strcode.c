@@ -26,7 +26,7 @@
  *  @retval     0           if @p string is empty.
  *  @retval     non-zero    16-bit hash of @p string.
  */
-uint32_t GV_StrCode16( const char *string )
+int32_t StrCode16( const char *string )
 {
     unsigned char c;
     unsigned char *p = (unsigned char *)string;
@@ -66,7 +66,7 @@ uint32_t GV_StrCode16( const char *string )
  *  @retval      1          if @p string is empty.
  *  @retval     >1          24-bit hash of @p string.
  */
-uint32_t GV_StrCode24( const char *string )
+int32_t StrCode24( const char *string )
 {
     unsigned char c;
     unsigned char *p = (unsigned char *)string;
@@ -94,13 +94,14 @@ uint32_t GV_StrCode24( const char *string )
  *  @retval     0           if @p string is empty.
  *  @retval     non-zero    32-bit hash of @p string.
  */
-uint32_t GV_StrCode32( const char *string )
+uint32_t StrCode32( const char *string )
 {
     uint32_t c;
     int32_t n = 0;
     uint32_t id = 0;
 
-    while (( c = *string++ )) {
+    while (( c = *string++ ))
+    {
         id += ((id << (c & 0x0f)) | ((id >> 3) + (c << (n & 0x0f)) + c));
         n++;
     }

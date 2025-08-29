@@ -1,5 +1,5 @@
-#ifndef __STRCODE_H__
-#define __STRCODE_H__
+#ifndef INCLUDED_STRCODE_H
+#define INCLUDED_STRCODE_H
 
 #include <stdint.h>
 #include <limits.h>
@@ -8,9 +8,20 @@
 extern "C" {
 #endif
 
-uint32_t GV_StrCode16( const char *string );
-uint32_t GV_StrCode24( const char *string );
-uint32_t GV_StrCode32( const char *string );
+/* 16-bit string-hashing function.
+ * Originally from "METAL GEAR SOLID" (1998).
+ */
+int32_t StrCode16( const char *string );
+
+/* 24-bit string-hashing function.
+ * Originally from "METAL GEAR SOLID 2" (2001).
+ */
+int32_t StrCode24( const char *string );
+
+/* 32-bit string-hashing function.
+ * Originally from "ZONE OF THE ENDERS" (2001).
+ */
+uint32_t StrCode32( const char *string );
 
 #ifdef __cplusplus
 }
