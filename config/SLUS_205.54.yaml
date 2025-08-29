@@ -34,7 +34,12 @@ segments:
     - [0x80, asm, timestamp]
     - [0x90, asm, sdk/crt0]
     - [0x260, c, source/main/main]
-    - [0x3d0, c, source/system/libfs/libfs]
+    - [0x3d0, c, source/main/iopload]
+
+    - [0x538 , c, source/system/libfs/select]
+    - [0x710 , c, source/system/libfs/stageld]
+    - [0x2008, c, source/system/libfs/libfs]
+
     - [0x2e20, c, source/system/libmc/libmc]
     - [0x4bc8, c, source/game/game]
     - [0x1d500, c, source/system/libma/libma]
