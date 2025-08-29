@@ -18,6 +18,8 @@ typedef struct {
 
 extern FS_FILE_INFO fs_file_info[]; /* in file.cnf */
 
+extern int FS_CurrentLayer;
+
 #define FS_FILEID_STAGE         (0)     // stage.dat
 #define FS_FILEID_CODEC         (1)     // codec.dat
 #define FS_FILEID_FACE          (2)     // face.dat
@@ -33,6 +35,9 @@ extern FS_FILE_INFO fs_file_info[]; /* in file.cnf */
 
 /* select.c */
 void FS_StartDaemon( void );
+
+/* stageld.c */
+void FS_LoadStageDirectory(int layer);
 
 #ifdef __cplusplus
 }
