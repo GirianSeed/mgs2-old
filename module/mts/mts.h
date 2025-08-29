@@ -14,8 +14,8 @@ typedef struct {
 
 /* mts.c */
 void MTS_ExitThread( void );
-int MTS_NewThread( char *name, void *entry, int priority, void *stackp, int stack_size, void *arg );
-void MTS_BootThread( char *name, void *entry, int priority, void *stackp, int stack_size, void *arg );
+int MTS_NewThread( char *name, void (*entry)(), int pri, void *stack_top, int stack_size, void *arg );
+void MTS_BootThread( char *name, void (*entry)(), int pri, void *stack_top, int stack_size, void *arg );
 void MTS_Exit( void );
 void MTS_Panic( void );
 

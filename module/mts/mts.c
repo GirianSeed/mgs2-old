@@ -92,7 +92,7 @@ void NewThread(void *arg)
     MTS_ExitThread();
 }
 
-int MTS_NewThread(char *name, void *entry, int priority, void *stackp, int stack_size, void *arg)
+int MTS_NewThread(char *name, void (*entry)(), int pri, void *stack_top, int stack_size, void *arg)
 {
     struct ThreadParam param;
     MTS_THREAD *thread;
@@ -100,14 +100,14 @@ int MTS_NewThread(char *name, void *entry, int priority, void *stackp, int stack
     thread = new_thread();
 
     param.entry = NewThread;
-    param.stack = stackp;
+    param.stack = stack_top;
     param.stackSize = stack_size;
     param.gpReg = &__gp_reg;
-    param.initPriority = priority;
+    param.initPriority = pri;
     param.option = 0;
 
     thread->id = CreateThread(&param);
-    thread->priority = priority;
+    thread->priority = pri;
     thread->arg = arg;
     thread->entry = entry;
 
@@ -125,13 +125,13 @@ void init_threads(void)
     }
 }
 
-void MTS_BootThread(char *name, void *entry, int priority, void *stackp, int stack_size, void *arg)
+void MTS_BootThread(char *name, void (*entry)(), int pri, void *stack_top, int stack_size, void *arg)
 {
     InitThread();
     cprintf("MTS\n");
     init_threads();
 
-    MTS_NewThread(name, entry, priority, stackp, stack_size, arg);
+    MTS_NewThread(name, entry, pri, stack_top, stack_size, arg);
     SleepThread();
 }
 
