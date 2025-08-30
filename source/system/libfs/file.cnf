@@ -9,44 +9,44 @@
 FS_FILE_INFO fs_file_info[] = {
 #ifdef SUBSTANCE
 #ifdef _XBOX
-	{ "stage.dat",   0, 0, 0, 0, 0 },	// 0
-	{ "codec.dat",   0, 0, 0, 0, 0 },	// 1
-	{ "face.dat",    0, 0, 0, 0, 0 },	// 2
-	{ "movie.dat",   0, 0, 0, 0, 0 },	// 3
-	{ "vox.dat",     0, 0, 0, 0, 0 },	// 4
-	{ "demo.dat",    0, 0, 0, 0, 0 },	// 5
-	{ "movievr.dat", 0, 0, 0, 0, 0 },	// 6
-	{ NULL,          0, 0, 0, 0, 0 }
+    { "stage.dat",   0, 0, 0, 0, 0 },   // 0
+    { "codec.dat",   0, 0, 0, 0, 0 },   // 1
+    { "face.dat",    0, 0, 0, 0, 0 },   // 2
+    { "movie.dat",   0, 0, 0, 0, 0 },   // 3
+    { "vox.dat",     0, 0, 0, 0, 0 },   // 4
+    { "demo.dat",    0, 0, 0, 0, 0 },   // 5
+    { "movievr.dat", 0, 0, 0, 0, 0 },   // 6
+    { NULL,          0, 0, 0, 0, 0 }
 #else // _XBOX
-	{ "stage.dat",   0, 0, 1, 7, 0 },   // layer: 1 alt: stage2.dat
-	{ "codec.dat",   0, 0, 1, 1, 0 },   // layer: 1 alt: codec.dat
-	{ "face.dat",    0, 0, 1, 2, 0 },   // layer: 1 alt: face.dat
-	{ "movie.dat",   0, 0, 1, 6, 0 },   // layer: 1 alt: movievr.dat
-	{ "vox.dat",     0, 0, 1, 8, 0 },   // layer: 1 alt: vox2.dat
-	{ "demo.dat",    0, 0, 1, 9, 0 },   // layer: 1 alt: demo2.dat
-	{ "movievr.dat", 0, 0, 0, 6, 0 },   // layer: 1 alt: movievr.dat
-	{ "stage2.dat",  0, 0, 0, 0, 0 },   // layer: 0
-	{ "vox2.dat",    0, 0, 0, 0, 0 },   // layer: 0
-	{ "demo2.dat",   0, 0, 0, 0, 0 },   // layer: 0
-	{ NULL,          0, 0, 0, 0, 0 }    // layer: 0
+    { "stage.dat",   0, 0, 1, 7, 0 },   // layer: 1 alt: stage2.dat
+    { "codec.dat",   0, 0, 1, 1, 0 },   // layer: 1 alt: codec.dat
+    { "face.dat",    0, 0, 1, 2, 0 },   // layer: 1 alt: face.dat
+    { "movie.dat",   0, 0, 1, 6, 0 },   // layer: 1 alt: movievr.dat
+    { "vox.dat",     0, 0, 1, 8, 0 },   // layer: 1 alt: vox2.dat
+    { "demo.dat",    0, 0, 1, 9, 0 },   // layer: 1 alt: demo2.dat
+    { "movievr.dat", 0, 0, 0, 6, 0 },   // layer: 1 alt: movievr.dat
+    { "stage2.dat",  0, 0, 0, 0, 0 },   // layer: 0
+    { "vox2.dat",    0, 0, 0, 0, 0 },   // layer: 0
+    { "demo2.dat",   0, 0, 0, 0, 0 },   // layer: 0
+    { NULL,          0, 0, 0, 0, 0 }    // layer: 0
 #endif // _XBOX
 #elif defined(DOCUMENT_OF_MGS2)
-	{ "stage.dat",  0, 0, 0, 0, 0 },	// 0
-	{ "codec.dat",  0, 0, 0, 0, 0 },	// 1
-	{ "face.dat",   0, 0, 0, 0, 0 },	// 2
-	{ "movie.dat",  0, 0, 0, 0, 0 },	// 3
-	{ "vox.dat",    0, 0, 0, 0, 0 },	// 4
-	{ "demo.dat",   0, 0, 0, 0, 0 },	// 5
-	{ "movie2.dat", 0, 0, 0, 0, 0 },	// 6
-	{ NULL,         0, 0, 0, 0, 0 }
+    { "stage.dat",  0, 0, 0, 0, 0 },    // 0
+    { "codec.dat",  0, 0, 0, 0, 0 },    // 1
+    { "face.dat",   0, 0, 0, 0, 0 },    // 2
+    { "movie.dat",  0, 0, 0, 0, 0 },    // 3
+    { "vox.dat",    0, 0, 0, 0, 0 },    // 4
+    { "demo.dat",   0, 0, 0, 0, 0 },    // 5
+    { "movie2.dat", 0, 0, 0, 0, 0 },    // 6
+    { NULL,         0, 0, 0, 0, 0 }
 #else // SONS_OF_LIBERTY
-	{ "stage.dat",  0, 0, 0, 0, 0 },	// 0
-	{ "codec.dat",  0, 0, 0, 0, 0 },	// 1
-	{ "face.dat",   0, 0, 0, 0, 0 },	// 2
-	{ "movie.dat",  0, 0, 0, 0, 0 },	// 3
-	{ "vox.dat",    0, 0, 0, 0, 0 },	// 4
-	{ "demo.dat",   0, 0, 0, 0, 0 },	// 5
-	{ NULL,         0, 0, 0, 0, 0 }
+    { "stage.dat",  0, 0, 0, 0, 0 },    // 0
+    { "codec.dat",  0, 0, 0, 0, 0 },    // 1
+    { "face.dat",   0, 0, 0, 0, 0 },    // 2
+    { "movie.dat",  0, 0, 0, 0, 0 },    // 3
+    { "vox.dat",    0, 0, 0, 0, 0 },    // 4
+    { "demo.dat",   0, 0, 0, 0, 0 },    // 5
+    { NULL,         0, 0, 0, 0, 0 }
 #endif
 };
 
@@ -57,13 +57,13 @@ typedef struct {
 } FS_FILE_INFO;
 
 FS_FILE_INFO fs_file_info[] = {
-	{ "STAGE.DAT",  0 },	// 0
-	{ "CODEC.DAT",  0 },	// 1
-	{ "FACE.DAT",   0 },	// 2
-	{ "MOVIE.DAT",  0 },	// 3
-	{ "VOX.DAT",    0 },	// 4
-	{ "DEMO.DAT",   0 },	// 5
-	{ NULL,         0 }
+    { "STAGE.DAT",  0 },    // 0
+    { "CODEC.DAT",  0 },    // 1
+    { "FACE.DAT",   0 },    // 2
+    { "MOVIE.DAT",  0 },    // 3
+    { "VOX.DAT",    0 },    // 4
+    { "DEMO.DAT",   0 },    // 5
+    { NULL,         0 }
 };
 #endif
 
