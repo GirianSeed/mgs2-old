@@ -18,17 +18,17 @@ FS_FILE_INFO fs_file_info[] = {
     { "movievr.dat", 0, 0, 0, 0, 0 },   // 6
     { NULL,          0, 0, 0, 0, 0 }
 #else // _XBOX
-    { "stage.dat",   0, 0, 1, 7, 0 },   // layer: 1 alt: stage2.dat
-    { "codec.dat",   0, 0, 1, 1, 0 },   // layer: 1 alt: codec.dat
-    { "face.dat",    0, 0, 1, 2, 0 },   // layer: 1 alt: face.dat
-    { "movie.dat",   0, 0, 1, 6, 0 },   // layer: 1 alt: movievr.dat
-    { "vox.dat",     0, 0, 1, 8, 0 },   // layer: 1 alt: vox2.dat
-    { "demo.dat",    0, 0, 1, 9, 0 },   // layer: 1 alt: demo2.dat
-    { "movievr.dat", 0, 0, 0, 6, 0 },   // layer: 1 alt: movievr.dat
-    { "stage2.dat",  0, 0, 0, 0, 0 },   // layer: 0
-    { "vox2.dat",    0, 0, 0, 0, 0 },   // layer: 0
-    { "demo2.dat",   0, 0, 0, 0, 0 },   // layer: 0
-    { NULL,          0, 0, 0, 0, 0 }    // layer: 0
+    { "stage.dat",   0, 0, 1, 7, 0 },   // 0: layer: 1 alt: stage2.dat
+    { "codec.dat",   0, 0, 1, 1, 0 },   // 1: layer: 1 alt: codec.dat
+    { "face.dat",    0, 0, 1, 2, 0 },   // 2: layer: 1 alt: face.dat
+    { "movie.dat",   0, 0, 1, 6, 0 },   // 3: layer: 1 alt: movievr.dat
+    { "vox.dat",     0, 0, 1, 8, 0 },   // 4: layer: 1 alt: vox2.dat
+    { "demo.dat",    0, 0, 1, 9, 0 },   // 5: layer: 1 alt: demo2.dat
+    { "movievr.dat", 0, 0, 0, 6, 0 },   // 6: layer: 0 alt: movievr.dat
+    { "stage2.dat",  0, 0, 0, 0, 0 },   // 7: layer: 0
+    { "vox2.dat",    0, 0, 0, 0, 0 },   // 8: layer: 0
+    { "demo2.dat",   0, 0, 0, 0, 0 },   // 9: layer: 0
+    { NULL,          0, 0, 0, 0, 0 }
 #endif // _XBOX
 #elif defined(DOCUMENT_OF_MGS2)
     { "stage.dat",  0, 0, 0, 0, 0 },    // 0
