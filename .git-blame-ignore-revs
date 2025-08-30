@@ -7,3 +7,6 @@ b890a9cd5899c840e6a8a4fffcdb5a44fe887cf1
 
 # Convert line endings for config directory
 0b622a18939eb33c76c7c4bdc3002743bd10a00c
+
+# file.cnf: convert tab to space
+c2cd9f24da6c15e5b48b5a29444d877bd5c88ab5
