@@ -51,14 +51,19 @@ FS_FILE_INFO fs_file_info[] = {
 };
 
 #if 0 // 体験版
+typedef struct {
+    char *name;         // filename
+    u_int pos;          // start sector
+} FS_FILE_INFO;
+
 FS_FILE_INFO fs_file_info[] = {
-	{ "STAGE.DAT", 0x00000000, 0, 0, 0, 0 },
-	{ "CODEC.DAT", 0x00000000, 0, 0, 0, 0 },
-	{ "FACE.DAT",  0x00000000, 0, 0, 0, 0 },
-	{ "MOVIE.DAT", 0x00000000, 0, 0, 0, 0 },
-	{ "VOX.DAT",   0x00000000, 0, 0, 0, 0 },
-	{ "DEMO.DAT",  0x00000000, 0, 0, 0, 0 },
-	{ NULL,        0x00000000, 0, 0, 0, 0 }
+	{ "STAGE.DAT",  0 },	// 0
+	{ "CODEC.DAT",  0 },	// 1
+	{ "FACE.DAT",   0 },	// 2
+	{ "MOVIE.DAT",  0 },	// 3
+	{ "VOX.DAT",    0 },	// 4
+	{ "DEMO.DAT",   0 },	// 5
+	{ NULL,         0 }
 };
 #endif
 
