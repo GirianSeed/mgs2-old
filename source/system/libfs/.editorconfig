@@ -1,0 +1,6 @@
+root = false
+
+[*.cnf]
+tab_width       = 4
+indent_size     = tab
+indent_style    = space
