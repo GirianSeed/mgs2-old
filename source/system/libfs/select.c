@@ -27,15 +27,15 @@ void init_file_info(FS_FILE_INFO *info)
         {
             switch (info->media)
             {
-            case 0:
+            case FS_MEDIA_CDROM:
                 sprintf(name, "cdrom0:\\MGS2\\%s;1", info->name);
                 to_upper(name + 7);
                 name[5] = '0' + info->layer;
                 break;
-            case 1:
+            case FS_MEDIA_PFS:
                 sprintf(name, "pfs0:/mgs2/%s", info->name);
                 break;
-            case 2:
+            case FS_MEDIA_HOST:
                 sprintf(name, "host0:./%s", info->name);
                 break;
             }

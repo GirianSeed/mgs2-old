@@ -16,6 +16,10 @@ typedef struct {
     unsigned char pad;
 } FS_FILE_INFO;
 
+#define FS_MEDIA_CDROM  0   // cdrom0:
+#define FS_MEDIA_PFS    1   // pfs0:
+#define FS_MEDIA_HOST   2   // host0:
+
 extern FS_FILE_INFO fs_file_info[]; /* in file.cnf */
 
 extern int FS_CurrentLayer;
