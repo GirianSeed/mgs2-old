@@ -9,7 +9,7 @@ extern "C" {
 
 typedef struct {
     char *name;             // filename
-    u_int pos;              // start sector
+    u_int offset;           // start sector
     unsigned char media;    // media type
     unsigned char layer;    // layer number (0 or 1)
     unsigned char alt;      // alternate file
