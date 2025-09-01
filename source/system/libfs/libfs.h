@@ -41,7 +41,15 @@ extern int FS_CurrentLayer;
 void FS_StartDaemon( void );
 
 /* stageld.c */
-void FS_LoadStageDirectory(int layer);
+void FS_LoadStageDir(int layer);
+void *FS_LoadStageRequest(char *name);
+void FS_LoadStageSync(void *info);
+void FS_LoadStageComplete(void *info);
+void FS_SeekStage(char *name);
+void FS_00101F48(int name);
+
+/* stream.c */
+int FS_StreamBusy(void);
 
 #ifdef __cplusplus
 }

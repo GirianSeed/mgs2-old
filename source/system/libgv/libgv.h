@@ -98,6 +98,15 @@ enum {
 /* gvd.c */
 void GV_StartDaemon( void );
 
+/* TODO: actor.c */
+
+/* memory.c */
+void *GV_MallocAligned( int which, void **outp, int size, int align );
+int GV_GetMaxMem( int which );
+void GV_ZeroMemory( void *ptr, int size );
+void *GV_Malloc( int size );
+void GV_Free( void *ptr );
+
 /* strcode.c */
 int GV_StrCode( const char *string );
 
@@ -113,6 +122,8 @@ void *GV_AllocResidentMemory(int size, int id);
 void *GV_AllocResidentMemoryAligned(int size, int id, int align);
 void GV_LoadResidentMemory(void);
 int GV_GetResidentDataSize(void *ptr);
+
+/* TODO: message.c */
 
 #ifdef __cplusplus
 }
