@@ -68,6 +68,9 @@
 #define CLAMP(x, min, max) (MAX(MIN(x, max), min))
 //#define CLAMP(x, min, max) (((x) < (min)) ? (min) : ((x) > (max)) ? (max) : (x))
 //#define CLAMP(x, min, max) (((x) > (max)) ? (max) : ((x) < (min)) ? (min) : (x))
+
+#define ALIGN_BLOCKS(x, a)  (((x) + (a) - 1) / (a))
+#define ALIGN_SIZE(x, a)    (ALIGN_BLOCKS(x, a) * (a))
 #endif
 
 /* Macros for counting and rounding. */
