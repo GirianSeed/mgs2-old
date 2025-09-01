@@ -1,5 +1,5 @@
-#ifndef __KCEJ_CDBIOS_H__
-#define __KCEJ_CDBIOS_H__
+#ifndef __KCEJ_CDBIOS_EE_H__
+#define __KCEJ_CDBIOS_EE_H__
 
 #include <libcdvd.h>
 
