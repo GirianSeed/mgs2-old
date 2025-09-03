@@ -3,7 +3,7 @@
 #include <ctype.h>
 #include <stdio.h>
 
-#include "cdbios.h"
+#include "cdbios_ee.h"
 
 /* somewhere in libfs */
 void FS_001006F8(void);
