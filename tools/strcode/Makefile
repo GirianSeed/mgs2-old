@@ -4,7 +4,7 @@
 #
 .PHONY: all lib clean
 
-CFLAGS          += -Wall
+CFLAGS          += -O2 -Wall
 LDFLAGS         += -L. #-Wl,-Map,$@.map
 LDLIBS          += -lstrcode
 ARFLAGS         = -crsU
