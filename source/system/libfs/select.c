@@ -3,7 +3,7 @@
 #include <ctype.h>
 #include <stdio.h>
 
-#include "cdbios.h"
+#include "cdbios_ee.h"
 
 /* somewhere in libfs */
 void FS_001006F8(void);
@@ -60,8 +60,8 @@ void FS_StartDaemon(void)
     FS_CurrentLayer = 1;
     init_file_info(fs_file_info);
 
-    FS_LoadStageDirectory(0);
-    FS_LoadStageDirectory(1);
+    FS_LoadStageDir(0);
+    FS_LoadStageDir(1);
 
     FS_CurrentLayer = 0;
     FS_00101F88();
