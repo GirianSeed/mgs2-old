@@ -4,6 +4,8 @@
 #
 .PHONY: all lib clean
 
+CPPFLAGS        += -I../include
+
 CFLAGS          += -O2 -Wall
 LDFLAGS         += -L. #-Wl,-Map,$@.map
 LDLIBS          += -lstrcode

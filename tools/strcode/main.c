@@ -8,18 +8,7 @@
 #include <limits.h>
 
 #include "strcode.h"
-
-/******************************************************************************
- * global #defines
- */
-
-#if defined(__GNUC__)
-# define eprintf(format, ...) fprintf(stderr, format, ##__VA_ARGS__)
-# define oprintf(format, ...) fprintf(stdout, format, ##__VA_ARGS__)
-#else
-# define eprintf(format, ...) fprintf(stderr, format __VA_OPT__(,) __VA_ARGS__)
-# define oprintf(format, ...) fprintf(stdout, format __VA_OPT__(,) __VA_ARGS__)
-#endif
+#include "eprintf.h"
 
 /******************************************************************************
  * main routine
