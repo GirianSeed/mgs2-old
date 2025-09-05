@@ -10,8 +10,9 @@
 #include <utime.h>
 #include <getopt.h>
 
-#include "mydefs.h"
-#include "mybswap.h"
+#include "cmdefs.h"
+#include "cmbswap.h"
+#include "eprintf.h"
 #include "myfsutil.h"
 #include "xmalloc.h"
 
@@ -101,10 +102,10 @@ typedef struct {
 
 static void get_ipk_taginfo(const ipkModuleTag *modtag, iopMetaData *mdata)
 {
-    mdata->paksize = my_le32toh(modtag->paksize);
-    mdata->elfsize = my_le32toh(modtag->elfsize);
-    mdata->strsize = my_le32toh(modtag->strsize);
-    mdata->pad0    = my_le32toh(modtag->pad0);
+    mdata->paksize = CM_le32toh(modtag->paksize);
+    mdata->elfsize = CM_le32toh(modtag->elfsize);
+    mdata->strsize = CM_le32toh(modtag->strsize);
+    mdata->pad0    = CM_le32toh(modtag->pad0);
 }
 
 static void *get_ipk_modinfo(const ipkModuleTag *modtag, iopMetaData *mdata)

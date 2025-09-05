@@ -1,7 +1,7 @@
 #include <stddef.h>
 #include <stdlib.h>
 
-#include "mydefs.h"
+#include "eprintf.h"
 #include "xmalloc.h"
 
 /******************************************************************************

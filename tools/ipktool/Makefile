@@ -4,7 +4,9 @@
 #
 .PHONY: all clean clear
 
+CPPFLAGS    += -I../include
 CPPFLAGS    += -DDEBUG_PRINT
+
 CFLAGS      += -Wall -Wno-unused-function -Wno-unused-label
 LDFLAGS     += -Wl,-Map,$@.map
 

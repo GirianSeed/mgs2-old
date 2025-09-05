@@ -5,7 +5,7 @@
 #include <ctype.h>
 #include <assert.h>
 
-#include "mydefs.h"
+#include "eprintf.h"
 #include "strcode.h"
 
 /*---------------------------------------------------------------------------*/

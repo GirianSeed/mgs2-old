@@ -4,7 +4,7 @@
 #
 .PHONY: all clean
 
-CPPFLAGS    += -I../ipktool -I../strcode
+CPPFLAGS    += -I../include -I../strcode
 #CPPFLAGS    += -DALLOW_DOT_IN_BASENAME
 
 CFLAGS      += -Wall -Wno-unused-function -Wno-unused-label
