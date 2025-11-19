@@ -11,7 +11,7 @@ void ResetIOP(void)
 {
     sceCdInit(SCECdINIT);
     sceCdMmode(SCECdDVD);
-    
+
     while (!sceSifRebootIop("cdrom0:\\MODULES\\IOPRP255.IMG;1"));
     while (!sceSifSyncIop());
 
