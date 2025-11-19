@@ -1,3 +1,4 @@
+#include "strcode.h"
 #include <stdint.h>
 #include <limits.h>
 

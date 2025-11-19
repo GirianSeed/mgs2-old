@@ -1,5 +1,5 @@
-#ifndef __JX_EPRINTF_H__
-#define __JX_EPRINTF_H__
+#ifndef __JOYDIV_EPRINTF_H__
+#define __JOYDIV_EPRINTF_H__
 
 #include <stddef.h>
 #include <stdio.h>
