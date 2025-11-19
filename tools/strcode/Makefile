@@ -2,7 +2,6 @@
 #
 # StrCode Makefile
 #
-.PHONY: all lib clean
 
 CPPFLAGS        += -I../include
 
@@ -20,8 +19,10 @@ TARGET1         := strcode16
 TARGET2         := strcode24
 TARGET3         := strcode32
 
+.PHONY: all
 all: lib $(TARGET) $(TARGET1) $(TARGET2) $(TARGET3)
 
+.PHONY: lib
 lib: $(LIBNAME).a
 
 $(LIBNAME).a: $(LIBOBJS)
@@ -42,6 +43,7 @@ $(TARGET3): CPPFLAGS += -DUSE_ZOE1_STRCODE_ONLY
 $(TARGET3): main.c
 	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ $^ $(LDFLAGS) $(LDLIBS)
 
+.PHONY: clean
 clean:
 	-$(RM) $(TARGET)
 	-$(RM) $(TARGET1)
