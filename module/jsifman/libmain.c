@@ -115,22 +115,22 @@ u_int i_sif_send_packet_and_data(u_int pos, u_int type, void *cp, int ps, void *
     return id;
 }
 
-void sif_send_direct(u_int pos, u_int type, void *cp, int ps, void *dst, void *src, int size)
+u_int sif_send_direct(u_int pos, u_int type, void *cp, int ps, void *dst, void *src, int size)
 {
     sceSifCmdHdr *cmd;
 
     cmd = cp;
     cmd->opt = type;
-    sceSifSendCmd(pos, cmd, ps, src, dst, size);
+    return sceSifSendCmd(pos, cmd, ps, src, dst, size);
 }
 
-void i_sif_send_direct(u_int pos, u_int type, void *cp, int ps, void *dst, void *src, int size)
+u_int i_sif_send_direct(u_int pos, u_int type, void *cp, int ps, void *dst, void *src, int size)
 {
     sceSifCmdHdr *cmd;
 
     cmd = cp;
     cmd->opt = type;
-    isceSifSendCmd(pos, cmd, ps, src, dst, size);
+    return isceSifSendCmd(pos, cmd, ps, src, dst, size);
 }
 
 u_int i_sif_send_mem(void *addr, void *data, u_int size)
