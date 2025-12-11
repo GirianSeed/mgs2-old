@@ -118,12 +118,12 @@ void *sif_rv_get_queue(void)
     return NULL;
 }
 
-void sif_rv_call_func(u_int pos, u_int type, void *packet)
+u_int sif_rv_call_func(u_int pos, u_int type, void *packet)
 {
     RV_PACKET *pkt;
 
     pkt = packet;
-    sif_send_packet_and_data(pos, type, pkt, sizeof(*pkt), NULL, NULL, 0);
+    return sif_send_packet_and_data(pos, type, pkt, sizeof(*pkt), NULL, NULL, 0);
 }
 
 u_int sif_rv_return_value(void *packet)

@@ -21,7 +21,7 @@ int sif_init(void);
 /* rvman.c */
 int sif_init_rv_man(void);
 void *sif_rv_get_queue(void);
-void sif_rv_call_func(u_int pos, u_int type, void *packet);
+u_int sif_rv_call_func(u_int pos, u_int type, void *packet);
 u_int sif_rv_return_value(void *packet);
 u_int i_sif_rv_return_value(void *packet);
 void sif_rv_release_queue(void *packet);
