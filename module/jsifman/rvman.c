@@ -3,6 +3,8 @@
 #include <eekernel.h>
 #include <sifcmd.h>     // for sceSifCmdHdr
 
+/*---------------------------------------------------------------------------*/
+
 #define NUM_QUEUES 8
 
 #define SIF_POS 0
@@ -27,6 +29,8 @@ extern int init_flag;
 extern int SIF_RV_Queue_id;
 extern RV_PACKET SIF_RV_Queue[NUM_QUEUES];
 
+/*---------------------------------------------------------------------------*/
+
 static inline void rv_cmd_return_value(RV_PACKET *packet, RV_PACKET *queue)
 {
     int index;
@@ -48,6 +52,8 @@ static inline void rv_cmd_get_mem(RV_PACKET *packet)
     packet->index |= 0x80000000;
     i_sif_send_packet_and_data(SIF_POS, CMD_RETVAL, packet, sizeof(*packet), packet->dst, packet->src, packet->size);
 }
+
+/*---------------------------------------------------------------------------*/
 
 void rv_man_callback(void *cp, void *data)
 {

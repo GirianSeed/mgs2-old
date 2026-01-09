@@ -6,6 +6,8 @@
 #include <sifcmd.h>
 #include <sifrpc.h>
 
+/*---------------------------------------------------------------------------*/
+
 #define CMDBUF_SIZE 3
 #define PACKET_SIZE 76
 
@@ -18,6 +20,8 @@ extern int callback_set_flag;
 extern int init_flag;
 
 extern sceSifCmdData sifcmd_buffer[CMDBUF_SIZE];
+
+/*---------------------------------------------------------------------------*/
 
 int sif_set_callback_func(u_int pos, sceSifCmdHandler func, void *data)
 {
