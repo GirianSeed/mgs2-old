@@ -3,18 +3,11 @@
 
 #include <stddef.h>     // for size_t
 #include <limits.h>     // for MIN/MAX
-#include <sys/types.h>
+#include "sys_types.h"
 #include "mgs_defs.h"
 
 #ifdef __R5900__
 #include <eetypes.h>    // for u_long128
-#endif
-#ifdef _MSC_VER
-// MSVC's <sys/types.h> doesn't have these.
-typedef unsigned char   u_char;
-typedef unsigned short  u_short;
-typedef unsigned int    u_int;
-typedef unsigned long   u_long;
 #endif
 
 /*---------------------------------------------------------------------------*/
