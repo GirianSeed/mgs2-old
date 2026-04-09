@@ -40,6 +40,15 @@
 //#define CLAMP(x, min, max) (((x) > (max)) ? (max) : ((x) < (min)) ? (min) : (x))
 #endif
 
+// TODO: Can't use __typeof__ with old MSVC.
+#ifndef SWAP
+#define SWAP(a, b)                                              \
+    do {                                                        \
+        __typeof__(a) _temp = (a);                              \
+        (a) = (b); (b) = _temp;                                 \
+    } while (0)
+#endif
+
 /* Macros for counting and rounding. */
 #ifndef HOWMANY
 #define HOWMANY(x,y)    (((x) + ((y) - 1)) / (y))
