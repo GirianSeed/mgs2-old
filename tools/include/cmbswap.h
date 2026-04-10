@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: MIT */
 /*
- * Copyright (C) 2025 Jonathan Ingram
+ * Copyright (C) 2025-2026 Jonathan Ingram
  *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
@@ -20,13 +20,13 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-#ifndef __JX_CMBSWAP_H__
-#define __JX_CMBSWAP_H__
+#ifndef INCLUDED_CMBSWAP_H
+#define INCLUDED_CMBSWAP_H
 
 #include <stddef.h>
 #include <stdint.h>
 #include <string.h>     // for memcpy
-#include "cmdefs.h"     // for __GNUC_PREREQ
+#include "gcctest.h"    // for __GNUC_PREREQ
 
 #ifdef __cplusplus
 extern "C" {
@@ -36,9 +36,9 @@ extern "C" {
  * Platform Endianness #defines
  */
 
-#define CM_BIG_ENDIAN           4321    /* 0x11223344 */
-#define CM_LITTLE_ENDIAN        1234    /* 0x44332211 */
-#define CM_PDP_ENDIAN           3412    /* 0x22114433 */
+#define CM_BIG_ENDIAN           4321
+#define CM_LITTLE_ENDIAN        1234
+#define CM_PDP_ENDIAN           3412
 
 #if (defined(__BYTE_ORDER__)                                    \
           &&(__BYTE_ORDER__==__ORDER_BIG_ENDIAN__))             \
@@ -53,9 +53,8 @@ extern "C" {
 #define CM_BYTE_ORDER           CM_LITTLE_ENDIAN
 #endif
 
-/* Only for checking at runtime */
-#define CM_IS_BIG_ENDIAN        (*(const uint16_t *)"\0\xff" < 0x100)
-#define CM_IS_LITTLE_ENDIAN     (*(const uint16_t *)"\0\xff" >= 0x100)
+#define CM_IS_BIG_ENDIAN        (CM_BYTE_ORDER == CM_BIG_ENDIAN)
+#define CM_IS_LITTLE_ENDIAN     (CM_BYTE_ORDER == CM_LITTLE_ENDIAN)
 
 /******************************************************************************
  * Standard API implementation
@@ -100,7 +99,7 @@ static inline uint64_t CM_bswap64( uint64_t x )
 // https://man7.org/linux/man-pages/man3/htons.3p.html
 // https://man7.org/linux/man-pages/man3/htonl.3p.html
 
-#if (CM_BYTE_ORDER == CM_BIG_ENDIAN)
+#if CM_IS_BIG_ENDIAN
 #define CM_htons(n)     ((uint16_t)(n))
 #define CM_ntohs(n)     ((uint16_t)(n))
 #define CM_htonl(n)     ((uint32_t)(n))
@@ -119,7 +118,7 @@ static inline uint64_t CM_bswap64( uint64_t x )
 // <endian.h> functions
 // https://man7.org/linux/man-pages/man3/endian.3.html
 
-#if (CM_BYTE_ORDER == CM_BIG_ENDIAN)
+#if CM_IS_BIG_ENDIAN
 #define CM_htobe16(n)   ((uint16_t)(n))
 #define CM_htobe32(n)   ((uint32_t)(n))
 #define CM_htobe64(n)   ((uint64_t)(n))
@@ -199,12 +198,12 @@ static inline double CM_SwapDouble( double val )
     return temp.f64;
 }
 
-/* SDL_endian.h-Style #defines */
+/* SDL-Style #defines */
 #define CM_Swap16(x)            CM_SwapInt16(x)
 #define CM_Swap32(x)            CM_SwapInt32(x)
 #define CM_Swap64(x)            CM_SwapInt64(x)
 
-#if (CM_BYTE_ORDER == CM_BIG_ENDIAN)
+#if CM_IS_BIG_ENDIAN
 #define CM_Swap16BE(x)          (x)
 #define CM_Swap32BE(x)          (x)
 #define CM_Swap64BE(x)          (x)
@@ -232,12 +231,12 @@ static inline double CM_SwapDouble( double val )
  * Runtime Endianness Check helpers
  */
 
-static inline int CM_CheckBigEndian( void )
+static inline int CM_IsBigEndian( void )
 {
     const uint32_t test = 0x01ffff00;
     return (*(const uint8_t *)&test == 0x01);
 }
-static inline int CM_CheckLittleEndian( void )
+static inline int CM_IsLittleEndian( void )
 {
     const uint32_t test = 0x00ffff01;
     return (*(const uint8_t *)&test == 0x01);
@@ -288,7 +287,7 @@ static inline void CM_store64( uint8_t *ptr, uint64_t val )
  * "FOURCC" ID Constant helpers
  */
 
-#if (CM_BYTE_ORDER == CM_BIG_ENDIAN)
+#if CM_IS_BIG_ENDIAN
 #define CM_FOURCC(A, B, C, D)                                   \
     ((uint32_t)(((uint32_t)(unsigned char)(A) << 24) |          \
                 ((uint32_t)(unsigned char)(B) << 16) |          \
@@ -303,7 +302,7 @@ static inline void CM_store64( uint8_t *ptr, uint64_t val )
 #endif
 
 /* for multi-char constants */
-#if (CM_BYTE_ORDER == CM_BIG_ENDIAN)
+#if CM_IS_BIG_ENDIAN
 #define CM_FOURCC_MCC(mcc)      ((uint32_t)(mcc))
 #else
 #define CM_FOURCC_MCC(mcc)                                      \
