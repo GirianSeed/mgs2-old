@@ -7,9 +7,9 @@
 extern "C" {
 #endif
 
-int32_t StrCode16( const char *string );
-int32_t StrCode24( const char *string );
-uint32_t StrCode32( const char *string );
+int32_t GV_StrCode16( const char *string );
+int32_t GV_StrCode24( const char *string );
+uint32_t GV_StrCode32( const char *string );
 
 #ifdef __cplusplus
 }
