@@ -1,4 +1,4 @@
-#include <stddef.h>
+#include <stddef.h>     // for NULL
 #include <eekernel.h>
 #include <libgraph.h>
 #include <sif.h>
@@ -11,13 +11,15 @@
 #define CACHED(p)       ((void *)((unsigned int)(p) & 0x1fffffff))
 #define UNCACHED(p)     ((void *)((unsigned int)(p) | 0x20000000))
 
+/*---------------------------------------------------------------------------*/
+
 #define SIF_POS         1
 
 #define CMD_SETADDR     0
 
 static u_char status[16] __attribute__((aligned(64)));
 
-int sd_init( void )
+int sd_init(void)
 {
     sif_init();
     sif_init_rv_man();
@@ -30,31 +32,27 @@ int sd_init( void )
     return 1;
 }
 
-void sd_set_cli( int sound_code )
+void sd_set_cli(int sound_code)
 {
     ((u_int *)UNCACHED(status))[1] |= 0x80000000;
     sif_send_packet_and_data(SIF_POS, sound_code, NULL, 0, NULL, NULL, 0);
 
-    if ((sound_code & 0xFF000000) == 0xFE000000)
-    {
-        do
-        {
+    if ((sound_code & 0xFF000000) == 0xFE000000) {
+        do {
             sceGsSyncV(0);
         } while (!(((u_int *)UNCACHED(status))[1] & 0x7));
     }
 
-    if ((sound_code & 0xFF000000) == 0xF1000000)
-    {
+    if ((sound_code & 0xFF000000) == 0xF1000000) {
         ((u_int *)UNCACHED(status))[1] |= 0x1000;
     }
 
-    if ((sound_code & 0xFF000000) == 0xF3000000)
-    {
+    if ((sound_code & 0xFF000000) == 0xF3000000) {
         ((u_int *)UNCACHED(status))[1] |= 0x2000;
     }
 }
 
-void *sd_status( void )
+void *sd_status(void)
 {
     return UNCACHED(status);
 }
