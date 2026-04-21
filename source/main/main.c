@@ -8,7 +8,8 @@
 #include <libgraph.h>
 
 #include "iopload.h"
-#include "mts.h"
+#include "mts.h"        // for MTS_BootThread
+#include "sd_ee.h"      // for sd_init
 
 #include "../system/libgv/libgv.h"
 #include "../system/libfs/libfs.h"
@@ -17,9 +18,6 @@
 #include "../system/libgcl/libgcl.h"
 #include "../system/libmt/libmt.h"
 #include "../game/game.h"
-
-// from module/sound/sd_ee.c
-extern void sd_init( void );
 
 // local to main/main.c
 extern int main_argc;
