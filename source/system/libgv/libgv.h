@@ -45,6 +45,8 @@ extern "C" {
 #define PAD_L3          PAD_AL          // L3
 #define PAD_R3          PAD_AR          // R3
 
+/*---------------------------------------------------------------------------*/
+
 #define GV_PACKET_MEMORY0       0
 #define GV_PACKET_MEMORY1       1
 #define GV_NORMAL_MEMORY        2
@@ -94,6 +96,8 @@ typedef int (*GV_LOADFUNC)(void *, int);
 enum {
     GV_REGION_RESIDENT = 3,
 };
+
+/*---------------------------------------------------------------------------*/
 
 /* gvd.c */
 void GV_StartDaemon( void );
