@@ -21,7 +21,7 @@ extern void sd_init( void );
 
 // temporary externs
 extern void sub_4F6160( void );
-extern void GV_ActorSystemExec( void );
+extern void GV_ExecActorSystem( void );
 
 void Main()
 {
@@ -36,7 +36,7 @@ void Main()
     sub_4F6160(); // EU addr.
 
     while (1) {
-        GV_ActorSystemExec();
+        GV_ExecActorSystem();
     }
 }
 
