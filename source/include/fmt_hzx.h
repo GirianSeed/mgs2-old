@@ -7,6 +7,7 @@
 extern "C" {
 #endif
 
+/*---------------------------------------------------------------------------*/
 /**
  * Hazard patrol point
  *
@@ -37,6 +38,7 @@ typedef struct _HZX_PAT {
     u_int       pad;            // always zero
 } HZX_PAT;
 
+/*---------------------------------------------------------------------------*/
 /**
  * Hazard clearing patrol point
  *
@@ -83,6 +85,7 @@ typedef struct _HZX_CLR {
     u_int       unknown3;
 } HZX_CLR;
 
+/*---------------------------------------------------------------------------*/
 /**
  * Hazard camera
  *
@@ -102,6 +105,7 @@ typedef struct _HZX_CAM {
     u_int       value;
 } HZX_CAM;
 
+/*---------------------------------------------------------------------------*/
 /**
  * Hazard zone
  *
@@ -121,6 +125,7 @@ typedef struct _HZX_ZON {
 
 #define HZX_NO_ZONE (0xFF)
 
+/*---------------------------------------------------------------------------*/
 /**
  * Hazard object
  *
@@ -138,6 +143,7 @@ typedef struct _HZX_OBJ {
     void        *reference;     // Used for space at run-time
 } HZX_OBJ;
 
+/*---------------------------------------------------------------------------*/
 /**
  * Hazard trap (a.k.a "trigger volume")
  *
@@ -149,6 +155,7 @@ typedef struct _HZX_TRP {
     u_int       name;
 } HZX_TRP;
 
+/*---------------------------------------------------------------------------*/
 /**
  * Hazard volume
  *
@@ -173,6 +180,7 @@ typedef struct _HZX_VLM {
     HZX_TRP     *traps;
 } HZX_VLM;
 
+/*---------------------------------------------------------------------------*/
 /**
  * Hazard group
  *
@@ -202,6 +210,7 @@ typedef struct _HZX_GRP {
     void        *dynamic;       // Used for space at run-time
 } HZX_GRP;
 
+/*---------------------------------------------------------------------------*/
 /**
  * Hazard map
  *

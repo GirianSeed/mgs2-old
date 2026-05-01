@@ -8,7 +8,8 @@
 #include <libgraph.h>
 
 #include "iopload.h"
-#include "mts.h"
+#include "mts.h"        // for MTS_BootThread
+#include "sd_ee.h"      // for sd_init
 
 #include "../system/libgv/libgv.h"
 #include "../system/libfs/libfs.h"
@@ -19,9 +20,6 @@
 #include "../system/libmc/libmc.h"
 #include "../game/game.h"
 
-// from module/sound/sd_ee.c
-extern void sd_init( void );
-
 // local to main/main.c
 extern int main_argc;
 extern char **main_argv;
@@ -31,7 +29,6 @@ extern char main_stack[0x4000];
 
 // temporary externs
 extern void DG_InitGraph( void );
-extern void GV_ActorSystemExec( void );
 
 void Main()
 {
@@ -67,7 +64,7 @@ void Main()
     rand();
 
     while (1) {
-        GV_ActorSystemExec();
+        GV_ExecActorSystem();
     }
 }
 

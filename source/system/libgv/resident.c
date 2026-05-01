@@ -23,7 +23,7 @@ void *GV_AllocResidentMemory(int size, int id)
 {
     GV_MEMALLOC *alloc;
 
-    size = (size + sizeof(*alloc) + 15) & ~15;
+    size = ROUNDUP2(size + sizeof(*alloc), 16);
 
     alloc = GV_ResidentMemoryTop - size;
     GV_ResidentMemoryTop = alloc;
