@@ -21,7 +21,6 @@ extern void sd_init( void );
 
 // temporary externs
 extern void sub_4F6160( void );
-extern void GV_ExecActorSystem( void );
 
 void Main()
 {

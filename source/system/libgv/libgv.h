@@ -126,6 +126,7 @@ enum {
 void GV_StartDaemon( void );
 
 /* TODO: actor.c */
+void GV_ExecActorSystem( void );
 
 /* memory.c */
 void *GV_MallocAligned( int which, void **outp, int size, int align );

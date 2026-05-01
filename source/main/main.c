@@ -29,7 +29,6 @@ extern char main_stack[0x4000];
 // temporary externs
 extern void DG_InitGraph( void );
 extern void MC_Init( int, int );
-extern void GV_ExecActorSystem( void );
 
 void Main()
 {
