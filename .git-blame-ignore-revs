@@ -13,3 +13,6 @@ c2cd9f24da6c15e5b48b5a29444d877bd5c88ab5
 
 # iopload.c: trim trailing whitespace
 ed0cf182c9db0add717b826c332e026ba4a53cdb
+
+# mts/delay.c: stylistic change
+c8063267512084e43d8e94116b06a701d77686f0
