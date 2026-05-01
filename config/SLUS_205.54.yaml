@@ -39,8 +39,7 @@ segments:
     - [0x538 , c, source/system/libfs/select]
     - [0x710 , c, source/system/libfs/stageld]
     - [0x2008, c, source/system/libfs/stream]
-
-    - [0x2a48, c, source/system/libmc/libmc]
+    - [0x2dd8, c, source/system/libmc/libmc]
     - [0x4bc8, c, source/game/game]
     - [0x1d500, c, source/system/libma/libma]
     - [0x1ddc0, c, source/system/libmt/libmt]
