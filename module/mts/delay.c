@@ -21,9 +21,8 @@ void MTS_DelayThread(int time)
 
     if (time > 0)
     {
-        do
-        {
-            unit = (time > 0xFFFF) ? 0xFFFF : time;
+        do {
+            unit = (time > 0xffff) ? 0xffff : time;
 
             if (SetAlarm(unit, delay_callback, &thread_id) < 0)
             {
