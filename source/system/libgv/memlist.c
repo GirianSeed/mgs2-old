@@ -31,7 +31,7 @@ void *GV_MlMalloc(GV_MEMLIST *list, int size)
     GV_MEMTAG *iter;
     GV_MEMTAG *next;
 
-    asize = ((size + list->align - 1) / list->align) * list->align;
+    asize = ROUNDUP(size, list->align);
     align = (list->align < 16) ? 16 : list->align;
 
     for (prev = iter = &list->empty; iter != NULL; prev = iter, iter = iter->next)
