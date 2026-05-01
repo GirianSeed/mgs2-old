@@ -32,7 +32,7 @@ void *GV_MlMalloc(GV_MEMLIST *list, int size)
     GV_MEMTAG *next;
 
     asize = ROUNDUP(size, list->align);
-    align = (list->align < 16) ? 16 : list->align;
+    align = MAX(list->align, 16);
 
     for (prev = iter = &list->empty; iter != NULL; prev = iter, iter = iter->next)
     {
