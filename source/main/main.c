@@ -17,6 +17,7 @@
 #include "../system/libhzx/libhzx.h"
 #include "../system/libgcl/libgcl.h"
 #include "../system/libmt/libmt.h"
+#include "../system/libmc/libmc.h"
 #include "../game/game.h"
 
 // local to main/main.c
@@ -28,7 +29,6 @@ extern char main_stack[0x4000];
 
 // temporary externs
 extern void DG_InitGraph( void );
-extern void MC_Init( int, int );
 
 void Main()
 {
@@ -58,7 +58,7 @@ void Main()
     MT_StartDaemon();
     GM_StartDaemon();
     GV_SetSystemResident();
-    MC_Init(0, 1);
+    MC_Init(NULL, 1);
     sd_init();
 
     rand();
