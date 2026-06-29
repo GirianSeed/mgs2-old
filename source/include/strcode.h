@@ -6,7 +6,7 @@
 #define GCX_scenerio            0x00180720  // GV_StrCode("scenerio")
 #define GCX_boss                0x0032cad3  // GV_StrCode("boss")
 
-/* libgcl/basic.c */
+/* system/libgcl/basic.c */
 #define CMD_if                  0x00000d86  // GV_StrCode("if")
 #define CMD_switch              0x00a65db5  // GV_StrCode("switch")
 #define CMD_eval                0x0034648c  // GV_StrCode("eval")
@@ -24,1073 +24,1126 @@
 #define CMD_map                 0x0001c090  // GV_StrCode("map")
 #define CMD_restart             0x006bb005  // GV_StrCode("restart")
 
-/*---------------------------------------------------------------------------*/
-// Chara IDs unique to only one version of the game have been marked with
-// the following specmarks (in parentheses):
-//
-// - TRIAL-EDITION-ONLY         Only found in MGS2: TRIAL EDITION
-// - SONS-OF-LIBERTY-ONLY       Only found in MGS2: SONS OF LIBERTY
-// - DOCUMENT-OF-MGS2-ONLY      Only found in THE DOCUMENT OF MGS2
-// - SUBSTANCE-ONLY             Only found in MGS2: SUBSTANCE
-//
-// Currently, chara IDs unique to Sons of Liberty, Substance, and
-// The Document of MGS2's "VR TRAINING" mode have been left unmarked.
-//
-// NOTE: Most function names were taken from MGS4 (2006.09.07 builds).
-// NOTE: The "-->" arrow indicates that the chara function is a caller of
-//       another NewChara function belonging to the listed source file.
+/* user/mode/codec/codecitp.c */
+#define CMD_block               0x0057c8d1  // GV_StrCode("block")
+#define CMD_talk                0x003b91eb  // GV_StrCode("talk")
+#define CMD_minden              0x00c89dee  // GV_StrCode("minden")
+#define CMD_mindds              0x00c89dd3  // GV_StrCode("mindds")
+#define CMD_movie               0x0009658c  // GV_StrCode("movie")
+#define CMD_selectmenu          0x00409c51  // GV_StrCode("selectmenu")
+#define CMD_savemode            0x008bfa17  // GV_StrCode("savemode")
+#define CMD_player              0x00f271f8  // GV_StrCode("player")
+#define CMD_face                0x003490c5  // GV_StrCode("face")
+#define CMD_hair                0x00359192  // GV_StrCode("hair")
+#define CMD_object              0x0056a1b8  // GV_StrCode("object")
+#define CMD_cancelmtn           0x00ede73a  // GV_StrCode("cancelmtn")
+#define CMD_lightcol            0x00bf1560  // GV_StrCode("lightcol")
+#define CMD_ambientcol          0x00abc569  // GV_StrCode("ambientcol")
+#define CMD_lightvec            0x00bf6017  // GV_StrCode("lightvec")
+#define CMD_mindvoice           0x00099515  // GV_StrCode("mindvoice")
+#define CMD_facecamera          0x006c54ba  // GV_StrCode("facecamera")
+#define CMD_tracecamera         0x00ec568b  // GV_StrCode("tracecamera")
+#define CMD_facelimit           0x005f6325  // GV_StrCode("facelimit")
+#define CMD_facedelay           0x00dd5e29  // GV_StrCode("facedelay")
+#define CMD_memregist           0x00f576fe  // GV_StrCode("memregist")
+#define CMD_getmemfreq          0x004d912f  // GV_StrCode("getmemfreq")
+#define CMD_rand                0x003a9224  // GV_StrCode("rand")
+#define CMD_prefreq             0x0084f1fb  // GV_StrCode("prefreq")
+#define CMD_setfreq             0x0074f2a2  // GV_StrCode("setfreq")
+#define CMD_callcount           0x00cf8612  // GV_StrCode("callcount")
+#define CMD_vox                 0x0001e658  // GV_StrCode("vox")
+#define CMD_defmtn              0x0084c3bc  // GV_StrCode("defmtn")
+#define CMD_dispen              0x00cb4ddc  // GV_StrCode("dispen")
+#define CMD_dispds              0x00cb4dc1  // GV_StrCode("dispds")
+#define CMD_wait                0x003d1194  // GV_StrCode("wait")
+#define CMD_vibration           0x00c513b8  // GV_StrCode("vibration")
+#define CMD_earthq              0x004ade41  // GV_StrCode("earthq")
+#define CMD_bugface             0x00a4aa35  // GV_StrCode("bugface")
+#define CMD_noise               0x001932cc  // GV_StrCode("noise")
+#define CMD_fdexit              0x00746e66  // GV_StrCode("fdexit")
+#define CMD_eyeclose            0x006b11d5  // GV_StrCode("eyeclose")
+#define CMD_vibplay             0x0059daf1  // GV_StrCode("vibplay")
+#define CMD_bugeyes             0x00a48a83  // GV_StrCode("bugeyes")
 
-#define CHARA_RAIN              0x000016cb  // GV_StrCode("雨") rain.c
-#define CHARA_000041e7          0x000041e7  // bonbori_red.c
-#define CHARA_000041e8          0x000041e8  // bonbori_red.c
-#define CHARA_00004c00          0x00004c00
-#define CHARA_0000d1c5          0x0000d1c5
-#define CHARA_000129c5          0x000129c5
-#define CHARA_abs               0x000190b3  // GV_StrCode("abs") NewGclAbs
-#define CHARA_cos               0x00019a53  // GV_StrCode("cos") NewGclCos
-#define CHARA_0001a4f3          0x0001a4f3  // rad_point.c
-#define CHARA_LINE_SPLASH       0x0001a6dd  // GV_StrCode("ライン水飛沫") line_sph.c
-#define CHARA_sin               0x0001d98e  // GV_StrCode("sin") NewGclSin
-#define CHARA_00020bd1          0x00020bd1
-#define CHARA_000219ae          0x000219ae  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_000223d1          0x000223d1
-#define CHARA_000255b6          0x000255b6
-#define CHARA_0002ead3          0x0002ead3
-#define CHARA_000381ac          0x000381ac
-#define CHARA_00040715          0x00040715  // NewFortHang
-#define CHARA_000423c8          0x000423c8  // anmtex.c
-#define CHARA_00053da0          0x00053da0  // NewGclVarClear
-#define CHARA_0005603b          0x0005603b
-#define CHARA_0005872d          0x0005872d  // fat_ikef.c
-#define CHARA_0005b165          0x0005b165
-#define CHARA_0005b611          0x0005b611
-#define CHARA_0005c815          0x0005c815  // shdwdraw.c
-#define CHARA_0005d91d          0x0005d91d
-#define CHARA_CAMERA            0x00061ade  // GV_StrCode("カメラ") camera.c:NewCamera
-#define CHARA_0006a23b          0x0006a23b
-#define CHARA_0006e0fc          0x0006e0fc
-#define CHARA_00075d93          0x00075d93
-#define CHARA_0007e215          0x0007e215  // check_slater.c
-#define CHARA_0007eb71          0x0007eb71  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_000823b5          0x000823b5
-#define CHARA_00084719          0x00084719
-#define CHARA_0008bffc          0x0008bffc
-#define CHARA_00091159          0x00091159
-#define CHARA_0009462b          0x0009462b  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_0009bf85          0x0009bf85
-#define CHARA_0009c02f          0x0009c02f
-#define CHARA_0009c0e8          0x0009c0e8
-#define CHARA_0009c107          0x0009c107
-#define CHARA_000a4d33          0x000a4d33  // fort.c
-#define CHARA_000a7cfb          0x000a7cfb  // selectscr.c
-#define CHARA_000acf09          0x000acf09
-#define CHARA_000b1261          0x000b1261  // ripple_bubble.c
-#define CHARA_000b6ed3          0x000b6ed3  // twin_dr.c
-#define CHARA_000ba748          0x000ba748  // ventilatorlit.c
-#define CHARA_000bd712          0x000bd712  // scn_break.c
-#define CHARA_000c02f4          0x000c02f4
-#define CHARA_000c3d82          0x000c3d82  // vr_map_3d.c
-#define CHARA_000d02fd          0x000d02fd  // mirror.c
-#define CHARA_000da8bf          0x000da8bf
-#define CHARA_000daf2a          0x000daf2a  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_000ded8c          0x000ded8c  // vrpitfall.c
-#define CHARA_000dfadb          0x000dfadb
-#define CHARA_000ecdfd          0x000ecdfd
-#define CHARA_000f57ba          0x000f57ba
-#define CHARA_000f9473          0x000f9473  // NewEMA (?)
-#define CHARA_000ff733          0x000ff733
-#define CHARA_0010cf2f          0x0010cf2f  // theater.c
-#define CHARA_00116021          0x00116021  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_0011c021          0x0011c021  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_00122e63          0x00122e63
-#define CHARA_00124bf9          0x00124bf9
-#define CHARA_PLAYER            0x00128946  // GV_StrCode("プレイヤー") raiden.c:NewPlayer
-#define CHARA_0012b592          0x0012b592
-#define CHARA_0012c9d0          0x0012c9d0  // zako_title.c
-#define CHARA_001395b5          0x001395b5  // powspplit.c
-#define CHARA_0013972d          0x0013972d  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_0013ca47          0x0013ca47
-#define CHARA_001418b1          0x001418b1
-#define CHARA_0015984a          0x0015984a
-#define CHARA_00164ee0          0x00164ee0  // bullet_bar.c
-#define CHARA_0016d56c          0x0016d56c  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_00170393          0x00170393  // waterlinefall.c
-#define CHARA_0017078b          0x0017078b
-#define CHARA_BREAK_PAPER       0x00175436  // GV_StrCode("プット紙オブジェ") brk_paper.c
-#define CHARA_0017a315          0x0017a315  // command.c
-#define CHARA_0017ea77          0x0017ea77  // tng_monitor_control_42a.c
-#define CHARA_0017eab7          0x0017eab7  // tng_monitor_control_44a.c
-#define CHARA_00182073          0x00182073
-#define CHARA_0018d40b          0x0018d40b
-#define CHARA_0018e1f5          0x0018e1f5
-#define CHARA_0018f412          0x0018f412  // tngcom.c
-#define CHARA_0018fd89          0x0018fd89  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_0019358b          0x0019358b
-#define CHARA_0019bd75          0x0019bd75
-#define CHARA_001a8068          0x001a8068  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_001aae5f          0x001aae5f
-#define CHARA_001af0d5          0x001af0d5  // scr_bubble.c
-#define CHARA_001af731          0x001af731  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_RADAR             0x001af92a  // GV_StrCode("レーダー") radar.c
-#define CHARA_001b5854          0x001b5854  // putspot.c
-#define CHARA_001b841f          0x001b841f  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_001b970c          0x001b970c  // newgame.c
-#define CHARA_001c4a30          0x001c4a30
-#define CHARA_001c5eb9          0x001c5eb9
-#define CHARA_001cb7b7          0x001cb7b7
-#define CHARA_FATMAN            0x001cbd93  // GV_StrCode("ファットマン") fatman.c
-#define CHARA_001d32ed          0x001d32ed
-#define CHARA_VR_SYSTEM         0x001d5983  // GV_StrCode("ＶＲシステム") vr_sys.c
-#define CHARA_001d9c73          0x001d9c73
-#define CHARA_001de43b          0x001de43b
-#define CHARA_001dfdfb          0x001dfdfb
-#define CHARA_MANHATTAN         0x001e44b7  // GV_StrCode("マンハッタン") manhat3d.c
-#define CHARA_ENDING            0x001f119a  // GV_StrCode("エンディング") endingx.c
-#define CHARA_001f2a23          0x001f2a23  // eddogtag.c
-#define CHARA_001f4349          0x001f4349
-#define CHARA_001f567b          0x001f567b
-#define CHARA_002055ca          0x002055ca
-#define CHARA_00206929          0x00206929  // shdwdrw2.c
-#define CHARA_00209027          0x00209027  // box_hidden.c
-#define CHARA_0022ae7d          0x0022ae7d  // clear_result.c
-#define CHARA_00231fa7          0x00231fa7
-#define CHARA_00238684          0x00238684  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_00247947          0x00247947
-#define CHARA_VR_WINDOW         0x0024c03e  // GV_StrCode("ＶＲウィンドウ") vr_window.c
-#define CHARA_0024c830          0x0024c830
-#define CHARA_0024d360          0x0024d360
-#define CHARA_00256eee          0x00256eee
-#define CHARA_00259167          0x00259167  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_0025d789          0x0025d789  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_00262b46          0x00262b46  // st_select.c
-#define CHARA_00264c7d          0x00264c7d  // chim_smo.c
-#define CHARA_TANKER_CAM_STATUS 0x00264d3f  // GV_StrCode("タンカーカメラステータス")
-#define CHARA_0026844e          0x0026844e  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_00268585          0x00268585  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_0026aab9          0x0026aab9
-#define CHARA_00274b60          0x00274b60
-#define CHARA_00276926          0x00276926
-#define CHARA_0027e580          0x0027e580
-#define CHARA_002948a0          0x002948a0  // padvib4.c
-#define CHARA_002981fa          0x002981fa
-#define CHARA_0029c817          0x0029c817
-#define CHARA_0029d24d          0x0029d24d
-#define CHARA_002a088b          0x002a088b  // gnrl_poly.c
-#define CHARA_AKIKAN            0x002a0b46  // GV_StrCode("あきかん") kan.c
-#define CHARA_002a41c7          0x002a41c7  // dm_fr.c
-#define CHARA_002a4246          0x002a4246  // map_3d.c
-#define CHARA_002b8e16          0x002b8e16  // vamp.c
-#define CHARA_002c4b35          0x002c4b35
-#define CHARA_002d77d4          0x002d77d4
-#define CHARA_002dad24          0x002dad24  // f_focus.c
-#define CHARA_002df578          0x002df578  // shavedsnake.c
-#define CHARA_002e2acb          0x002e2acb
-#define CHARA_002e4eeb          0x002e4eeb  // boss_pause.c
-#define CHARA_002eb280          0x002eb280
-#define CHARA_002efa26          0x002efa26
-#define CHARA_002f3844          0x002f3844
-#define CHARA_002f9fe3          0x002f9fe3
-#define CHARA_002fd1d7          0x002fd1d7
-#define CHARA_0030aea3          0x0030aea3  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_ELEVATOR          0x0030e9cc  // GV_StrCode("エレベータ") elevator.c
-#define CHARA_00311e8e          0x00311e8e  // hostage.c
-#define CHARA_003124a2          0x003124a2  // scncamvib.c
-#define CHARA_003129d0          0x003129d0
-#define CHARA_0031d58b          0x0031d58b  // strmfadr.c
-#define CHARA_0032564f          0x0032564f  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_DEFENDER          0x003259e5  // GV_StrCode("長廊下兵") defender.c
-#define CHARA_atan              0x00325c8e  // GV_StrCode("atan") NewGclAtan
-#define CHARA_0032fb70          0x0032fb70
-#define CHARA_0033993d          0x0033993d  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_00339bd9          0x00339bd9
-#define CHARA_demo              0x0033a20f  // GV_StrCode("demo") NewPolygonDemoStart
-#define CHARA_0033d38e          0x0033d38e
-#define CHARA_00344e5b          0x00344e5b
-#define CHARA_003470c9          0x003470c9
-#define CHARA_0034cc13          0x0034cc13
-#define CHARA_0035804e          0x0035804e
-#define CHARA_00358d2f          0x00358d2f
-#define CHARA_MAP               0x0035a2cf  // GV_StrCode("マップ") map.c
-#define CHARA_BREAK_MAGAZINE    0x003625b1  // GV_StrCode("プット雑誌オブジェ") brk_magazine.c
-#define CHARA_00363be8          0x00363be8
-#define CHARA_003640f6          0x003640f6  // play_disap.c
-#define CHARA_00365d11          0x00365d11  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_BREAK_SPOTLIGHT   0x00365dee  // GV_StrCode("プットスポットライトオブジェ") brk_spotlgt.c
-#define CHARA_00368f7d          0x00368f7d
-#define CHARA_0037014d          0x0037014d  // gllcom.c
-#define CHARA_00374069          0x00374069  // har_sdmng.c
-#define CHARA_00374bbe          0x00374bbe  // gunspin.c
-#define CHARA_00374cb5          0x00374cb5
-#define CHARA_VR_GAMEOVER       0x0037700f  // GV_StrCode("特殊ＶＲゲームオーバー")
-#define CHARA_003780f6          0x003780f6  // play_ap.c
-#define CHARA_0038d44e          0x0038d44e  // command.c (clearing?)
-#define CHARA_SHADOW_MOSES      0x00397fd4  // GV_StrCode("シャドーモセス") previous_story.c
-#define CHARA_003a6f25          0x003a6f25  // bul_c4.c
-#define CHARA_rand              0x003a9224  // GV_StrCode("rand") NewRand
-#define CHARA_003acf19          0x003acf19  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_003af581          0x003af581
-#define CHARA_003b1909          0x003b1909  // node_lamp.c
-#define CHARA_003c2410          0x003c2410  // raiden_mask_bubble.c
-#define CHARA_003c27e3          0x003c27e3  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_003c56aa          0x003c56aa  // namedetect.c
-#define CHARA_003d3b06          0x003d3b06
-#define CHARA_003d5d04          0x003d5d04
-#define CHARA_003d9d2e          0x003d9d2e
-#define CHARA_003dfd0b          0x003dfd0b
-#define CHARA_003e7b6f          0x003e7b6f
-#define CHARA_003ef35f          0x003ef35f  // lens_flr_gm.c
-#define CHARA_003f0a3f          0x003f0a3f  // NewGetLapTime
-#define CHARA_003f46ec          0x003f46ec
-#define CHARA_003f55fc          0x003f55fc  // brooklyn.c
-#define CHARA_003f9531          0x003f9531  // mcchkscrx.c
-#define CHARA_003fcd73          0x003fcd73  // command5.c
-#define CHARA_BREAK_ICEBOX      0x0040f2ae  // GV_StrCode("プットアイスボックスオブジェ") brk_icebox.c
-#define CHARA_00413144          0x00413144  // beltobj.c
-#define CHARA_004147a5          0x004147a5  // sejimaku.c (sejimaku.h)
-#define CHARA_004152df          0x004152df  // body_slater.c
-#define CHARA_0041cf4e          0x0041cf4e
-#define CHARA_0041f1f7          0x0041f1f7  // beltconv.c
-#define CHARA_0042181a          0x0042181a
-#define CHARA_0042dd7c          0x0042dd7c  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_00438ffa          0x00438ffa  // scr_waterfilm.c
-#define CHARA_CAMERA_SET        0x0043f718  // GV_StrCode("カメラ設定") COM_SetCamera
-#define CHARA_004481ed          0x004481ed
-#define CHARA_0044b9c2          0x0044b9c2  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_004508c2          0x004508c2
-#define CHARA_00450c64          0x00450c64
-#define CHARA_004534c4          0x004534c4
-#define CHARA_0045e12e          0x0045e12e
-#define CHARA_004610f8          0x004610f8
-#define CHARA_0046139a          0x0046139a  // glass_scar.c:NewGlassScarBase
-#define CHARA_004683b0          0x004683b0
-#define CHARA_00469b3a          0x00469b3a
-#define CHARA_0046b814          0x0046b814
-#define CHARA_0046fcd2          0x0046fcd2  // ENEMEM_GclRenewMemory
-#define CHARA_00470def          0x00470def  // automenu.c
-#define CHARA_00475ca4          0x00475ca4
-#define CHARA_00476790          0x00476790
-#define CHARA_KBD_EXEC          0x0047d37a  // kbdexec.c:NewKbdExec
-#define CHARA_004847d2          0x004847d2  // set_t_fc.c
-#define CHARA_0048f8f8          0x0048f8f8  // spottex.c
-#define CHARA_004909b5          0x004909b5
-#define CHARA_00492a40          0x00492a40  // routemdl.c
-#define CHARA_00494239          0x00494239  // get_newitem.c
-#define CHARA_00497be6          0x00497be6
-#define CHARA_0049c14f          0x0049c14f  // emma_equip.c
-#define CHARA_0049d6f1          0x0049d6f1  // putatach_scn.c
-#define CHARA_0049eb5e          0x0049eb5e
-#define CHARA_004a0018          0x004a0018  // easylayout.c
-#define CHARA_CODEC_SET         0x004a243a  // GV_StrCode("無線設定")
-#define CHARA_004a3697          0x004a3697
-#define CHARA_004a65ba          0x004a65ba
-#define CHARA_004a777d          0x004a777d  // wave2.c
-#define CHARA_004a8b88          0x004a8b88
-#define CHARA_004a8df9          0x004a8df9
-#define CHARA_004a90a1          0x004a90a1
-#define CHARA_004b5435          0x004b5435  // put_flag.c
-#define CHARA_SPLASH_FALL       0x004baafe  // GV_StrCode("落下水飛沫") d_splash_fall.c
-#define CHARA_004bab34          0x004bab34  // charaspread.c
-#define CHARA_004bf8e6          0x004bf8e6
-#define CHARA_004cbfc5          0x004cbfc5  // elevator_lamp.c
-#define CHARA_004cefc1          0x004cefc1  // shiftmem.c
-#define CHARA_VR_SELECT         0x004cfe6e  // GV_StrCode("ＶＲセレクト") vr_select.c
-#define CHARA_004d1dd3          0x004d1dd3  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_004e1bd6          0x004e1bd6  // mirror2.c
-#define CHARA_004e8280          0x004e8280
-#define CHARA_004f576c          0x004f576c  // rai_nude_ik.c
-#define CHARA_004fb2ca          0x004fb2ca  // orga_obj.c
-#define CHARA_PARALLEL_LIGHT    0x004fe997  // GV_StrCode("平行光")
-#define CHARA_00502332          0x00502332  // waterfall.c
-#define CHARA_00502681          0x00502681  // bridge_exp.c
-#define CHARA_0050396f          0x0050396f
-#define CHARA_005141af          0x005141af
-#define CHARA_00515453          0x00515453
-#define CHARA_0051dc64          0x0051dc64
-#define CHARA_SV_CAMERA         0x00522db5  // GV_StrCode("監視カメラ") sv_camera.c
-#define CHARA_005282a9          0x005282a9
-#define CHARA_0053209a          0x0053209a  // orga_hid.c
-#define CHARA_00532262          0x00532262  // brk_object.c
-#define CHARA_00532f32          0x00532f32  // brk_radle.c
-#define CHARA_0053baf5          0x0053baf5  // efct_flow.c
-#define CHARA_0053cffa          0x0053cffa  // har_main.c
-#define CHARA_0053e970          0x0053e970  // xstagebreak.c
-#define CHARA_00540ac2          0x00540ac2
-#define CHARA_foreach           0x00542b2d  // GV_StrCode("foreach") NewForeach
-#define CHARA_00547041          0x00547041  // rising_smoke.c
-#define CHARA_DOOR_LAMP         0x0054b365  // GV_StrCode("ドアランプ") door_lamp.c
-#define CHARA_0054eca9          0x0054eca9  // c_light_spot.c
-#define CHARA_0055080c          0x0055080c  // bgscr.c
-#define CHARA_00552c76          0x00552c76  // c4_ice_mng.c
-#define CHARA_DOOR              0x0055b942  // GV_StrCode("ドア") door.c
-#define CHARA_0055bb53          0x0055bb53  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_005686ae          0x005686ae
-#define CHARA_0056b5cb          0x0056b5cb  // bladeply.c
-#define CHARA_0056e08c          0x0056e08c  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_MAP_CONNECT       0x0056e234  // GV_StrCode("マップ接合") mapcnct.c
-#define CHARA_MAP_SET           0x0056ef97  // GV_StrCode("マップ設定")
-#define CHARA_005734c7          0x005734c7  // x_patch.c
-#define CHARA_005738f0          0x005738f0
-#define CHARA_00577fb3          0x00577fb3  // sv_camera.c
-#define CHARA_0057a485          0x0057a485
-#define CHARA_GUARD_COMMANDER   0x0059eda8  // GV_StrCode("警備コマンダー") wccomm.c
-#define CHARA_0059f23c          0x0059f23c  // drop_body_splush_prog.c
-#define CHARA_005a4652          0x005a4652
-#define CHARA_BREAK_GLASS       0x005a4809  // GV_StrCode("プットガラスオブジェ") brk_glass.c
-#define CHARA_005ae655          0x005ae655
-#define CHARA_varsave           0x005b316e  // GV_StrCode("varsave") NewSaveVariable
-#define CHARA_005b6e21          0x005b6e21  // sp_menu_eng.c
-#define CHARA_ATTACK_COMMANDER  0x005bb4d4  // GV_StrCode("攻撃コマンダー") atcomm.c
-#define CHARA_005bfe1d          0x005bfe1d
-#define CHARA_PAD_DEMO          0x005c0bae  // GV_StrCode("パッドデモ") paddemo.c
-#define CHARA_GHOST             0x005c2eae  // GV_StrCode("怨霊") ghost.c
-#define CHARA_005c3a78          0x005c3a78  // pool_water.c
-#define CHARA_005c526a          0x005c526a
-#define CHARA_005caa88          0x005caa88
-#define CHARA_005cb281          0x005cb281  // manhat3d.c
-#define CHARA_005da36d          0x005da36d  // cypher4snipe.c
-#define CHARA_005dad0e          0x005dad0e  // sara_umi.c
-#define CHARA_005de390          0x005de390
-#define CHARA_005eb488          0x005eb488
-#define CHARA_005ec9c1          0x005ec9c1  // gll.c
-#define CHARA_VR_PAUSE          0x005ed347  // GV_StrCode("ＶＲポーズ") vr_pause.c
-#define CHARA_005f2c09          0x005f2c09  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_005f8469          0x005f8469
-#define CHARA_005fbe23          0x005fbe23  // windnoisx.c
-#define CHARA_00602572          0x00602572  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_00604185          0x00604185
-#define CHARA_00608b23          0x00608b23
-#define CHARA_0060c857          0x0060c857
-#define CHARA_0060cf19          0x0060cf19  // wave4.c
-#define CHARA_0060d52e          0x0060d52e
-#define CHARA_0061274d          0x0061274d  // vr_target1.c
-#define CHARA_00614544          0x00614544  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_SEA_SLATER        0x0061514e  // GV_StrCode("舟虫") sea_slater.c
-#define CHARA_0061676d          0x0061676d
-#define CHARA_0062155a          0x0062155a  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_EFFECT_BOUND_INIT 0x006263f9  // GV_StrCode("エフェクトバウンド初期化") InitEffectBound
-#define CHARA_006273b5          0x006273b5  // sky_prev.c
-#define CHARA_BGM_FADER         0x0062b1fd  // GV_StrCode("ＢＧＭフェーダー") bgmfader.c
-#define CHARA_00635875          0x00635875
-#define CHARA_006376d3          0x006376d3
-#define CHARA_006376fa          0x006376fa  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_SUN               0x00641a7b  // GV_StrCode("太陽") plant_sun.c
-#define CHARA_WINDOW_RAIN       0x006442cb  // GV_StrCode("窓雨") win_rain.c
-#define CHARA_00645113          0x00645113  // corp.c
-#define CHARA_00645c5b          0x00645c5b  // emma_clay.c
-#define CHARA_00646de9          0x00646de9
-#define CHARA_BULLET_HOLE       0x0064afef  // GV_StrCode("弾痕") wall_scar.c
-#define CHARA_0064fb35          0x0064fb35  // show_pic.c
-#define CHARA_0064fe6e          0x0064fe6e  // water_front_prim.c
-#define CHARA_0065180b          0x0065180b
-#define CHARA_SKY_COLUMN        0x00657385  // GV_StrCode("天球") sky_column.c
-#define CHARA_00660719          0x00660719  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_00661bee          0x00661bee
-#define CHARA_BODY_SPLASH       0x00662f7c  // GV_StrCode("身体水飛沫") body_sph.c
-#define CHARA_00663387          0x00663387
-#define CHARA_0066b097          0x0066b097  // fog_control.c
-#define CHARA_WAVE              0x0066ba4c  // GV_StrCode("波面") wave.c
-#define CHARA_RIPPLE            0x0066ba66  // GV_StrCode("波紋") ripple.c
-#define CHARA_0066f439          0x0066f439
-#define CHARA_00675145          0x00675145  // trample_slater.c
-#define CHARA_006760e9          0x006760e9  // breath.c
-#define CHARA_006779ad          0x006779ad  // set_tex.c
-#define CHARA_EXPLOSION         0x006781af  // GV_StrCode("爆発") bomb.c
-#define CHARA_0068392d          0x0068392d
-#define CHARA_00683bcc          0x00683bcc  // blood_wl.c
-#define CHARA_006856c1          0x006856c1
-#define CHARA_0068bef1          0x0068bef1
-#define CHARA_0068cb9c          0x0068cb9c  // vibrate.c
-#define CHARA_DRIZZLE           0x0068f6cb  // GV_StrCode("霧雨") rain_gas_pers.c
-#define CHARA_CINEMA_SCREEN     0x00690610  // GV_StrCode("シネマスクリーン") cinema_scr.c
-#define CHARA_HOSTAGE_COMMANDER 0x006926d0  // GV_StrCode("人質コマンダー") hostcomm.c
-#define CHARA_006a030a          0x006a030a  // scr_shimmer.c
-#define CHARA_006a0cda          0x006a0cda  // brk_hang_light.c
-#define CHARA_PAD_OPERATION     0x006a725a  // GV_StrCode("パッド操作")
-#define CHARA_006a9667          0x006a9667
-#define CHARA_006ad20f          0x006ad20f  // pl_dummy.c
-#define CHARA_PLANT_WAVE        0x006ae654  // GV_StrCode("プラント海面") wave5.c
-#define CHARA_assert            0x006b237d  // GV_StrCode("assert") NewGclAssert
-#define CHARA_CAMERA_RAIN       0x006b8ee3  // GV_StrCode("カメラ雨") rain_cm.c
-#define CHARA_CAMERA_BLOOD      0x006b8fe4  // GV_StrCode("カメラ血") blood_cm.c
-#define CHARA_CAMERA_BUBBLE     0x006b921a  // GV_StrCode("カメラ泡") bubble_cm.c
-#define CHARA_006bc59d          0x006bc59d  // (TRIAL-EDITION-ONLY)
-#define CHARA_006c274d          0x006c274d
-#define CHARA_BREAK_POTATO      0x006c577d  // GV_StrCode("プットポテトオブジェ") brk_potato.c
-#define CHARA_006d61f3          0x006d61f3
-#define CHARA_006d841b          0x006d841b
-#define CHARA_006d85be          0x006d85be
-#define CHARA_006ddd6a          0x006ddd6a  // sp_menu_page.c
-#define CHARA_006de9bc          0x006de9bc
-#define CHARA_006e0fa8          0x006e0fa8  // brk_vent.c
-#define CHARA_006e6572          0x006e6572  // dogtag_mng.c
-#define CHARA_006e7f78          0x006e7f78  // shipworm.c
-#define CHARA_006ec54c          0x006ec54c  // (TRIAL-EDITION-ONLY)
-#define CHARA_006ecc1a          0x006ecc1a
-#define CHARA_006eeb2f          0x006eeb2f  // special.c
-#define CHARA_006f5b0f          0x006f5b0f
-#define CHARA_006f7d4d          0x006f7d4d  // NewGameInit
-#define CHARA_006fa0a2          0x006fa0a2  // slit_light2.c
-#define CHARA_006fa5f5          0x006fa5f5
-#define CHARA_006fda0f          0x006fda0f  // fort_obj.c
-#define CHARA_00709df6          0x00709df6
-#define CHARA_BGM_MANAGER       0x0070a68a  // GV_StrCode("ＢＧＭマネージャー") bgmanage.c
-#define CHARA_00718756          0x00718756
-#define CHARA_00727b5e          0x00727b5e  // splash_rot.c
-#define CHARA_0072ead4          0x0072ead4
-#define CHARA_0072f23c          0x0072f23c  // putmodel.c
-#define CHARA_007334af          0x007334af
-#define CHARA_0073e084          0x0073e084
-#define CHARA_00741b7a          0x00741b7a  // orga_holo.c
-#define CHARA_delay             0x00743c9f  // GV_StrCode("delay") delay.c:NewDelay
-#define CHARA_0074cd16          0x0074cd16  // f_bridge.c
-#define CHARA_0074e86b          0x0074e86b  // NewGclLangUpdate
-#define CHARA_0075513c          0x0075513c
-#define CHARA_00755e2e          0x00755e2e
-#define CHARA_007561ae          0x007561ae  // orga_lgt.c
-#define CHARA_BREAK_TV          0x0075e815  // GV_StrCode("プットテレビオブジェ") brk_tv.c
-#define CHARA_BOMB_DETECT_AREA  0x0076a03c  // GV_StrCode("爆弾検知領域") bomb.c
-#define CHARA_00770ec3          0x00770ec3
-#define CHARA_0077318d          0x0077318d
-#define CHARA_0077568d          0x0077568d  // wall_marker.c
-#define CHARA_007798f6          0x007798f6  // orga.c
-#define CHARA_0077c494          0x0077c494
-#define CHARA_0077ffc8          0x0077ffc8
-#define CHARA_0078d685          0x0078d685  // bul_clay.c
-#define CHARA_0078f6d2          0x0078f6d2  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_007919e8          0x007919e8  // gll_ef.c
-#define CHARA_00797edf          0x00797edf
-#define CHARA_007a3dbf          0x007a3dbf  // set_t_dr.c
-#define CHARA_PUT_OBJECT        0x007a8ec1  // GV_StrCode("プットオブジェ") putobj.c
-#define CHARA_007a94a9          0x007a94a9  // dg_cam.c
-#define CHARA_Stream            0x007aa13a  // GV_StrCode("Stream")
-#define CHARA_007ad92b          0x007ad92b
-#define CHARA_007b35e0          0x007b35e0
-#define CHARA_007c7e31          0x007c7e31
-#define CHARA_007d3c8a          0x007d3c8a  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_007dda2e          0x007dda2e
-#define CHARA_007e3320          0x007e3320  // option_x.c
-#define CHARA_007ec114          0x007ec114  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_007edc1c          0x007edc1c  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_007f3c88          0x007f3c88
-#define CHARA_007f7acf          0x007f7acf
-#define CHARA_007fa909          0x007fa909  // (TRIAL-EDITION-ONLY)
-#define CHARA_0080b977          0x0080b977
-#define CHARA_0080fb82          0x0080fb82
-#define CHARA_008155f1          0x008155f1  // clearcode_layout.c
-#define CHARA_0081584f          0x0081584f
-#define CHARA_0081767c          0x0081767c  // konami_logo.c
-#define CHARA_VR_CLEAR          0x00818b2c  // GV_StrCode("ＶＲクリア") vr_clear.c
-#define CHARA_0081aef4          0x0081aef4  // (TRIAL-EDITION-ONLY) Japanese-Only
-#define CHARA_0081e7f6          0x0081e7f6
-#define CHARA_0082a05e          0x0082a05e
-#define CHARA_VecLen            0x0082bdc0  // GV_StrCode("VecLen")
-#define CHARA_reboot            0x0082cb3e  // GV_StrCode("reboot") (calls the printf stub??)
-#define CHARA_0082cb77          0x0082cb77
-#define CHARA_0083c0c3          0x0083c0c3  // vamp.c
-#define CHARA_0083d857          0x0083d857  // lit_man.c
-#define CHARA_0083dd4d          0x0083dd4d  // har_kasacka.c
-#define CHARA_008422f6          0x008422f6
-#define CHARA_008429ae          0x008429ae  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_00843c09          0x00843c09
-#define CHARA_00848e57          0x00848e57
-#define CHARA_0084b931          0x0084b931  // between_cam.c
-#define CHARA_0085e8f4          0x0085e8f4  // lockerd.c
-#define CHARA_0086301d          0x0086301d  // vr_child.c
-#define CHARA_0086d1cf          0x0086d1cf
-#define CHARA_0086d382          0x0086d382  // demo_snakearm.c
-#define CHARA_00873375          0x00873375  // wdustmng.c
-#define CHARA_0087426a          0x0087426a  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_select            0x0087a1c0  // GV_StrCode("select") select.c:NewSelect
-#define CHARA_008826b9          0x008826b9  // doll.c
-#define CHARA_008862f6          0x008862f6  // rot_y_object.c
-#define CHARA_008888d3          0x008888d3
-#define CHARA_0088cbf1          0x0088cbf1
-#define CHARA_0088ed39          0x0088ed39
-#define CHARA_0088f9b0          0x0088f9b0
-#define CHARA_008975e6          0x008975e6  // flow_paper.c
-#define CHARA_FLOATING_DUST     0x0089778a  // GV_StrCode("浮遊物") float_dust.c
-#define CHARA_0089af5e          0x0089af5e  // thund_flash.c
-#define CHARA_LOCKER_CORPSE     0x0089c365  // GV_StrCode("ロッカー死体") lockercp.c
-#define CHARA_VR_BULLET_HOLE    0x0089fec2  // GV_StrCode("ＶＲ弾痕") vr_wall_scar.c
-#define CHARA_008a0c96          0x008a0c96  // boss_result2.c
-#define CHARA_008a43f9          0x008a43f9  // vr_spark.c
-#define CHARA_008a8857          0x008a8857  // dummytrg.c
-#define CHARA_LOCKER            0x008aa572  // GV_StrCode("ロッカー")
-#define CHARA_008ac901          0x008ac901  // george_bonbori.c
-#define CHARA_008b12d1          0x008b12d1
-#define CHARA_008b12fd          0x008b12fd
-#define CHARA_008b19f0          0x008b19f0
-#define CHARA_008b6086          0x008b6086  // GM_COM_PadCheck
-#define CHARA_LOCKER_STATUS     0x008b976d  // GV_StrCode("ロッカー状態")
-#define CHARA_SCREENSHOT        0x008c4a5b  // GV_StrCode("スクリーンショット")
-#define CHARA_EXTINGUISHER      0x008c58f7  // GV_StrCode("消火器") extinguisher.c
-#define CHARA_008dfe63          0x008dfe63
-#define CHARA_008e0676          0x008e0676
-#define CHARA_008e298d          0x008e298d  // cancel.c
-#define CHARA_008f27ac          0x008f27ac  // demo_c4.c
-#define CHARA_008ff6ad          0x008ff6ad
-#define CHARA_00901fd7          0x00901fd7
-#define CHARA_0090342e          0x0090342e
-#define CHARA_00904563          0x00904563  // (TRIAL-EDITION-ONLY)
-#define CHARA_009049ed          0x009049ed
-#define CHARA_0090b7ec          0x0090b7ec  // check_water_level.c
-#define CHARA_00912bfe          0x00912bfe  // fort_ceil.c
-#define CHARA_00915101          0x00915101  // campose.c
-#define CHARA_009173e7          0x009173e7
-#define CHARA_009208dc          0x009208dc
-#define CHARA_00923e25          0x00923e25
-#define CHARA_00924573          0x00924573
-#define CHARA_00926341          0x00926341
-#define CHARA_00926ace          0x00926ace
-#define CHARA_0092a625          0x0092a625
-#define CHARA_0092b9ad          0x0092b9ad  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_0092eb54          0x0092eb54  // (calls the printf stub??)
-#define CHARA_009307ab          0x009307ab  // spotdraw.c
-#define CHARA_0093eeea          0x0093eeea
-#define CHARA_0094193b          0x0094193b
-#define CHARA_00943eaf          0x00943eaf  // x_patch.c
-#define CHARA_00944e11          0x00944e11
-#define CHARA_0094c147          0x0094c147
-#define CHARA_00951c01          0x00951c01
-#define CHARA_009530ae          0x009530ae  // frame.c
-#define CHARA_00961325          0x00961325  // brk_speech.c
-#define CHARA_0096e361          0x0096e361  // attachment3a.c
-#define CHARA_00971fda          0x00971fda  // wc_flush.c
-#define CHARA_009786f7          0x009786f7  // rdr_movie.c
-#define CHARA_0097889d          0x0097889d
-#define CHARA_0098137c          0x0098137c
-#define CHARA_009837c4          0x009837c4
-#define CHARA_00987e81          0x00987e81  // wind_local.c
-#define CHARA_009890d0          0x009890d0
-#define CHARA_0098a49d          0x0098a49d  // etc_sight.c
-#define CHARA_SPLASH_MANAGER    0x0098bd5b  // GV_StrCode("水飛沫管理") splush_man.c
-#define CHARA_0098c226          0x0098c226  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_0099615d          0x0099615d
-#define CHARA_009a75e7          0x009a75e7  // mobile.c
-#define CHARA_009a97b2          0x009a97b2
-#define CHARA_ITEM              0x009aff54  // GV_StrCode("アイテム") item_box.c
-#define CHARA_009b0e9f          0x009b0e9f  // (TRIAL-EDITION-ONLY)
-#define CHARA_009b3b8b          0x009b3b8b  // emma.c
-#define CHARA_CYPHER            0x009b3fd5  // GV_StrCode("サイファ") cypher.c
-#define CHARA_TIMER             0x009b65f0  // GV_StrCode("タイマー") timer.c
-#define CHARA_009bc66f          0x009bc66f  // ropemain2.c
-#define CHARA_009bc670          0x009bc670  // ropemain.c
-#define CHARA_009c2a64          0x009c2a64  // (TRIAL-EDITION-ONLY)
-#define CHARA_009c403e          0x009c403e
-#define CHARA_009cf455          0x009cf455
-#define CHARA_009d73d7          0x009d73d7  // scnvapor.c
-#define CHARA_AMBIENT_LIGHT     0x009dcd6b  // GV_StrCode("環境光")
-#define CHARA_009dd632          0x009dd632
-#define CHARA_009e1df3          0x009e1df3
-#define CHARA_009e3c4f          0x009e3c4f  // floor_panel.c
-#define CHARA_009e4d4a          0x009e4d4a  // photo_view.c:NewTnkPhotoView
-#define CHARA_009e5a92          0x009e5a92
-#define CHARA_009e63c2          0x009e63c2
-#define CHARA_009e8aeb          0x009e8aeb  // confirm.c
-#define CHARA_009f11bc          0x009f11bc  // npc_snake.c
-#define CHARA_00a0a179          0x00a0a179  // bubble_line.c
-#define CHARA_00a151b1          0x00a151b1
-#define CHARA_00a1a665          0x00a1a665
-#define CHARA_00a1deb9          0x00a1deb9  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_00a3d28a          0x00a3d28a  // bossrush_x.c
-#define CHARA_00a3e408          0x00a3e408
-#define CHARA_FOG               0x00a53aa7  // GV_StrCode("フォグ")
-#define CHARA_VR_SCREEN         0x00a58f8a  // GV_StrCode("ＶＲスクリーン") vr_screen.c
-#define CHARA_00a58fa5          0x00a58fa5  // irs_mng.c
-#define CHARA_GOLCAP_ON         0x00a60221  // GV_StrCode("ゴルキャップあり")
-#define CHARA_00a63d3b          0x00a63d3b  // z_man.c
-#define CHARA_GOLCAP_OFF        0x00a6a1ee  // GV_StrCode("ゴルキャップなし")
-#define CHARA_00a6d9cf          0x00a6d9cf
-#define CHARA_00a710db          0x00a710db  // w32def.c
-#define CHARA_00a7195f          0x00a7195f
-#define CHARA_00a741fd          0x00a741fd
-#define CHARA_00a7cb42          0x00a7cb42  // o2gage.c
-#define CHARA_00a80554          0x00a80554
-#define CHARA_00a8560d          0x00a8560d  // bonbori_yw.c
-#define CHARA_00a85ceb          0x00a85ceb
-#define CHARA_00a895c4          0x00a895c4  // put_vanime.c
-#define CHARA_00a97a70          0x00a97a70  // --> brk_computer.c
-#define CHARA_00a97eb2          0x00a97eb2  // --> brk_computer.c
-#define CHARA_00a9ed03          0x00a9ed03  // slow_man.c
-#define CHARA_00ab381c          0x00ab381c  // node.c
-#define CHARA_RESIDENT_RES_SET  0x00ab5a2a  // GV_StrCode("常駐リソース設定")
-#define CHARA_WT_DOOR_MANAGER   0x00abfd5f  // GV_StrCode("水密ドア管理") wt_door.c
-#define CHARA_00ace3ff          0x00ace3ff  // pdray.c
-#define CHARA_00ad8864          0x00ad8864  // fort_wall_lgt.c
-#define CHARA_00ae0f36          0x00ae0f36  // r_server.c
-#define CHARA_00aec560          0x00aec560  // (TRIAL-EDITION-ONLY)
-#define CHARA_00aee25b          0x00aee25b  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_00af0a7a          0x00af0a7a  // spin_model.c
-#define CHARA_00af2208          0x00af2208  // electric_floor.c
-#define CHARA_SEAGULL_MANAGER   0x00af4cf6  // GV_StrCode("かもめマネージャ") kmmng.c
-#define CHARA_00afa5e7          0x00afa5e7  // floor.c
-#define CHARA_00afdee4          0x00afdee4
-#define CHARA_00b00459          0x00b00459  // (TRIAL-EDITION-ONLY)
-#define CHARA_00b030e4          0x00b030e4  // emb_control.c
-#define CHARA_00b0c115          0x00b0c115  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_00b10086          0x00b10086
-#define CHARA_00b1abd8          0x00b1abd8
-#define CHARA_00b1e8d4          0x00b1e8d4  // command.c
-#define CHARA_00b23a64          0x00b23a64  // d_thunder.c
-#define CHARA_00b2a6b7          0x00b2a6b7  // hairevm.c
-#define CHARA_00b2fd6c          0x00b2fd6c  // short_spark.c
-#define CHARA_00b35703          0x00b35703
-#define CHARA_00b380d5          0x00b380d5  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_00b3aa52          0x00b3aa52  // belt.c
-#define CHARA_00b3d54e          0x00b3d54e
-#define CHARA_CARGO_HOLD        0x00b3e388  // GV_StrCode("船倉兵") holdene.c
-#define CHARA_00b414ae          0x00b414ae  // raiden/pl_pad.c
-#define CHARA_00b431c3          0x00b431c3  // brk_search.c
-#define CHARA_00b44bbb          0x00b44bbb  // se_exchg.c
-#define CHARA_VR_SKY            0x00b4e108  // GV_StrCode("ＶＲ空") vr_sky.c
-#define CHARA_VR_WALL           0x00b4e35c  // GV_StrCode("ＶＲ壁") vr_wall.c
-#define CHARA_00b53158          0x00b53158  // water_blood.c
-#define CHARA_00b629af          0x00b629af  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_BLUR              0x00b63a33  // GV_StrCode("ブラー") blur.c
-#define CHARA_00b63e47          0x00b63e47
-#define CHARA_00b66ae4          0x00b66ae4  // flying_warm.c
-#define CHARA_00b6e522          0x00b6e522  // command4.c
-#define CHARA_00b74fd7          0x00b74fd7
-#define CHARA_00b75003          0x00b75003  // ub_camera.c
-#define CHARA_00b7b5a7          0x00b7b5a7
-#define CHARA_00b7ecc2          0x00b7ecc2  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_00b7f8e7          0x00b7f8e7
-#define CHARA_00b80de5          0x00b80de5  // rain_parts.c
-#define CHARA_00b89202          0x00b89202  // fadeobj.c
-#define CHARA_00b8b5f7          0x00b8b5f7
-#define CHARA_00b8b94d          0x00b8b94d  // hako.c
-#define CHARA_00b93d5e          0x00b93d5e  // tng_monitor_control.c
-#define CHARA_00b97d41          0x00b97d41
-#define CHARA_00ba92f5          0x00ba92f5
-#define CHARA_00bb6852          0x00bb6852  // ee_swim.c
-#define CHARA_00bbad24          0x00bbad24  // n_focus.c
-#define CHARA_00bc5a8b          0x00bc5a8b  // (TRIAL-EDITION-ONLY)
-#define CHARA_00bc9497          0x00bc9497  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_00bcb4a2          0x00bcb4a2
-#define CHARA_00bcee1a          0x00bcee1a
-#define CHARA_00bd28c4          0x00bd28c4
-#define CHARA_SHADOW_MANAGER    0x00bd400b  // GV_StrCode("影管理") shdwctrl.c
-#define CHARA_00bd4c61          0x00bd4c61  // --> wig.c
-#define CHARA_00bd673f          0x00bd673f  // rain_slow.c
-#define CHARA_00bd9cc1          0x00bd9cc1  // w32com.c
-#define CHARA_00bdd6a9          0x00bdd6a9  // targettrap.c
-#define CHARA_SPLASH_FLOOR      0x00be0863  // GV_StrCode("床水飛沫") d_splash_floor.c
-#define CHARA_00bed0ff          0x00bed0ff  // waterdropmng.c
-#define CHARA_00bf97ed          0x00bf97ed
-#define CHARA_00bfb0a1          0x00bfb0a1  // vmp_shdwtrg.c
-#define CHARA_00c08284          0x00c08284  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_00c0895a          0x00c0895a
-#define CHARA_00c09e6c          0x00c09e6c  // all_slater.c
-#define CHARA_00c0e06d          0x00c0e06d  // bonbori_red.c
-#define CHARA_KAMISHIBAI        0x00c13513  // GV_StrCode("紙芝居") vr_book.c
-#define CHARA_00c1451b          0x00c1451b  // cylinder.c
-#define CHARA_00c1bc23          0x00c1bc23  // pl_subject_demo.c
-#define CHARA_00c1eb06          0x00c1eb06
-#define CHARA_00c1ff0f          0x00c1ff0f  // sinktank.c
-#define CHARA_00c210e3          0x00c210e3  // ts_subwin.c
-#define CHARA_00c27387          0x00c27387
-#define CHARA_00c2ad32          0x00c2ad32  // pdr_stage.c
-#define CHARA_00c2eb8d          0x00c2eb8d
-#define CHARA_PLAYER_INSTAKILL  0x00c3189a  // GV_StrCode("プレイヤー瞬殺")
-#define CHARA_00c34b14          0x00c34b14  // brk_monitor.c
-#define CHARA_00c3515f          0x00c3515f  // water_mine.c
-#define CHARA_00c3c46c          0x00c3c46c  // fk_gover.c
-#define CHARA_00c41872          0x00c41872
-#define CHARA_00c42407          0x00c42407  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_BREAK_BOTTLE      0x00c45437  // GV_StrCode("プット瓶オブジェ") brk_bottle.c
-#define CHARA_00c48407          0x00c48407  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_00c547a7          0x00c547a7  // floor_light_man.c
-#define CHARA_00c5994d          0x00c5994d
-#define CHARA_00c5c1b8          0x00c5c1b8  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_00c5d24c          0x00c5d24c  // wave6.c
-#define CHARA_DEMO_BUG          0x00c622a4  // GV_StrCode("デモ虫") demo_slater.c
-#define CHARA_00c64ecb          0x00c64ecb
-#define CHARA_00c6eb85          0x00c6eb85  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_00c6f28e          0x00c6f28e
-#define CHARA_DEFENSE_COMMANDER 0x00c7280a  // GV_StrCode("長廊下コマンダー") defcomm.c
-#define CHARA_ARRAY_SET         0x00c74f97  // GV_StrCode("配列セット") NewArraySet
-#define CHARA_00c76d6e          0x00c76d6e
-#define CHARA_00c7853f          0x00c7853f
-#define CHARA_00c7ee15          0x00c7ee15
-#define CHARA_00c7f284          0x00c7f284  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_00c84c1d          0x00c84c1d
-#define CHARA_SOUND_MANAGER     0x00c88afa  // GV_StrCode("サウンドマネージャー") sdmanage.c
-#define CHARA_00c8dbcc          0x00c8dbcc  // puddle.c
-#define CHARA_SKY_UTIL          0x00c9dd51  // GV_StrCode("汎用空") sky_util.c
-#define CHARA_00cb2c3e          0x00cb2c3e  // gas_in_water.c
-#define CHARA_00cb6bed          0x00cb6bed
-#define CHARA_00cb6ec4          0x00cb6ec4
-#define CHARA_FLASHLIGHT        0x00cb7de8  // GV_StrCode("懐中電灯") flashlight.c
-#define CHARA_BREAK_BIGGLASS    0x00cba568  // GV_StrCode("プット大ガラスオブジェ") brk_big_glass.c
-#define CHARA_00cbb124          0x00cbb124  // ceiling.c
-#define CHARA_00cbd98b          0x00cbd98b  // bos_kasacka.c
-#define CHARA_00cc87a2          0x00cc87a2  // layout_2d.c
-#define CHARA_ATTACKER          0x00cc9a07  // GV_StrCode("アタッカー") attacker.c
-#define CHARA_00cd2045          0x00cd2045
-#define CHARA_00cdb878          0x00cdb878  // prez.c
-#define CHARA_WEAPON_SPLASH     0x00cdc7bd  // GV_StrCode("武器水飛沫") weapon_sph.c
-#define CHARA_00cec17c          0x00cec17c
-#define CHARA_VR_GOAL           0x00ced375  // GV_StrCode("ＶＲゴール") vr_goal.c
-#define CHARA_00cf777f          0x00cf777f  // set_t_fw.c
-#define CHARA_00d0e799          0x00d0e799
-#define CHARA_00d10066          0x00d10066
-#define CHARA_00d110e2          0x00d110e2  // fort_hang.c
-#define CHARA_00d1279a          0x00d1279a  // brk_tree.c
-#define CHARA_00d1699d          0x00d1699d
-#define CHARA_UNDERWATER_CAMERA 0x00d16c76  // GV_StrCode("水中カメラ") scr_water.c
-#define CHARA_00d20fde          0x00d20fde  // huge_sea.c
-#define CHARA_00d219b8          0x00d219b8
-#define CHARA_00d2bd87          0x00d2bd87  // wind_man.c
-#define CHARA_00d2c9aa          0x00d2c9aa  // water.c
-#define CHARA_00d2d940          0x00d2d940  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_00d30863          0x00d30863
-#define CHARA_00d4090d          0x00d4090d  // lodctrl.c
-#define CHARA_00d44dc7          0x00d44dc7
-#define CHARA_00d481ed          0x00d481ed
-#define CHARA_00d51601          0x00d51601  // enetrapchk.c
-#define CHARA_00d5d6ef          0x00d5d6ef  // umi_ex.c
-#define CHARA_00d5ff97          0x00d5ff97
-#define CHARA_EMMA_BUG          0x00d612a2  // GV_StrCode("エマ虫") emm_slater.c
-#define CHARA_BROOKLYN          0x00d6ed95  // GV_StrCode("ブルックリン") brooklyn.c
-#define CHARA_00d72c78          0x00d72c78  // brk_build.c
-#define CHARA_00d75a89          0x00d75a89
-#define CHARA_TANKER_DOGTAG_NUM 0x00d8cff4  // GV_StrCode("タンカー編総ドッグタグ数")
-#define CHARA_00d90540          0x00d90540  // put_elev.c:NewPutElevator
-#define CHARA_00d978ac          0x00d978ac
-#define CHARA_00d99a89          0x00d99a89
-#define CHARA_00d99fb0          0x00d99fb0  // w25def.c
-#define CHARA_00d9c789          0x00d9c789
-#define CHARA_TRAP_SWITCH       0x00da97fb  // GV_StrCode("トラップ切り替え") GM_COM_TrapSwitchCommand
-#define CHARA_00daba9e          0x00daba9e  // set_t_plant.c
-#define CHARA_00db03a6          0x00db03a6
-#define CHARA_00db65ac          0x00db65ac
-#define CHARA_00dba0d1          0x00dba0d1
-#define CHARA_00dbd1fa          0x00dbd1fa  // efct_elv_btn.c
-#define CHARA_00dbdd8a          0x00dbdd8a  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_00dc2f1b          0x00dc2f1b  // ipupanel.c
-#define CHARA_CAMERA_DUST       0x00dc323f  // GV_StrCode("カメラダスト") dust_cm.c
-#define CHARA_RAVEN_DOLL        0x00dc80bf  // GV_StrCode("レイブン人形") fig_raven.c
-#define CHARA_LOAD_SOUND_PACK   0x00dc83c5  // GV_StrCode("ロードサウンドパック")
-#define CHARA_00dcb281          0x00dcb281
-#define CHARA_00ddd2a3          0x00ddd2a3
-#define CHARA_00ddf457          0x00ddf457
-#define CHARA_COMMANDER         0x00ddf5ca  // GV_StrCode("コマンダー") command.c
-#define CHARA_00de0400          0x00de0400  // attachment.c
-#define CHARA_00de0401          0x00de0401  // attachment2.c
-#define CHARA_00de0402          0x00de0402  // attachment3.c
-#define CHARA_00de07c0          0x00de07c0
-#define CHARA_00de4430          0x00de4430
-#define CHARA_00dedde1          0x00dedde1
-#define CHARA_BREAK_PLATE       0x00df5435  // GV_StrCode("プット皿オブジェ") brk_plate.c
-#define CHARA_00e00fd1          0x00e00fd1  // dv_goggles.c
-#define CHARA_00e0344c          0x00e0344c
-#define CHARA_00e0568b          0x00e0568b  // floor_marker.c
-#define CHARA_00e0dbba          0x00e0dbba  // 2d_sprt.c
-#define CHARA_00e0dcba          0x00e0dcba  // gnrl_sprt.c
-#define CHARA_00e1c26c          0x00e1c26c
-#define CHARA_FADE_INOUT        0x00e22388  // GV_StrCode("フェードインアウト") d_fade_io.c
-#define CHARA_00e2488b          0x00e2488b
-#define CHARA_SCN_DEMO_START    0x00e29adb  // GV_StrCode("シナリオデモ開始")
-#define CHARA_00e2a088          0x00e2a088  // pause.c
-#define CHARA_00e2ed79          0x00e2ed79  // door_pannel_spark.c
-#define CHARA_00e32fc7          0x00e32fc7  // brk_swing.c
-#define CHARA_00e3429d          0x00e3429d  // efct_oil.c
-#define CHARA_00e3549b          0x00e3549b
-#define CHARA_00e39c0d          0x00e39c0d  // 2d_sprt_pause.c
-#define CHARA_00e3c577          0x00e3c577
-#define CHARA_00e3eb1a          0x00e3eb1a
-#define CHARA_00e3eea2          0x00e3eea2
-#define CHARA_00e41776          0x00e41776  // orga_rai.c
-#define CHARA_00e48f2f          0x00e48f2f  // put_sound.c
-#define CHARA_00e4a12d          0x00e4a12d  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_00e4c507          0x00e4c507
-#define CHARA_00e4cea2          0x00e4cea2  // scnbreakpart.c
-#define CHARA_PROJECTOR_LIGHT   0x00e4d016  // GV_StrCode("プロジェクタライト") projector_light.c
-#define CHARA_00e52073          0x00e52073  // dust_area.c
-#define CHARA_00e5ff03          0x00e5ff03  // subjectarm_chain.c
-#define CHARA_00e6b658          0x00e6b658
-#define CHARA_00e73ac4          0x00e73ac4
-#define CHARA_00e74f46          0x00e74f46
-#define CHARA_00e76d74          0x00e76d74  // NewGclVariableMove (calls the printf stub??)
-#define CHARA_SCN_DEMO_END      0x00e79927  // GV_StrCode("シナリオデモ終了")
-#define CHARA_00e9021d          0x00e9021d  // trap_c4.c
-#define CHARA_CODEC_SYSTEM      0x00e96d82  // GV_StrCode("無線システム") codec.c
-#define CHARA_00ea5215          0x00ea5215  // fallflr.c
-#define CHARA_00ead648          0x00ead648  // "ForceAct"
-#define CHARA_00eb7eda          0x00eb7eda  // gll_photo.c
-#define CHARA_WT_DOOR           0x00ebec24  // GV_StrCode("水密ドア") wt_door.c
-#define CHARA_00ec084b          0x00ec084b  // stage_fire.c
-#define CHARA_00ec0fc6          0x00ec0fc6  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_00ec40c7          0x00ec40c7
-#define CHARA_AMERICAN_FLOUR    0x00ecc9de  // GV_StrCode("メリケン粉") flour.c
-#define CHARA_VR_OBJECT         0x00ed1e0b  // GV_StrCode("ＶＲオブジェ") vrobj.c
-#define CHARA_00ed4678          0x00ed4678  // steam_cm.c
-#define CHARA_00ee8700          0x00ee8700
-#define CHARA_00ee8b90          0x00ee8b90
-#define CHARA_00eee657          0x00eee657  // emma_locker.c
-#define CHARA_00efd440          0x00efd440
-#define CHARA_00effdac          0x00effdac
-#define CHARA_CLEARING_CANCEL   0x00f005a3  // GV_StrCode("クリアリングキャンセル")
-#define CHARA_00f0c7f2          0x00f0c7f2  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_00f0f504          0x00f0f504
-#define CHARA_00f15e47          0x00f15e47  // dg_cam.c
-#define CHARA_00f26728          0x00f26728  // slowdown.c
-#define CHARA_00f2dfcd          0x00f2dfcd
-#define CHARA_00f2eedc          0x00f2eedc
-#define CHARA_00f37560          0x00f37560  // blood_sp.c
-#define CHARA_00f40c20          0x00f40c20  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_00f466b6          0x00f466b6  // boss_etc2.c
-#define CHARA_00f4bbf5          0x00f4bbf5  // timer2.c
-#define CHARA_PARROT            0x00f52ed4  // GV_StrCode("オウム") parrot.c
-#define CHARA_00f5bf46          0x00f5bf46  // routemdl2.c
-#define CHARA_00f5c132          0x00f5c132
-#define CHARA_00f62833          0x00f62833  // scr_trans.c
-#define CHARA_00f63b18          0x00f63b18  // sv_camera.c
-#define CHARA_00f6ada8          0x00f6ada8
-#define CHARA_00f6ef99          0x00f6ef99  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_00f706cd          0x00f706cd  // off_man.c
-#define CHARA_00f74020          0x00f74020  // photo_term.c
-#define CHARA_00f77507          0x00f77507  // scn_padvib.c
-#define CHARA_LADDER_SET        0x00f7e492  // GV_StrCode("はしご設定")
-#define CHARA_SOLDIER           0x00f7f777  // GV_StrCode("警備兵") watcher.c
-#define CHARA_00f8f4e8          0x00f8f4e8
-#define CHARA_TRANSPARENT_FLOOR 0x00f91a08  // GV_StrCode("透明床") dsegment.c
-#define CHARA_TRANSPARENT_WALL  0x00f91b9f  // GV_StrCode("透明壁") dsegment.c
-#define CHARA_00f92b8e          0x00f92b8e  // invisible.c
-#define CHARA_00f9711e          0x00f9711e  // gw_lines_model.c
-#define CHARA_00f9c62d          0x00f9c62d
-#define CHARA_00fa4e80          0x00fa4e80  // scr_hex.c
-#define CHARA_00fad3ae          0x00fad3ae
-#define CHARA_SOLIDUS           0x00faedf1  // GV_StrCode("ソリダス") solidus.c
-#define CHARA_00fb029a          0x00fb029a
-#define CHARA_00fbeb7f          0x00fbeb7f
-#define CHARA_00fc14a5          0x00fc14a5  // titlescr.c
-#define CHARA_00fc6185          0x00fc6185
-#define CHARA_00fca1a4          0x00fca1a4
-#define CHARA_00fd6181          0x00fd6181  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_00fdda41          0x00fdda41  // brk_elecpanel.c
-#define CHARA_00fe39e8          0x00fe39e8
-#define CHARA_00fe5c5b          0x00fe5c5b  // tng_a.c
-#define CHARA_00fe5c5c          0x00fe5c5c  // tng_b.c
-#define CHARA_00fe5f3d          0x00fe5f3d  // web_site.c
-#define CHARA_00fe6730          0x00fe6730  // soundtest.c
-#define CHARA_00fe6f50          0x00fe6f50  // mdl_p_am.c
-#define CHARA_00fea0c9          0x00fea0c9
-#define CHARA_00fed1b1          0x00fed1b1  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_00fed582          0x00fed582  // (DOCUMENT-OF-MGS2-ONLY)
-#define CHARA_00fef2d9          0x00fef2d9
-#define CHARA_PLANT_DOGTAG_NUM  0x00ff5b55  // GV_StrCode("プラント編総ドッグタグ数")
-#define CHARA_00ffbece          0x00ffbece  // mpegstrx.c
-#define CHARA_STAGE_OUTLINE     0x00ffc196  // GV_StrCode("ステージアウトライン") stgoutline.c
-#define CHARA_00ffd75e          0x00ffd75e
-#define CHARA_00ffe7a7          0x00ffe7a7
-#define CHARA_PROC_SEQ_EXEC     0x00ffed03  // GV_StrCode("プロック連続実行") etc.c
-#define CHARA_00fff6c6          0x00fff6c6
+/* user/mode/phototerm/photo_itp.c */
+//#define CMD_block             0x0057c8d1  // GV_StrCode("block")
+//#define CMD_talk              0x003b91eb  // GV_StrCode("talk")
+#define CMD_repeat              0x0089a17e  // GV_StrCode("repeat")
+//#define CMD_vox               0x0001e658  // GV_StrCode("vox")
+#define CMD_photoframe          0x000627f8  // GV_StrCode("photoframe")
+#define CMD_nowframe            0x009e1eb9  // GV_StrCode("nowframe")
+//#define CMD_rand              0x003a9224  // GV_StrCode("rand")
+#define CMD_defaction           0x00d2f496  // GV_StrCode("defaction")
+#define CMD_puppet              0x0089cdfb  // GV_StrCode("puppet")
+#define CMD_loadpuppet          0x007bef09  // GV_StrCode("loadpuppet")
+#define CMD_keywait             0x00cd2d25  // GV_StrCode("keywait")
+//#define CMD_wait              0x003d1194  // GV_StrCode("wait")
+#define CMD_photoerase          0x00f628b7  // GV_StrCode("photoerase")
+#define CMD_photosave           0x009e6fd4  // GV_StrCode("photosave")
+#define CMD_sound               0x0069622b  // GV_StrCode("sound")
+
+#if 0
+/*---------------------------------------------------------------------------*/
+//
+//  +------------------ MGS2: TRIAL EDITION
+//  |  +--------------- MGS2: SONS OF LIBERTY
+//  |  |  +------------ THE DOCUMENT OF MGS2
+//  |  |  |  +--------- THE DOCUMENT OF MGS2 (MGS2_VRTRIAL)
+//  |  |  |  |  +------ MGS2: SUBSTANCE (PS2)
+//  |  |  |  |  |  +--- MGS2: SUBSTANCE (XBOX)
+//  v  v  v  v  v  v
+/*  O  O  O  -  O  O  */  0x000016cb  /* chara 雨 */
+/*  O  O  O  -  O  O  */  0x000041e7  /* chara マンハット赤灯1 */
+/*  O  O  O  -  O  O  */  0x000041e8  /* chara マンハット赤灯2 */
+/*  -  O  O  -  O  O  */  0x00004c00  /* command 新プラグイン水中 */
+/*  -  O  O  O  O  O  */  0x0000d1c5  /* command スティンガーサイト性能 */
+/*  -  -  -  -  O  O  */  0x000129c5  /* command アンセットゾーンフラグ */
+/*  O  O  O  -  O  O  */  0x000190b3  /* command abs */
+/*  O  O  O  -  O  O  */  0x00019a53  /* command cos */
+/*  -  O  -  -  O  O  */  0x0001a4f3  /* chara レーダー光点 */
+/*  O  O  O  -  O  O  */  0x0001a6dd  /* chara ライン水飛沫 */
+/*  O  O  O  -  O  O  */  0x0001d98e  /* command sin */
+/*  -  O  O  -  O  O  */  0x00020bd1  /* command StreamIsPlay */
+/*  -  -  O  -  -  -  */  0x000219ae
+/*  O  O  O  O  O  O  */  0x000223d1  /* command VRAM初期化 */
+/*  -  O  O  -  O  O  */  0x000255b6  /* command スプレー当たり判定通常 */
+/*  -  O  O  -  O  O  */  0x0002ead3  /* command ゲットエマ座標 */
+/*  -  O  O  -  O  O  */  0x000381ac  /* chara 装備品セット */
+/*  -  O  O  -  O  O  */  0x00040715  /* command フォーチュン戦揺れライト壊れフラグ取得 */
+/*  -  O  O  -  O  O  */  0x000423c8  /* chara アニメテクスチャセット */
+/*  O  O  O  O  O  O  */  0x00053da0  /* command 変数初期化 */
+/*  -  O  O  -  O  O  */  0x0005603b  /* command ボスタイマーエンド */
+/*  -  O  -  -  O  O  */  0x0005872d  /* chara ファットマン死体ＩＫ補正 */
+/*  -  -  -  -  O  O  */  0x0005b165  /* command ＶＲクリア＿星の数の設定 */
+/*  -  O  O  -  O  O  */  0x0005b611  /* command ゲットエマ状態 */
+/*  O  O  O  -  O  O  */  0x0005c815  /* chara 影投影モデル */
+/*  -  -  -  -  O  O  */  0x0005d91d  /* command セットルートオフセット */
+/*  O  O  O  O  O  O  */  0x00061ade  /* chara カメラ */
+/*  O  O  O  -  O  O  */  0x0006a23b  /* chara カメラ上下振動 */
+/*  -  O  -  -  O  O  */  0x0006e0fc  /* command ゲット敵兵思考ステータス */
+/*  -  O  O  -  O  O  */  0x00075d93  /* command ＮＰＣスネークの状態 */
+/*  -  O  O  -  O  O  */  0x0007e215  /* chara 船虫踏み潰し管理 */
+/*  -  -  O  -  -  -  */  0x0007eb71
+/*  -  -  -  O  -  -  */  0x000823b5
+/*  -  O  O  -  O  O  */  0x00084719  /* command フォーチュン戦昇降機位置取得 */
+/*  -  O  O  -  O  O  */  0x0008bffc  /* command プラグインくしゃみ */
+/*  -  O  O  -  O  O  */  0x00091159  /* command ゲットエマライフ */
+/*  -  -  O  -  -  -  */  0x0009462b
+/*  -  -  -  -  O  O  */  0x0009bf85  /* command ＶＲクリア＿スコアの設定 */
+/*  O  O  O  -  O  O  */  0x0009c02f  /* command 跳弾水蒸気小 */
+/*  O  O  O  -  O  O  */  0x0009c0e8  /* command 跳弾水蒸気大 */
+/*  O  O  O  -  O  O  */  0x0009c107  /* command 跳弾水蒸気中 */
+/*  -  O  -  -  O  O  */  0x000a4d33  /* chara ボスフォーチュン */
+/*  -  O  -  -  O  O  */  0x000a7cfb  /* chara ゲームセレクト画面マネージャー */
+/*  O  O  O  -  O  O  */  0x000acf09  /* command 弾痕ノーマル */
+/*  -  O  O  -  O  O  */  0x000b1261  /* chara 泡で波紋管理 */
+/*  O  O  O  -  O  O  */  0x000b6ed3  /* chara 両開き扉 */
+/*  -  O  O  -  O  O  */  0x000ba748  /* chara 天窓の光 */
+/*  -  -  -  -  O  O  */  0x000bd712  /* chara オブジェクト分解 */
+/*  O  O  O  -  O  O  */  0x000c02f4  /* command スポットライト投影ハザード */
+/*  -  -  -  -  O  O  */  0x000c3d82  /* chara ＶＲ全体マップ表示３Ｄ */
+/*  O  O  O  -  O  O  */  0x000d02fd  /* chara 鏡面モデル管理 */
+/*  O  O  O  -  O  O  */  0x000da8bf  /* command 影投影ハザード */
+/*  -  -  O  -  -  -  */  0x000daf2a
+/*  -  -  -  -  O  O  */  0x000ded8c  /* chara ＶＲ落とし穴 */
+/*  O  O  O  O  O  O  */  0x000dfadb  /* command プレイヤー状態取得 */
+/*  O  O  O  O  O  O  */  0x000ecdfd  /* command PlayerStatus */
+/*  -  O  O  -  O  O  */  0x000f57ba  /* command デモモデルリネーム追加 */
+/*  -  O  O  -  O  O  */  0x000f9473  /* command 狙撃EmaStream */
+/*  -  -  -  -  O  O  */  0x000ff733  /* command セット解体済み爆弾数 */
+/*  -  O  -  -  O  O  */  0x0010cf2f  /* chara ローポリ劇場選択画面 */
+/*  -  -  O  -  -  -  */  0x00116021
+/*  -  -  O  -  -  -  */  0x0011c021
+/*  -  O  O  -  O  O  */  0x00122e63  /* command プレイヤーライフ値操作 */
+/*  -  -  -  O  O  O  */  0x00124bf9  /* command プラグインブレード解除 */
+/*  O  O  O  O  O  O  */  0x00128946  /* chara プレイヤー */
+/*  -  -  -  -  O  O  */  0x0012b592  /* command ＶＲステージクリア */
+/*  -  -  -  -  O  O  */  0x0012c9d0  /* chara ザコラッシュテロップ表示 */
+/*  -  O  O  -  O  O  */  0x001395b5  /* chara 電源パネルライト */
+/*  -  -  O  -  -  -  */  0x0013972d
+/*  -  O  O  -  -  O  */  0x0013ca47  /* command ボスラッシュ結果後書き */
+/*  -  O  -  -  O  O  */  0x001418b1  /* command タンカーカメラ初期化 */
+/*  -  O  O  -  O  O  */  0x0015984a  /* command ゲットカサッカステータス */
+/*  O  O  -  -  O  O  */  0x00164ee0  /* chara ブレットバリア */
+/*  -  -  O  -  -  -  */  0x0016d56c
+/*  -  O  -  -  O  O  */  0x00170393  /* chara 送水管流水 */
+/*  -  O  -  -  O  O  */  0x0017078b  /* command ハリアアイテムセット */
+/*  O  O  O  -  O  O  */  0x00175436  /* chara プット紙オブジェ */
+/*  -  O  O  -  O  O  */  0x0017a315  /* command ファイル交換処理 */
+/*  -  O  O  -  O  O  */  0x0017ea77  /* chara 天狗兵ステージモニターW42a */
+/*  -  O  O  -  O  O  */  0x0017eab7  /* chara 天狗兵ステージモニターW44a */
+/*  -  O  O  -  O  O  */  0x00182073  /* command 光源消し */
+/*  -  O  O  -  O  O  */  0x0018d40b  /* command 字幕制御 */
+/*  -  -  -  -  O  O  */  0x0018e1f5  /* command ゲットヴァンプステータス */
+/*  -  O  O  -  O  O  */  0x0018f412  /* chara 天狗兵コマンダー */
+/*  -  -  O  -  -  -  */  0x0018fd89
+/*  -  O  -  -  O  O  */  0x0019358b  /* command プレイヤー張付きはしゃがみだけ */
+/*  -  -  -  -  O  O  */  0x0019bd75  /* chara セーブファイル個数チェック */
+/*  -  -  O  -  -  -  */  0x001a8068
+/*  -  O  O  -  O  O  */  0x001aae5f  /* command StreamStatus */
+/*  -  O  O  -  O  O  */  0x001af0d5  /* chara ゆがみ泡 */
+/*  -  -  O  -  -  -  */  0x001af731
+/*  O  O  -  O  O  O  */  0x001af92a  /* chara レーダー */
+/*  O  O  O  -  O  O  */  0x001b5854  /* chara 静止スポットライト設置 */
+/*  -  -  O  -  -  -  */  0x001b841f
+/*  -  O  -  -  O  O  */  0x001b970c  /* chara クリアデータロード後のゲーム開始画面 */
+/*  -  O  O  -  -  O  */  0x001c4a30  /* chara ボスラッシュテロップ表示 */
+/*  O  O  -  -  O  O  */  0x001c5eb9  /* command ゲットオルガ行動フラグ */
+/*  -  O  O  -  O  O  */  0x001cb7b7  /* command デモ蛇手つかみ位置取得 */
+/*  -  O  -  -  O  O  */  0x001cbd93  /* chara ファットマン */
+/*  -  O  O  -  O  O  */  0x001d32ed  /* command シナリオ前武器変更 */
+/*  -  -  -  O  O  O  */  0x001d5983  /* chara ＶＲシステム */
+/*  -  O  O  -  O  O  */  0x001d9c73  /* command 狙撃SnaStream */
+/*  -  -  -  O  O  O  */  0x001de43b  /* command ＶＲ箱ライフ */
+/*  -  -  -  O  O  O  */  0x001dfdfb  /* command ＶＲ壁ライフ */
+/*  O  O  O  -  O  O  */  0x001e44b7  /* chara マンハッタン */
+/*  -  O  -  -  O  O  */  0x001f119a  /* chara エンディング */
+/*  -  O  O  -  O  O  */  0x001f2a23  /* chara ユーザードックタグ */
+/*  -  O  O  -  O  O  */  0x001f4349  /* command カモメ非表示 */
+/*  -  O  O  O  O  O  */  0x001f567b  /* command プラント編取得済みドッグタグ数 */
+/*  -  O  -  -  O  O  */  0x002055ca  /* command マップ表示チェック */
+/*  -  O  O  -  O  O  */  0x00206929  /* chara 影投影モデル２ */
+/*  O  O  -  -  O  O  */  0x00209027  /* chara ダンボール柄トラップ設定 */
+/*  -  O  -  -  O  O  */  0x0022ae7d  /* chara 結果画面 */
+/*  -  -  -  O  O  O  */  0x00231fa7  /* command プレイヤー描画モードセット */
+/*  -  -  O  -  -  -  */  0x00238684
+/*  -  O  O  -  O  O  */  0x00247947  /* command キャラマップチェンジ */
+/*  -  -  -  O  O  O  */  0x0024c03e  /* chara ＶＲウィンドウ */
+/*  -  -  -  O  O  O  */  0x0024c830  /* command ＶＲステージスタート */
+/*  -  O  -  O  O  O  */  0x0024d360  /* chara ロードゲーム画面マネージャー */
+/*  -  -  -  -  O  O  */  0x00256eee  /* command セット敵兵殺したフラグ */
+/*  -  -  O  -  -  -  */  0x00259167
+/*  -  -  O  -  -  -  */  0x0025d789
+/*  -  -  -  -  O  O  */  0x00262b46  /* chara スネークテイルズセレクト */
+/*  O  O  O  -  O  O  */  0x00264c7d  /* chara 煙突煙 */
+/*  -  O  O  O  O  O  */  0x00264d3f  /* command タンカーカメラステータス */
+/*  -  -  O  -  -  -  */  0x0026844e
+/*  -  -  O  -  -  -  */  0x00268585
+/*  -  -  -  -  O  O  */  0x0026aab9  /* command ＶＲタイマースタート */
+/*  -  O  O  O  O  O  */  0x00274b60  /* chara セーブゲーム画面マネージャー */
+/*  -  O  O  -  O  O  */  0x00276926  /* chara M4弾 */
+/*  -  O  O  -  O  O  */  0x0027e580  /* command プレイヤーくしゃみ発動 */
+/*  -  -  -  -  O  O  */  0x002948a0  /* chara パッド振動制御 */
+/*  O  O  O  -  O  O  */  0x002981fa  /* command プレイヤー無敵解除 */
+/*  -  O  O  -  O  O  */  0x0029c817  /* command 水位設定 */
+/*  -  O  -  -  O  O  */  0x0029d24d  /* command プラグイン影縛り */
+/*  -  O  O  -  O  O  */  0x002a088b  /* chara 汎用アニメポリゴン */
+/*  -  O  -  -  O  O  */  0x002a0b46  /* chara あきかん */
+/*  -  -  -  -  O  O  */  0x002a41c7  /* chara ゴルルゴン振動制御 */
+/*  -  O  O  -  O  O  */  0x002a4246  /* chara 全体マップ表示3D */
+/*  -  O  -  -  O  O  */  0x002b8e16  /* chara プロトヴァンプ */
+/*  -  O  O  -  O  O  */  0x002c4b35  /* command Ｏ２ゲージ回復力設定 */
+/*  -  O  O  -  O  O  */  0x002d77d4  /* command コントロール座標取得 */
+/*  O  O  O  -  O  O  */  0x002dad24  /* chara 遠景ぼかし */
+/*  -  O  O  -  O  O  */  0x002df578  /* chara 髭剃りスネークテクスチャ入れ替え */
+/*  -  O  -  -  O  O  */  0x002e2acb  /* command ゲットフォーチュン座標 */
+/*  -  O  O  -  O  O  */  0x002e4eeb  /* chara ボスラッシュポーズ */
+/*  -  O  -  -  O  O  */  0x002eb280  /* command レーダーズーム設定 */
+/*  -  -  -  O  O  O  */  0x002efa26  /* command ＶＲ移動的ライフ */
+/*  O  O  O  O  O  O  */  0x002f3844  /* command プラグイン強制移動 */
+/*  -  O  O  -  O  O  */  0x002f9fe3  /* command ボスセットタイマーステータス */
+/*  -  -  -  -  O  O  */  0x002fd1d7  /* command スカート結合 */
+/*  -  -  O  -  -  -  */  0x0030aea3
+/*  -  O  O  -  O  O  */  0x0030e9cc  /* chara エレベータ */
+/*  -  O  O  -  O  O  */  0x00311e8e  /* chara 人質達 */
+/*  -  O  O  -  O  O  */  0x003124a2  /* chara シナリオカメラ振動 */
+/*  -  O  -  -  O  O  */  0x003129d0  /* command ゲットクラスター座標 */
+/*  -  O  O  -  O  O  */  0x0031d58b  /* chara 台詞発生源君 */
+/*  -  -  O  -  -  -  */  0x0032564f
+/*  -  O  O  -  O  O  */  0x003259e5  /* chara 長廊下兵 */
+/*  O  O  O  -  O  O  */  0x00325c8e  /* command atan */
+/*  O  O  O  -  O  O  */  0x0032fb70  /* command StreamStopAll */
+/*  -  -  O  -  -  -  */  0x0033993d
+/*  -  O  O  -  O  O  */  0x00339bd9  /* command StreamSetPan */
+/*  O  O  O  -  O  O  */  0x0033a20f  /* chara demo */
+/*  -  O  O  -  O  O  */  0x0033d38e  /* command ボスラッシュポーズ表示非表示 */
+/*  -  O  O  -  O  O  */  0x00344e5b  /* command 倒れ状態取得 */
+/*  -  O  O  -  O  O  */  0x003470c9  /* command ミサイル移動範囲設定 */
+/*  -  O  O  -  O  O  */  0x0034cc13  /* command save_var_read */
+/*  -  -  -  -  O  O  */  0x0035804e  /* command ボスラッシュ２結果後書き */
+/*  -  O  O  -  O  O  */  0x00358d2f  /* command 全体マップ爆弾配置 */
+/*  O  O  O  O  O  O  */  0x0035a2cf  /* chara マップ */
+/*  O  O  O  -  O  O  */  0x003625b1  /* chara プット雑誌オブジェ */
+/*  -  -  -  -  O  O  */  0x00363be8  /* command 壊れコンピュータＩＤ入れ換え */
+/*  -  -  -  -  O  O  */  0x003640f6  /* chara プレイヤ退場 */
+/*  -  -  O  -  -  -  */  0x00365d11
+/*  O  O  O  -  O  O  */  0x00365dee  /* chara プットスポットライトオブジェ */
+/*  -  O  -  -  O  O  */  0x00368f7d  /* command ゲット人質状態 */
+/*  -  -  -  -  O  O  */  0x0037014d  /* chara ゴルルコマンダー */
+/*  -  O  -  -  O  O  */  0x00374069  /* chara ハリアーＢＧＭマネ */
+/*  -  O  -  -  O  O  */  0x00374bbe  /* chara ガンスピン */
+/*  -  O  O  -  O  O  */  0x00374cb5  /* command ゲット倒した天狗兵 */
+/*  -  -  -  -  O  O  */  0x0037700f  /* command 特殊ＶＲゲームオーバー */
+/*  -  -  -  O  O  O  */  0x003780f6  /* chara プレイヤ登場 */
+/*  -  O  -  -  O  O  */  0x0038d44e  /* command チェンジクリアリングルート */
+/*  -  O  -  -  O  O  */  0x00397fd4  /* chara シャドーモセス */
+/*  -  O  O  -  O  O  */  0x003a6f25  /* chara 解体Ｃ４ */
+/*  O  O  O  -  O  O  */  0x003a9224  /* command rand */
+/*  -  -  O  -  -  -  */  0x003acf19
+/*  -  O  O  -  O  O  */  0x003af581  /* command ゲームオーバー背景設定 */
+/*  -  O  O  -  O  O  */  0x003b1909  /* chara ノード端末ディスプレイ */
+/*  -  O  O  -  O  O  */  0x003c2410  /* chara ライデン水中マスクの泡 */
+/*  -  -  O  -  -  -  */  0x003c27e3
+/*  -  O  O  O  O  O  */  0x003c56aa  /* chara ドッグタグ名前表示マネージャ */
+/*  -  O  O  -  O  O  */  0x003d3b06  /* command プレイヤー風邪治し */
+/*  -  O  -  -  O  O  */  0x003d5d04  /* chara アルバムモード */
+/*  -  O  O  -  O  O  */  0x003d9d2e  /* command 常駐領域設定 */
+/*  -  O  O  -  O  O  */  0x003dfd0b  /* command エフェクトバウンド実行 */
+/*  -  O  -  -  O  O  */  0x003e7b6f  /* command プレイヤー不可視 */
+/*  -  O  O  -  O  O  */  0x003ef35f  /* chara レンズフレア */
+/*  -  O  O  -  O  O  */  0x003f0a3f  /* command ボスゲットラップタイム */
+/*  O  O  O  -  O  O  */  0x003f46ec  /* command プレイヤーモーション振動ＯＦＦ */
+/*  O  O  O  -  O  O  */  0x003f55fc  /* chara ブルックリンフォグ有効 */
+/*  -  O  O  -  O  O  */  0x003f9531  /* chara メモリーカード警告画面 */
+/*  -  O  -  -  O  O  */  0x003fcd73  /* chara プレイヤー主観範囲設定 */
+/*  O  O  O  -  O  O  */  0x0040f2ae  /* chara プットアイスボックスオブジェ */
+/*  -  O  O  -  O  O  */  0x00413144  /* chara ベルトコンベア荷物 */
+/*  -  O  -  -  O  O  */  0x004147a5  /* command ＳＥ字幕登録 */
+/*  -  O  O  -  O  O  */  0x004152df  /* chara 体舟虫 */
+/*  O  O  O  O  O  O  */  0x0041cf4e  /* command 跳弾ノーマル */
+/*  -  O  O  -  O  O  */  0x0041f1f7  /* command ベルトコンベア管理 */
+/*  -  O  O  -  O  O  */  0x0042181a  /* command エフェクトバウンド追加 */
+/*  -  -  O  -  -  -  */  0x0042dd7c
+/*  -  O  O  -  O  O  */  0x00438ffa  /* chara カメラ水膜 */
+/*  O  O  O  O  O  O  */  0x0043f718  /* chara カメラ設定 */
+/*  -  O  O  -  O  O  */  0x004481ed  /* command 水中エマライフゲット */
+/*  -  -  O  -  -  -  */  0x0044b9c2
+/*  -  O  O  -  O  O  */  0x004508c2  /* command プットスポットライトオブジェライト管理 */
+/*  -  O  O  -  O  O  */  0x00450c64  /* command ゲット残りタイム */
+/*  O  O  -  -  -  -  */  0x004534c4
+/*  -  O  -  -  O  O  */  0x0045e12e  /* command StreamPauseControl */
+/*  -  O  -  -  O  O  */  0x004610f8  /* command ゲットオルガ座標 */
+/*  -  O  O  -  O  O  */  0x0046139a  /* chara ガラス弾痕 */
+/*  -  O  O  -  -  O  */  0x004683b0  /* command ボスラッシュ音声交換 */
+/*  O  O  O  O  O  O  */  0x00469b3a  /* command プラグイン姿勢制御 */
+/*  -  O  O  -  O  O  */  0x0046b814  /* command 即時マップ接合変更 */
+/*  -  O  O  O  O  O  */  0x0046fcd2  /* command 敵兵メモリー更新 */
+/*  -  O  -  -  O  O  */  0x00470def  /* chara 自動メニュー選択マネージャー */
+/*  -  O  -  -  O  O  */  0x00475ca4  /* command プラグイン強制吹っ飛ばし */
+/*  -  O  -  -  O  O  */  0x00476790  /* command プラグイン落下 */
+/*  -  O  -  O  O  O  */  0x0047d37a  /* chara USBキーボード実行 */
+/*  O  O  O  -  O  O  */  0x004847d2  /* chara プットテクスチャクロスフェードカメラ */
+/*  -  O  O  -  O  O  */  0x0048f8f8  /* chara スポットライト背景イメージ指定 */
+/*  -  -  -  O  O  O  */  0x004909b5  /* command セットＶＲステータス */
+/*  -  O  O  -  O  O  */  0x00492a40  /* chara ルートデモ人形 */
+/*  -  O  -  -  O  O  */  0x00494239  /* chara 取得アイテム表示 */
+/*  -  O  O  -  O  O  */  0x00497be6  /* command 無線状態 */
+/*  -  -  -  -  O  O  */  0x0049c14f  /* chara エマ装備 */
+/*  -  O  -  -  O  O  */  0x0049d6f1  /* chara プットアタッチコントロール */
+/*  -  O  O  -  O  O  */  0x0049eb5e  /* command プットスポットライトオブジェライト消す */
+/*  -  O  O  -  O  O  */  0x004a0018  /* chara 簡易レイアウトプレイヤ */
+/*  O  O  O  -  O  O  */  0x004a243a  /* command 無線設定 */
+/*  -  O  O  -  O  O  */  0x004a3697  /* command トラップ内荷物チェック */
+/*  -  O  O  -  O  O  */  0x004a65ba  /* command ボスゲット残りタイム */
+/*  O  O  O  -  O  O  */  0x004a777d  /* chara 嵐の川波 */
+/*  -  O  O  -  O  O  */  0x004a8b88  /* command ベルトコンベア動作 */
+/*  -  O  O  -  O  O  */  0x004a8df9  /* command ベルトコンベア登録 */
+/*  -  -  -  -  O  O  */  0x004a90a1  /* command ゴルルゴン写真判定補助 */
+/*  -  O  O  -  O  O  */  0x004b5435  /* chara プット旗オブジェ */
+/*  O  O  O  -  O  O  */  0x004baafe  /* chara 落下水飛沫 */
+/*  -  O  O  -  O  O  */  0x004bab34  /* chara キャラ付随水飛抹 */
+/*  -  O  O  -  O  O  */  0x004bf8e6  /* command ドッグタグフラグセット */
+/*  -  O  O  -  O  O  */  0x004cbfc5  /* chara エレベータパネル制御 */
+/*  -  O  O  O  O  O  */  0x004cefc1  /* command メモリオフセット初期化 */
+/*  -  -  -  -  O  O  */  0x004cfe6e  /* chara ＶＲセレクト */
+/*  -  -  O  -  -  -  */  0x004d1dd3
+/*  -  O  -  -  O  O  */  0x004e1bd6  /* chara 真鏡面 */
+/*  -  O  O  -  O  O  */  0x004e8280  /* command 水密ドアハンドル２回転時プロックコール */
+/*  -  O  O  O  O  O  */  0x004f576c  /* command はだかモードセット */
+/*  O  O  -  -  O  O  */  0x004fb2ca  /* chara プットスネーク隠れオブジェ */
+/*  O  O  O  O  O  O  */  0x004fe997  /* chara 平行光 */
+/*  -  O  -  -  O  O  */  0x00502332  /* chara パイプ流水 */
+/*  -  O  -  -  O  O  */  0x00502681  /* chara 連絡橋爆発 */
+/*  -  O  O  -  O  O  */  0x0050396f  /* command 全体マップ爆弾配置解除 */
+/*  -  O  O  -  O  O  */  0x005141af  /* command セットマイクパラメータ */
+/*  -  -  -  -  O  O  */  0x00515453  /* command 全体マップ爆弾配置初期化 */
+/*  -  O  O  O  O  O  */  0x0051dc64  /* command スティンガー性能 */
+/*  O  O  O  -  O  O  */  0x00522db5  /* chara 監視カメラ */
+/*  -  O  -  -  O  O  */  0x005282a9  /* command 水中出入り時プロック */
+/*  O  O  -  -  O  O  */  0x0053209a  /* chara プット隠れオブジェ */
+/*  O  O  O  -  O  O  */  0x00532262  /* chara プット壊れオブジェ */
+/*  O  O  O  -  O  O  */  0x00532f32  /* chara プット揺れオブジェ */
+/*  -  O  O  -  O  O  */  0x0053baf5  /* chara フォーチュン戦巻き上げ煙 */
+/*  -  O  -  -  O  O  */  0x0053cffa  /* chara ボスハリアー */
+/*  -  -  -  O  O  O  */  0x0053e970  /* chara ステージ変形 */
+/*  -  -  -  -  O  O  */  0x00540ac2  /* command ゲットステージハプニング */
+/*  O  O  O  O  O  O  */  0x00542b2d  /* command foreach */
+/*  -  O  -  -  O  O  */  0x00547041  /* chara テスト昇り煙 */
+/*  -  O  O  -  O  O  */  0x0054b365  /* chara ドアランプ */
+/*  O  O  O  -  O  O  */  0x0054eca9  /* chara 固定ボリュームライト */
+/*  -  O  -  -  O  O  */  0x0055080c  /* chara ノード画面バックグラウンド */
+/*  -  O  -  -  O  O  */  0x00552c76  /* chara デモ冷却スプレー */
+/*  O  O  O  -  O  O  */  0x0055b942  /* chara ドア */
+/*  -  -  O  -  -  -  */  0x0055bb53
+/*  O  O  O  O  O  O  */  0x005686ae  /* command エルード移動範囲設定 */
+/*  -  O  O  O  O  O  */  0x0056b5cb  /* command プラグインブレード */
+/*  -  -  O  -  -  -  */  0x0056e08c
+/*  O  O  O  -  O  O  */  0x0056e234  /* chara マップ接合 */
+/*  O  O  O  O  O  O  */  0x0056ef97  /* command マップ設定 */
+/*  -  -  -  -  -  O  */  0x005734c7  /* command ＸＢＯＸ用パッチ_w46a_demo */
+/*  -  -  -  O  O  O  */  0x005738f0  /* command セットＶＲ的部位ダメージ */
+/*  -  O  O  -  O  O  */  0x00577fb3  /* chara ガンカメラ */
+/*  -  O  O  -  O  O  */  0x0057a485  /* command 追加ＨＺＸグループ削除 */
+/*  O  O  O  O  O  O  */  0x0059eda8  /* chara 警備コマンダー */
+/*  -  O  O  -  O  O  */  0x0059f23c  /* chara 詳細水飛沫 */
+/*  O  O  O  O  O  O  */  0x005a4652  /* command ゲームオーバー音声設定 */
+/*  -  O  O  -  O  O  */  0x005a4809  /* chara プットガラスオブジェ */
+/*  O  O  O  O  O  O  */  0x005ae655  /* command マップ表示 */
+/*  O  O  O  O  O  O  */  0x005b316e  /* command varsave */
+/*  O  O  -  -  O  O  */  0x005b6e21  /* chara 英語版スペシャルメニュー */
+/*  O  O  O  O  O  O  */  0x005bb4d4  /* chara 攻撃コマンダー */
+/*  -  O  O  -  O  O  */  0x005bfe1d  /* command プレイヤー風邪引かせ */
+/*  O  O  O  -  O  O  */  0x005c0bae  /* chara パッドデモ */
+/*  -  -  -  -  O  O  */  0x005c2eae  /* chara 怨霊 */
+/*  -  O  O  -  O  O  */  0x005c3a78  /* chara バンププール */
+/*  -  O  -  -  O  O  */  0x005c526a  /* command 保存していたオプションフラグを戻す */
+/*  -  O  O  -  O  O  */  0x005caa88  /* command 追加ＨＺＸグループ登録 */
+/*  O  O  O  -  O  O  */  0x005cb281  /* chara マンハッタンフォグ有効 */
+/*  -  O  O  -  O  O  */  0x005da36d  /* chara 狙撃サイファ */
+/*  -  O  -  -  O  O  */  0x005dad0e  /* chara 拡張海表示皿型 */
+/*  -  -  -  -  O  O  */  0x005de390  /* command ＶＲ敵兵追加 */
+/*  -  O  O  -  -  O  */  0x005eb488  /* command ＰＳ２から言語設定を取り出す */
+/*  -  -  -  -  O  O  */  0x005ec9c1  /* chara ゴルルゴン */
+/*  -  -  -  O  O  O  */  0x005ed347  /* chara ＶＲポーズ */
+/*  -  -  O  -  -  -  */  0x005f2c09
+/*  -  O  -  -  O  O  */  0x005f8469  /* command トラップ削除 */
+/*  O  O  O  -  O  O  */  0x005fbe23  /* chara ＢＧＭ風音 */
+/*  -  -  O  -  -  -  */  0x00602572
+/*  O  O  -  -  O  O  */  0x00604185  /* command 絶対角度差 */
+/*  -  O  -  -  O  O  */  0x00608b23  /* command ゲットエマ足元座標 */
+/*  -  O  O  -  O  O  */  0x0060c857  /* command 新水中設定 */
+/*  -  O  O  -  O  O  */  0x0060cf19  /* chara キラキラ水面２ */
+/*  -  -  -  -  O  O  */  0x0060d52e  /* command StreamStart */
+/*  -  -  -  O  O  O  */  0x0061274d  /* chara ＶＲ移動的 */
+/*  -  -  O  -  -  -  */  0x00614544
+/*  -  O  O  -  O  O  */  0x0061514e  /* chara 舟虫 */
+/*  -  O  O  -  O  O  */  0x0061676d  /* command 狙撃StreamStop */
+/*  -  -  O  -  -  -  */  0x0062155a
+/*  -  O  O  O  O  O  */  0x006263f9  /* command エフェクトバウンド初期化 */
+/*  O  O  O  -  O  O  */  0x006273b5  /* chara 新空 */
+/*  O  O  -  -  O  O  */  0x0062b1fd  /* chara ＢＧＭフェーダー */
+/*  O  O  O  O  O  O  */  0x00635875  /* command ゲームオーバー処理開始 */
+/*  -  O  O  -  O  O  */  0x006376d3  /* command ＮＰＣスネークステージ切替え */
+/*  -  -  O  -  -  -  */  0x006376fa
+/*  -  O  O  O  O  O  */  0x00641a7b  /* chara 太陽 */
+/*  O  O  O  -  O  O  */  0x006442cb  /* chara 窓雨 */
+/*  -  O  O  -  O  O  */  0x00645113  /* chara 死体君 */
+/*  -  O  O  -  O  O  */  0x00645c5b  /* chara 狙撃イベント設置クレイモア */
+/*  -  O  O  -  O  O  */  0x00646de9  /* command ハリアー戦で誰がプレイヤーを攻撃したか */
+/*  O  O  O  -  O  O  */  0x0064afef  /* chara 弾痕 */
+/*  -  -  -  -  O  O  */  0x0064fb35  /* chara 一枚絵単独表示 */
+/*  -  O  O  -  O  O  */  0x0064fe6e  /* chara 濁流 */
+/*  -  O  O  -  O  O  */  0x0065180b  /* command ゲットエマ手繋ぎ状況 */
+/*  O  O  O  -  O  O  */  0x00657385  /* chara 天球 */
+/*  -  -  O  -  -  -  */  0x00660719
+/*  -  O  O  -  O  O  */  0x00661bee  /* command カメラチェック面登録 */
+/*  O  O  O  -  O  O  */  0x00662f7c  /* chara 身体水飛沫 */
+/*  -  O  O  -  O  O  */  0x00663387  /* command ベルトコンベア状態取得 */
+/*  -  O  O  -  O  O  */  0x0066b097  /* chara フォグコントローラ */
+/*  O  O  O  -  O  O  */  0x0066ba4c  /* chara 波面 */
+/*  O  O  O  -  O  O  */  0x0066ba66  /* chara 波紋 */
+/*  -  O  -  -  O  O  */  0x0066f439  /* command 主観射程距離設定 */
+/*  -  O  O  -  O  O  */  0x00675145  /* chara 潰れふなむし */
+/*  -  O  O  -  O  O  */  0x006760e9  /* chara 白息 */
+/*  O  O  O  -  O  O  */  0x006779ad  /* chara プットテクスチャ */
+/*  -  O  O  -  O  O  */  0x006781af  /* chara 爆発 */
+/*  -  O  O  -  O  O  */  0x0068392d  /* chara M4_DEMO_GUN弾 */
+/*  O  O  O  O  O  O  */  0x00683bcc  /* chara 壁血 */
+/*  O  O  O  O  O  O  */  0x006856c1  /* command ゲームオーバー処理終了 */
+/*  O  -  -  -  -  -  */  0x0068bef1
+/*  O  O  O  -  O  O  */  0x0068cb9c  /* chara パッド振動 */
+/*  O  O  O  -  O  O  */  0x0068f6cb  /* chara 霧雨 */
+/*  O  O  O  -  O  O  */  0x00690610  /* chara シネマスクリーン */
+/*  -  O  O  -  O  O  */  0x006926d0  /* chara 人質コマンダー */
+/*  -  O  -  -  O  O  */  0x006a030a  /* chara 陽炎 */
+/*  O  O  O  -  O  O  */  0x006a0cda  /* chara プット揺れライト */
+/*  O  O  O  O  O  O  */  0x006a725a  /* command パッド操作 */
+/*  -  O  O  -  O  O  */  0x006a9667  /* command 強制モーションループ回数設定 */
+/*  -  O  O  -  O  O  */  0x006ad20f  /* chara ダミープレイヤー */
+/*  -  O  O  -  O  O  */  0x006ae654  /* chara プラント海面 */
+/*  -  -  -  O  O  O  */  0x006b237d  /* command assert */
+/*  O  O  O  -  O  O  */  0x006b8ee3  /* chara カメラ雨 */
+/*  O  O  O  O  O  O  */  0x006b8fe4  /* chara カメラ血 */
+/*  -  O  O  -  O  O  */  0x006b921a  /* chara カメラ泡 */
+/*  O  -  -  -  -  -  */  0x006bc59d
+/*  -  -  -  O  O  O  */  0x006c274d  /* command セットステージＩＤ */
+/*  O  O  O  -  O  O  */  0x006c577d  /* chara プットポテトオブジェ */
+/*  -  -  -  O  O  O  */  0x006d61f3  /* command セット爆弾数 */
+/*  -  O  O  -  O  O  */  0x006d841b  /* command マップチェンジトラップ登録 */
+/*  -  O  O  -  -  O  */  0x006d85be  /* chara ボスラッシュ結果 */
+/*  -  O  -  -  O  O  */  0x006ddd6a  /* chara スペシャルメニューページ付き */
+/*  -  -  -  -  O  O  */  0x006de9bc  /* command ＶＲウィンドウ状態のリセット */
+/*  -  O  O  -  O  O  */  0x006e0fa8  /* chara プット壊れ通気口 */
+/*  -  O  -  -  O  O  */  0x006e6572  /* chara ドッグタグモード */
+/*  -  O  O  -  O  O  */  0x006e7f78  /* chara メニューフナムシ */
+/*  O  -  -  -  -  -  */  0x006ec54c
+/*  -  -  -  O  O  O  */  0x006ecc1a  /* command 主観移動セット */
+/*  -  O  -  -  O  O  */  0x006eeb2f  /* chara スペシャル画面マネージャー */
+/*  O  O  -  -  O  O  */  0x006f5b0f  /* command カメラマップ設定 */
+/*  O  O  O  O  O  O  */  0x006f7d4d  /* chara MGSシステム初期化 */
+/*  -  O  O  -  O  O  */  0x006fa0a2  /* chara スリット光２ */
+/*  -  O  -  O  O  O  */  0x006fa5f5  /* command 武器アイテム取られ */
+/*  -  O  O  -  O  O  */  0x006fda0f  /* chara フォーチュン戦ライデン隠れオブジェ */
+/*  O  O  O  O  O  O  */  0x00709df6  /* command 強制モーション終了プロック */
+/*  O  O  O  O  O  O  */  0x0070a68a  /* chara ＢＧＭマネージャー */
+/*  -  -  -  -  O  O  */  0x00718756  /* command セットＶＲ発見回数 */
+/*  O  O  O  -  O  O  */  0x00727b5e  /* chara 斜め回転床水飛沫 */
+/*  -  O  -  -  O  O  */  0x0072ead4  /* command 装備メニュー制御 */
+/*  O  O  O  -  O  O  */  0x0072f23c  /* chara プットモーションモデル */
+/*  -  -  -  -  O  O  */  0x007334af  /* command ゲットゴルルゴン壊れパーツ */
+/*  -  O  O  -  O  O  */  0x0073e084  /* command プレイヤー床高さ取得 */
+/*  O  O  O  -  O  O  */  0x00741b7a  /* chara プットホロオブジェ */
+/*  O  O  O  O  O  O  */  0x00743c9f  /* chara delay */
+/*  -  O  O  -  O  O  */  0x0074cd16  /* chara 浮き橋 */
+/*  -  O  O  O  O  O  */  0x0074e86b  /* command 字幕言語設定 */
+/*  -  -  -  -  O  O  */  0x0075513c  /* command ゲットゴルルゴン頭座標 */
+/*  -  -  -  O  O  O  */  0x00755e2e  /* command セットＶＲ的部位スコア */
+/*  -  O  O  -  O  O  */  0x007561ae  /* chara プットオルガ戦投光器オブジェ */
+/*  O  O  O  -  O  O  */  0x0075e815  /* chara プットテレビオブジェ */
+/*  -  O  O  -  O  O  */  0x0076a03c  /* chara 爆弾検知領域 */
+/*  -  O  O  -  O  O  */  0x00770ec3  /* command プラグインエレベータ */
+/*  O  O  O  O  O  O  */  0x0077318d  /* command 現在時刻取得 */
+/*  -  -  -  O  O  O  */  0x0077568d  /* chara ＶＲ壁マーカー */
+/*  O  O  -  -  O  O  */  0x007798f6  /* chara ボスオルガ */
+/*  -  -  O  O  -  -  */  0x0077c494  /* chara ルート表示 */
+/*  O  O  O  -  O  O  */  0x0077ffc8  /* command ロッカーモーション */
+/*  -  O  O  -  O  O  */  0x0078d685  /* chara 設置クレイモア */
+/*  -  -  O  -  -  -  */  0x0078f6d2
+/*  -  -  -  -  O  O  */  0x007919e8  /* chara ゴルルゴン水柱 */
+/*  -  O  O  -  O  O  */  0x00797edf  /* command ブレード振りチェック */
+/*  O  O  O  -  O  O  */  0x007a3dbf  /* chara プットテクスチャクロスフェードカメラドア */
+/*  O  O  O  -  O  O  */  0x007a8ec1  /* chara プットオブジェ */
+/*  -  O  O  -  O  O  */  0x007a94a9  /* command カメラチェックキャラワーク確保 */
+/*  O  O  O  -  O  O  */  0x007aa13a  /* command Stream */
+/*  -  O  O  -  O  O  */  0x007ad92b  /* chara USP弾 */
+/*  -  O  O  -  O  O  */  0x007b35e0  /* command 無線メモリー設定 */
+/*  -  O  O  O  O  O  */  0x007c7e31  /* command タンカー編取得済みドッグタグ数 */
+/*  -  -  O  -  -  -  */  0x007d3c8a
+/*  -  -  -  -  O  O  */  0x007dda2e  /* command テンプライト */
+/*  -  O  -  O  O  O  */  0x007e3320  /* chara オプション画面マネージャー */
+/*  -  -  O  -  -  -  */  0x007ec114
+/*  -  -  O  -  -  -  */  0x007edc1c
+/*  O  O  O  -  O  O  */  0x007f3c88  /* command カメラ視界チェック */
+/*  -  O  O  -  O  O  */  0x007f7acf  /* command ニキータイベント大統領耐久値取得 */
+/*  O  -  -  -  -  -  */  0x007fa909
+/*  O  O  O  O  O  O  */  0x0080b977  /* command システムコールバック */
+/*  -  -  -  O  O  O  */  0x0080fb82  /* command ＶＲゲットタイム */
+/*  -  O  -  -  O  O  */  0x008155f1  /* chara 新クリアコード表示 */
+/*  -  O  -  O  O  O  */  0x0081584f  /* command タンカーカメラステータス初期化 */
+/*  -  O  O  -  O  O  */  0x0081767c  /* chara コナミロゴ表示 */
+/*  -  -  -  O  O  O  */  0x00818b2c  /* chara ＶＲクリア */
+/*  O  -  -  -  -  -  */  0x0081aef4  (JAPANESE-ONLY)
+/*  -  -  -  -  O  O  */  0x0081e7f6  /* command 敵兵カメラチェック初期化 */
+/*  -  O  -  O  O  O  */  0x0082a05e  /* command store_loadedvar */
+/*  -  O  O  -  O  O  */  0x0082bdc0  /* command VecLen */
+/*  -  -  O  O  O  O  */  0x0082cb3e  /* command reboot */
+/*  -  O  -  -  O  O  */  0x0082cb77  /* command 全体マップリアルタイム設定 */
+/*  -  O  O  -  O  O  */  0x0083c0c3  /* chara ボス狙撃ヴァンプ */
+/*  O  O  O  O  O  O  */  0x0083d857  /* chara ライト位置管理 */
+/*  -  O  -  -  O  O  */  0x0083dd4d  /* chara ハリアー戦カサッカ */
+/*  O  O  O  O  O  O  */  0x008422f6  /* command エルード設定 */
+/*  -  -  O  -  -  -  */  0x008429ae
+/*  -  -  -  -  O  O  */  0x00843c09  /* command ＶＲコンティニュー禁止 */
+/*  -  O  O  O  O  O  */  0x00848e57  /* command ニキータタイマー設定 */
+/*  -  O  -  -  O  O  */  0x0084b931  /* chara 二体表示カメラ */
+/*  O  O  O  -  O  O  */  0x0085e8f4  /* chara ロッカー管理 */
+/*  -  -  -  -  O  O  */  0x0086301d  /* chara ＶＲ子的 */
+/*  -  O  -  -  O  O  */  0x0086d1cf  /* command 敵兵メモリーコピー */
+/*  -  O  O  -  O  O  */  0x0086d382  /* chara デモ蛇手 */
+/*  -  O  O  -  O  O  */  0x00873375  /* chara 水中ゴミマネージャ */
+/*  -  -  O  -  -  -  */  0x0087426a
+/*  O  O  O  O  O  O  */  0x0087a1c0  /* chara select */
+/*  O  O  -  -  O  O  */  0x008826b9  /* chara デモ人形 */
+/*  O  O  O  -  O  O  */  0x008862f6  /* chara くるくる物体 */
+/*  -  -  -  O  -  -  */  0x008888d3
+/*  -  O  -  -  O  O  */  0x0088cbf1  /* command ＳＥセットＶＰ */
+/*  -  -  -  -  O  O  */  0x0088ed39  /* command セットＶＲＮＧ的スコア */
+/*  -  O  -  O  O  O  */  0x0088f9b0  /* command 敵兵メモリーオールリセット */
+/*  -  O  O  -  O  O  */  0x008975e6  /* chara 浮遊紙 */
+/*  -  O  O  -  O  O  */  0x0089778a  /* chara 浮遊物 */
+/*  O  O  O  -  O  O  */  0x0089af5e  /* chara 新雷フラッシュ */
+/*  -  O  O  -  O  O  */  0x0089c365  /* chara ロッカー死体 */
+/*  -  -  -  O  O  O  */  0x0089fec2  /* chara ＶＲ弾痕 */
+/*  -  -  -  -  O  O  */  0x008a0c96  /* chara ボスラッシュ２結果 */
+/*  -  -  -  O  O  O  */  0x008a43f9  /* chara ＶＲ跳弾 */
+/*  -  -  -  -  O  O  */  0x008a8857  /* chara ダミーターゲット君 */
+/*  O  O  O  -  O  O  */  0x008aa572  /* chara ロッカー */
+/*  O  O  O  -  O  O  */  0x008ac901  /* chara プットテクスチャクロスフェードターゲット無し */
+/*  -  O  O  -  O  O  */  0x008b12d1  /* command カメラ撮影時プロック */
+/*  -  -  -  O  -  -  */  0x008b12fd
+/*  O  O  O  -  O  O  */  0x008b19f0  /* command プレイヤー無敵セット */
+/*  O  O  O  -  O  O  */  0x008b6086  /* command パッドチェック */
+/*  O  O  O  -  O  O  */  0x008b976d  /* command ロッカー状態 */
+/*  -  -  O  -  O  O  */  0x008c4a5b  /* chara スクリーンショット */
+/*  O  O  O  -  O  O  */  0x008c58f7  /* chara 消火器 */
+/*  -  O  -  -  O  O  */  0x008dfe63  /* command プレイヤー死体上立たせ */
+/*  -  O  O  -  O  O  */  0x008e0676  /* command コントロール方向取得 */
+/*  O  O  O  -  O  O  */  0x008e298d  /* chara デモキャンセルチェック */
+/*  -  O  -  -  O  O  */  0x008f27ac  /* chara デモ用C4 */
+/*  O  O  O  O  O  O  */  0x008ff6ad  /* command プラグイン自動ジャンプ */
+/*  -  -  -  O  O  O  */  0x00901fd7  /* command ＶＲ爆発範囲 */
+/*  -  -  -  -  O  O  */  0x0090342e  /* command Ｃ４管理初期化 */
+/*  O  -  -  -  -  -  */  0x00904563
+/*  O  O  O  -  O  O  */  0x009049ed  /* command プレイヤーロッカーモーション */
+/*  -  O  O  -  O  O  */  0x0090b7ec  /* chara 水面監視水飛沫 */
+/*  -  O  O  -  O  O  */  0x00912bfe  /* chara フォーチュン戦天井崩れ */
+/*  -  -  -  -  O  O  */  0x00915101  /* chara 敵兵カメラチェックポーズ登録 */
+/*  -  O  O  -  O  O  */  0x009173e7  /* command 全体マップ壊れ設定 */
+/*  -  O  O  -  O  O  */  0x009208dc  /* command Ｏ２ゲージ表示 */
+/*  -  -  -  -  O  O  */  0x00923e25  /* command ＶＲタイマーポーズ */
+/*  -  O  O  -  O  O  */  0x00924573  /* command ゲット敵兵状態拡張版 */
+/*  -  O  O  -  O  O  */  0x00926341  /* command プラグインエマ手繋ぎ */
+/*  -  -  -  O  O  O  */  0x00926ace  /* command ＶＲ的速度係数 */
+/*  -  O  O  O  O  O  */  0x0092a625  /* command プロダクトコード設定 */
+/*  -  -  O  -  -  -  */  0x0092b9ad
+/*  -  -  O  O  O  O  */  0x0092eb54  /* command getconfig */
+/*  O  O  O  -  O  O  */  0x009307ab  /* chara スポットライト投影モデル */
+/*  -  -  -  -  O  O  */  0x0093eeea  /* command ＶＲポーズ中クリア */
+/*  -  O  O  -  O  O  */  0x0094193b  /* command エレベータ状態取得 */
+/*  -  -  -  -  -  O  */  0x00943eaf  /* command ＸＢＯＸ用パッチ_d005p01_demo */
+/*  O  O  O  O  O  O  */  0x00944e11  /* command メニュー設定 */
+/*  O  O  O  -  O  O  */  0x0094c147  /* command プレイヤー死体歩き */
+/*  -  O  O  -  O  O  */  0x00951c01  /* command 携帯呼出 */
+/*  -  O  -  -  O  O  */  0x009530ae  /* chara ノード画面フレームアニメーション */
+/*  -  O  O  -  O  O  */  0x00961325  /* chara プットカンニング台オブジェ */
+/*  O  O  O  O  O  O  */  0x0096e361  /* chara 装備品サーバー */
+/*  -  O  -  -  O  O  */  0x00971fda  /* chara トイレ流れ */
+/*  -  O  O  -  O  O  */  0x009786f7  /* chara レーダ上動画 */
+/*  -  O  O  -  O  O  */  0x0097889d  /* command 水中エマＯ２ゲット */
+/*  -  O  -  -  O  O  */  0x0098137c  /* command ロードデータの秒単位タイムスタンプ */
+/*  -  -  -  -  O  O  */  0x009837c4  /* command ゲットデジカメ被写体情報 */
+/*  O  O  O  -  O  O  */  0x00987e81  /* chara ローカル風 */
+/*  -  O  -  -  O  O  */  0x009890d0  /* command ゲット敵兵モード */
+/*  -  -  -  -  O  O  */  0x0098a49d  /* chara デモサイト表示 */
+/*  -  O  O  -  O  O  */  0x0098bd5b  /* chara 水飛沫管理 */
+/*  -  -  O  -  -  -  */  0x0098c226
+/*  -  O  O  -  O  O  */  0x0099615d  /* command ボスラッシュモードセット */
+/*  -  O  O  -  O  O  */  0x009a75e7  /* chara 携帯端末 */
+/*  -  -  -  -  O  O  */  0x009a97b2  /* command コントロール存在検査 */
+/*  O  O  O  O  O  O  */  0x009aff54  /* chara アイテム */
+/*  O  -  -  -  -  -  */  0x009b0e9f
+/*  -  O  O  -  O  O  */  0x009b3b8b  /* chara エマ・エメリッヒ */
+/*  -  O  -  -  O  O  */  0x009b3fd5  /* chara サイファ */
+/*  -  O  O  -  O  O  */  0x009b65f0  /* chara タイマー */
+/*  O  O  O  -  O  O  */  0x009bc66f  /* chara ロープモデル２ */
+/*  O  O  O  O  O  O  */  0x009bc670  /* chara ロープモデル３ */
+/*  O  -  -  -  -  -  */  0x009c2a64
+/*  -  -  -  -  O  O  */  0x009c403e  /* command デジカメ画像セーブ */
+/*  -  O  -  -  O  O  */  0x009cf455  /* command シナリオ前装備変更 */
+/*  -  -  -  -  O  O  */  0x009d73d7  /* chara 湯気セット */
+/*  O  O  O  O  O  O  */  0x009dcd6b  /* chara 環境光 */
+/*  -  O  -  -  O  O  */  0x009dd632  /* command セットノイズ */
+/*  -  O  O  -  O  O  */  0x009e1df3  /* command 弾水飛沫処理 */
+/*  -  -  -  -  O  O  */  0x009e3c4f  /* chara ＶＲ床パネル */
+/*  -  -  -  -  O  O  */  0x009e4d4a  /* chara タンカーカメラ写真表示 */
+/*  -  -  -  -  O  O  */  0x009e5a92  /* command ミッションズコンティニュー回数取得 */
+/*  O  O  -  -  O  O  */  0x009e63c2  /* command ゲット捕まえられ兵の名前 */
+/*  -  O  O  O  O  O  */  0x009e8aeb  /* chara セーブ確認画面 */
+/*  -  O  O  -  O  O  */  0x009f11bc  /* chara ＮＰＣスネーク */
+/*  -  O  -  -  O  O  */  0x00a0a179  /* chara 連続発生線状泡 */
+/*  -  O  O  -  O  O  */  0x00a151b1  /* command ベルトコンベア荷物管理 */
+/*  O  O  -  -  O  O  */  0x00a1a665  /* command ゲットオルガライフ */
+/*  -  -  O  -  -  -  */  0x00a1deb9
+/*  -  O  -  -  O  O  */  0x00a3d28a  /* chara ボスラッシュ選択画面 */
+/*  -  O  -  -  O  O  */  0x00a3e408  /* command セット敵兵メモリー */
+/*  O  O  O  O  O  O  */  0x00a53aa7  /* chara フォグ */
+/*  -  -  -  O  O  O  */  0x00a58f8a  /* chara ＶＲスクリーン */
+/*  -  O  O  -  O  O  */  0x00a58fa5  /* chara 複数赤外線 */
+/*  -  O  O  O  O  O  */  0x00a60221  /* command ゴルキャップあり */
+/*  O  O  O  O  O  O  */  0x00a63d3b  /* chara Ｚフォーカス管理 */
+/*  -  O  O  O  O  O  */  0x00a6a1ee  /* command ゴルキャップなし */
+/*  -  O  O  -  O  O  */  0x00a6d9cf  /* command サイト表示制御 */
+/*  -  O  O  -  O  O  */  0x00a710db  /* chara 海上巡回兵 */
+/*  -  O  O  -  O  O  */  0x00a7195f  /* command ＮＰＣスネークのライフ */
+/*  -  O  O  -  O  O  */  0x00a741fd  /* command プラグインはしご */
+/*  -  O  O  -  O  O  */  0x00a7cb42  /* chara Ｏ２ゲージ */
+/*  O  O  -  -  -  -  */  0x00a80554
+/*  O  O  O  -  O  O  */  0x00a8560d  /* chara マンハット黄灯 */
+/*  -  O  O  -  O  O  */  0x00a85ceb  /* command フォーチュン戦昇降機ボム消去 */
+/*  O  O  O  -  O  O  */  0x00a895c4  /* chara プット頂点アニメオブジェ */
+/*  -  O  O  -  O  O  */  0x00a97a70  /* chara 壊れコンピュータW12B */
+/*  -  O  O  -  O  O  */  0x00a97eb2  /* chara 壊れコンピュータW24D */
+/*  O  O  O  -  O  O  */  0x00a9ed03  /* chara スローパラメータ制御 */
+/*  -  O  O  -  O  O  */  0x00ab381c  /* chara ノードシステム */
+/*  O  O  O  O  O  O  */  0x00ab5a2a  /* command 常駐リソース設定 */
+/*  O  O  O  -  O  O  */  0x00abfd5f  /* chara 水密ドア管理 */
+/*  -  O  O  -  O  O  */  0x00ace3ff  /* chara 量産型ＲＡＹ設置 */
+/*  -  O  O  -  O  O  */  0x00ad8864  /* chara フォーチュン戦壁ライト */
+/*  -  O  O  -  O  O  */  0x00ae0f36  /* chara ＲＡＹサーバー設置 */
+/*  O  -  -  -  -  -  */  0x00aec560
+/*  -  -  O  -  -  -  */  0x00aee25b
+/*  -  O  O  -  O  O  */  0x00af0a7a  /* chara 回転モデル */
+/*  -  O  O  -  O  O  */  0x00af2208  /* chara 電撃床 */
+/*  -  O  O  -  O  O  */  0x00af4cf6  /* chara かもめマネージャ */
+/*  -  O  O  -  O  O  */  0x00afa5e7  /* chara 亀甲床 */
+/*  -  O  -  -  O  O  */  0x00afdee4  /* command タイマーエンド */
+/*  O  -  -  -  -  -  */  0x00b00459
+/*  -  O  O  O  O  O  */  0x00b030e4  /* chara 全薬莢コントロール */
+/*  -  -  O  -  -  -  */  0x00b0c115
+/*  -  -  -  O  O  O  */  0x00b10086  /* command ＶＲコンボタイム */
+/*  O  O  O  -  O  O  */  0x00b1abd8  /* command 水密ドア状態 */
+/*  O  O  -  -  O  O  */  0x00b1e8d4  /* command セットクリアリング */
+/*  -  -  -  -  O  O  */  0x00b23a64  /* chara 任意稲光 */
+/*  -  O  O  O  O  O  */  0x00b2a6b7  /* chara マルチウェイト髪の毛モデル */
+/*  -  O  O  -  O  O  */  0x00b2fd6c  /* chara 漏電火花 */
+/*  O  O  O  O  O  O  */  0x00b35703  /* command 自動ジャンプ設定 */
+/*  -  -  O  -  -  -  */  0x00b380d5
+/*  -  O  O  -  O  O  */  0x00b3aa52  /* chara ベルトコンベアベルト */
+/*  -  O  O  -  O  O  */  0x00b3d54e  /* command セットゾーンフラグ */
+/*  -  O  O  -  O  O  */  0x00b3e388  /* chara 船倉兵 */
+/*  -  -  -  -  O  O  */  0x00b414ae  /* command プレイヤーパッド設定 */
+/*  O  O  O  -  O  O  */  0x00b431c3  /* chara プット投光器オブジェ */
+/*  O  O  O  O  O  O  */  0x00b44bbb  /* command 壁床効果音設定 */
+/*  -  -  -  O  O  O  */  0x00b4e108  /* chara ＶＲ空 */
+/*  -  -  -  -  O  O  */  0x00b4e35c  /* chara ＶＲ壁 */
+/*  -  O  -  -  O  O  */  0x00b53158  /* chara 水中血 */
+/*  -  -  O  -  -  -  */  0x00b629af
+/*  O  O  O  -  O  O  */  0x00b63a33  /* chara ブラー */
+/*  -  -  -  O  O  O  */  0x00b63e47  /* command ＶＲ移動的スケール */
+/*  -  O  O  -  O  O  */  0x00b66ae4  /* chara 電灯虫 */
+/*  -  O  O  -  O  O  */  0x00b6e522  /* command イントルード主観カメラ補正 */
+/*  -  O  O  O  O  O  */  0x00b74fd7  /* command ドッグタグゼロクリア */
+/*  -  O  O  -  O  O  */  0x00b75003  /* chara 非破壊カメラ */
+/*  -  O  O  O  O  O  */  0x00b7b5a7  /* command ローカルリソース設定 */
+/*  -  -  O  -  -  -  */  0x00b7ecc2
+/*  -  -  -  O  O  O  */  0x00b7f8e7  /* command ミッションズデータ初期化 */
+/*  O  O  O  -  O  O  */  0x00b80de5  /* chara 位置指定雨 */
+/*  -  -  -  O  O  O  */  0x00b89202  /* chara フェードオブジェ */
+/*  -  O  O  -  O  O  */  0x00b8b5f7  /* command ブレード壁チェックなし */
+/*  O  O  O  -  O  O  */  0x00b8b94d  /* chara 蓋付き段ボール */
+/*  -  O  O  -  O  O  */  0x00b93d5e  /* chara 天狗兵ステージモニター */
+/*  -  -  -  -  O  O  */  0x00b97d41  /* command 敵兵メモリーリセット */
+/*  -  O  O  -  O  O  */  0x00ba92f5  /* command 武器アイテム取り返し */
+/*  -  O  -  -  O  O  */  0x00bb6852  /* chara 水中エマ */
+/*  O  O  O  -  O  O  */  0x00bbad24  /* chara 近景ぼかし */
+/*  O  -  -  -  -  -  */  0x00bc5a8b
+/*  -  -  O  -  -  -  */  0x00bc9497
+/*  -  O  O  O  O  O  */  0x00bcb4a2  /* command ゲームオーバー呼びわけ */
+/*  -  -  -  -  O  O  */  0x00bcee1a  /* command セットＶＲキルカウント */
+/*  -  O  O  -  O  O  */  0x00bd28c4  /* command ポーズリセット */
+/*  O  O  O  -  O  O  */  0x00bd400b  /* chara 影管理 */
+/*  -  O  O  -  O  O  */  0x00bd4c61  /* chara カツラテクスチャ差し替え管理 */
+/*  O  O  O  -  O  O  */  0x00bd673f  /* chara 雨速度可変 */
+/*  -  O  -  -  O  O  */  0x00bd9cc1  /* chara 海上巡回コマンダー */
+/*  -  O  -  -  O  O  */  0x00bdd6a9  /* chara ターゲットトラップ */
+/*  O  O  O  -  O  O  */  0x00be0863  /* chara 床水飛沫 */
+/*  -  O  -  -  O  O  */  0x00bed0ff  /* chara パイプ水滴マネージャ */
+/*  -  O  O  -  O  O  */  0x00bf97ed  /* command プラグインベルトコンベア */
+/*  -  O  -  -  O  O  */  0x00bfb0a1  /* chara ヴァンプ影縛りターゲット */
+/*  -  -  O  -  -  -  */  0x00c08284
+/*  -  O  O  -  O  O  */  0x00c0895a  /* command 死亡カモメ非表示 */
+/*  -  O  O  -  O  O  */  0x00c09e6c  /* chara フナ虫リーダー */
+/*  O  O  O  -  O  O  */  0x00c0e06d  /* chara ブルックリン赤灯 */
+/*  -  -  -  -  O  O  */  0x00c13513  /* chara 紙芝居 */
+/*  -  O  O  -  O  O  */  0x00c1451b  /* chara 円筒テクスチャ */
+/*  -  O  O  -  O  O  */  0x00c1bc23  /* chara 主観デモプレイヤー */
+/*  -  O  -  -  O  O  */  0x00c1eb06  /* command ゲット船倉兵座標 */
+/*  -  O  O  -  O  O  */  0x00c1ff0f  /* chara 沈没タンカー */
+/*  O  O  -  -  O  O  */  0x00c210e3  /* chara サブ画面 */
+/*  -  O  -  -  O  O  */  0x00c27387  /* command ゲット人質ターゲット */
+/*  -  O  O  -  O  O  */  0x00c2ad32  /* chara ＲＡＹステージ環境設定 */
+/*  -  O  -  -  O  O  */  0x00c2eb8d  /* command エマ強制瞬間移動 */
+/*  O  O  O  -  O  O  */  0x00c3189a  /* command プレイヤー瞬殺 */
+/*  -  O  O  -  O  O  */  0x00c34b14  /* chara プット制御室モニター */
+/*  -  O  O  -  O  O  */  0x00c3515f  /* chara 水中機雷 */
+/*  -  O  O  -  O  O  */  0x00c3c46c  /* chara 偽ゲームオーバー画面 */
+/*  -  O  O  -  O  O  */  0x00c41872  /* command ボスアンセットタイマーステータス */
+/*  -  -  O  -  -  -  */  0x00c42407
+/*  O  O  O  -  O  O  */  0x00c45437  /* chara プット瓶オブジェ */
+/*  -  -  O  -  -  -  */  0x00c48407
+/*  -  O  O  -  O  O  */  0x00c547a7  /* chara 床照り返し管理 */
+/*  -  -  -  -  O  O  */  0x00c5994d  /* command ＶＲクリア＿結果の取得 */
+/*  -  -  O  -  -  -  */  0x00c5c1b8
+/*  -  O  O  -  O  O  */  0x00c5d24c  /* chara 通路用水面 */
+/*  -  O  O  -  O  O  */  0x00c622a4  /* chara デモ虫 */
+/*  -  -  -  -  O  O  */  0x00c64ecb  /* command ＶＲ全体マップ表示３Ｄ＿爆弾解除 */
+/*  -  -  O  -  -  -  */  0x00c6eb85
+/*  -  O  -  -  O  O  */  0x00c6f28e  /* command ファットマン非表示 */
+/*  -  O  O  -  O  O  */  0x00c7280a  /* chara 長廊下コマンダー */
+/*  O  O  O  O  O  O  */  0x00c74f97  /* command 配列セット */
+/*  -  O  O  -  O  O  */  0x00c76d6e  /* command 装備ダンボール破壊 */
+/*  -  -  -  -  O  O  */  0x00c7853f  /* command セットＶＲ的出現消え周期 */
+/*  -  O  O  -  O  O  */  0x00c7ee15  /* command カモメ表示 */
+/*  -  -  O  -  -  -  */  0x00c7f284
+/*  -  -  -  -  O  O  */  0x00c84c1d  /* command ボスラッシュ２音声交換 */
+/*  O  O  O  O  O  O  */  0x00c88afa  /* chara サウンドマネージャー */
+/*  O  O  O  -  O  O  */  0x00c8dbcc  /* chara 水溜り管理 */
+/*  -  O  O  -  O  O  */  0x00c9dd51  /* chara 汎用空 */
+/*  -  O  O  -  O  O  */  0x00cb2c3e  /* chara 水中濁り */
+/*  -  O  -  -  O  O  */  0x00cb6bed  /* command セット音量パラメータ */
+/*  -  O  O  -  O  O  */  0x00cb6ec4  /* command メニューフナムシ取り付き状態取得 */
+/*  -  O  O  -  O  O  */  0x00cb7de8  /* chara 懐中電灯 */
+/*  O  O  O  -  O  O  */  0x00cba568  /* chara プット大ガラスオブジェ */
+/*  O  O  O  -  O  O  */  0x00cbb124  /* chara 天井君 */
+/*  -  O  O  -  O  O  */  0x00cbd98b  /* chara ボスラッシュカサッカ */
+/*  -  O  O  O  O  O  */  0x00cc87a2  /* chara 2Dレイアウトドライバ */
+/*  O  O  O  O  O  O  */  0x00cc9a07  /* chara アタッカー */
+/*  -  O  -  -  O  O  */  0x00cd2045  /* command 現在の秒単位時間 */
+/*  -  O  O  -  O  O  */  0x00cdb878  /* chara ニキータイベント大統領 */
+/*  O  O  -  -  O  O  */  0x00cdc7bd  /* chara 武器水飛沫 */
+/*  -  O  O  -  O  O  */  0x00cec17c  /* command アイテム収得可能範囲設定 */
+/*  -  -  -  O  O  O  */  0x00ced375  /* chara ＶＲゴール */
+/*  O  O  O  -  O  O  */  0x00cf777f  /* chara プットテクスチャクロスフェードワールド */
+/*  -  -  -  -  O  O  */  0x00d0e799  /* command ミッションズリトライ回数取得 */
+/*  O  O  O  -  O  O  */  0x00d10066  /* command 跳弾ＳＥのみ */
+/*  -  O  O  -  O  O  */  0x00d110e2  /* chara フォーチュン戦揺れライト */
+/*  O  O  O  -  O  O  */  0x00d1279a  /* chara プット植物オブジェ */
+/*  -  O  -  -  O  O  */  0x00d1699d  /* command プレイヤーマップ名 */
+/*  -  O  O  -  O  O  */  0x00d16c76  /* chara 水中カメラ */
+/*  -  O  O  -  O  O  */  0x00d20fde  /* chara 巨大海面 */
+/*  -  -  -  O  O  O  */  0x00d219b8  /* command ＶＲステージセット */
+/*  O  O  O  -  O  O  */  0x00d2bd87  /* chara 風制御 */
+/*  -  O  -  -  O  O  */  0x00d2c9aa  /* chara 息継ぎポイント管理 */
+/*  -  -  O  -  -  -  */  0x00d2d940
+/*  -  O  O  -  O  O  */  0x00d30863  /* command StreamStop */
+/*  O  O  O  O  O  O  */  0x00d4090d  /* chara ＬＯＤ制御 */
+/*  -  O  -  -  O  O  */  0x00d44dc7  /* command オプションフラグの内容を保存 */
+/*  -  O  -  -  O  O  */  0x00d481ed  /* command 水中エマライフセット */
+/*  -  -  -  O  O  O  */  0x00d51601  /* chara ルート兵チェック */
+/*  -  O  O  -  O  O  */  0x00d5d6ef  /* chara 拡張海表示 */
+/*  O  O  -  -  O  O  */  0x00d5ff97  /* command カメラ上下振動スイッチ */
+/*  -  O  -  -  O  O  */  0x00d612a2  /* chara エマ虫 */
+/*  O  O  O  -  O  O  */  0x00d6ed95  /* chara ブルックリン */
+/*  -  O  O  -  O  O  */  0x00d72c78  /* chara プット壊れビル窓 */
+/*  -  O  -  -  O  O  */  0x00d75a89  /* command ゲットタイマーステータス */
+/*  -  O  -  -  O  O  */  0x00d8cff4  /* command タンカー編総ドッグタグ数 */
+/*  -  O  O  -  O  O  */  0x00d90540  /* chara フォーチュン戦昇降機 */
+/*  -  O  -  -  O  O  */  0x00d978ac  /* command ゲット敵兵状態２ */
+/*  -  O  O  -  O  O  */  0x00d99a89  /* command セットタイマーステータス */
+/*  -  O  -  -  O  O  */  0x00d99fb0  /* chara タイトロープ兵 */
+/*  -  O  O  -  O  O  */  0x00d9c789  /* command 再生ＢＧＭ取得 */
+/*  O  O  O  -  O  O  */  0x00da97fb  /* command トラップ切り替え */
+/*  -  O  O  -  O  O  */  0x00daba9e  /* chara プラント明滅ライト */
+/*  -  O  -  -  O  O  */  0x00db03a6  /* command 転送端末起動 */
+/*  -  O  -  -  O  O  */  0x00db65ac  /* command 息継ぎポイント登録 */
+/*  -  O  -  -  O  O  */  0x00dba0d1  /* command ゲットハリアー座標 */
+/*  -  O  O  -  O  O  */  0x00dbd1fa  /* chara フォーチュン戦昇降機スイッチ */
+/*  -  -  O  -  -  -  */  0x00dbdd8a
+/*  -  O  O  -  O  O  */  0x00dc2f1b  /* chara ＩＰＵ表示パネル */
+/*  -  O  O  -  O  O  */  0x00dc323f  /* chara カメラダスト */
+/*  -  O  O  -  O  O  */  0x00dc80bf  /* chara レイブン人形 */
+/*  -  O  O  O  O  O  */  0x00dc83c5  /* command ロードサウンドパック */
+/*  -  -  -  -  O  O  */  0x00dcb281  /* command セーブ用参照変数登録 */
+/*  -  O  O  -  O  O  */  0x00ddd2a3  /* command 崩落床状態取得 */
+/*  -  -  -  O  O  O  */  0x00ddf457  /* command ＶＲ弾痕ノーマル */
+/*  O  O  O  O  O  O  */  0x00ddf5ca  /* chara コマンダー */
+/*  O  O  -  -  O  O  */  0x00de0400  /* chara 装備品Ａ */
+/*  -  O  -  -  O  O  */  0x00de0401  /* chara 装備品Ｂ */
+/*  O  O  O  -  O  O  */  0x00de0402  /* chara 装備品Ｃ */
+/*  -  O  O  O  O  O  */  0x00de07c0  /* command フォント初期化 */
+/*  -  O  O  -  O  O  */  0x00de4430  /* command 不可装備設定 */
+/*  -  O  O  -  O  O  */  0x00dedde1  /* command 泡色変更 */
+/*  O  O  O  -  O  O  */  0x00df5435  /* chara プット皿オブジェ */
+/*  -  O  -  -  O  O  */  0x00e00fd1  /* chara 潜水ゴーグル */
+/*  -  O  O  -  O  O  */  0x00e0344c  /* command ゲット捕まえられ兵の本当の名前 */
+/*  -  -  -  O  O  O  */  0x00e0568b  /* chara ＶＲ床マーカー */
+/*  O  O  O  -  O  O  */  0x00e0dbba  /* chara ２Ｄスプライト表示 */
+/*  O  O  O  -  O  O  */  0x00e0dcba  /* chara ３Ｄスプライト表示 */
+/*  O  O  -  -  O  O  */  0x00e1c26c  /* command ゲットオルガ目的地 */
+/*  O  O  O  -  O  O  */  0x00e22388  /* chara フェードインアウト */
+/*  -  O  O  -  O  O  */  0x00e2488b  /* command フォーチュン戦天井崩れ表示管理 */
+/*  -  O  O  -  O  O  */  0x00e29adb  /* command シナリオデモ開始 */
+/*  -  O  O  -  O  O  */  0x00e2a088  /* chara デバッグポーズ */
+/*  -  O  O  -  O  O  */  0x00e2ed79  /* chara ドアパネル電撃 */
+/*  -  O  -  -  O  O  */  0x00e32fc7  /* chara プット落下オブジェ */
+/*  -  O  -  -  O  O  */  0x00e3429d  /* chara フォーチュン戦オイル燃え */
+/*  -  O  O  -  O  O  */  0x00e3549b  /* command ノード画面起動 */
+/*  -  O  -  -  O  O  */  0x00e39c0d  /* chara ２Ｄスプライト表示＿ポーズ */
+/*  -  -  -  -  O  O  */  0x00e3c577  /* command テイルズステージセット */
+/*  O  O  -  -  O  O  */  0x00e3eb1a  /* command ゲット敵兵座標 */
+/*  -  O  -  -  O  O  */  0x00e3eea2  /* command ゲットフォーチュン弾座標 */
+/*  O  O  O  -  O  O  */  0x00e41776  /* chara スポット雨 */
+/*  -  O  O  -  O  O  */  0x00e48f2f  /* chara プットＳＥ鳴らし */
+/*  -  -  O  -  -  -  */  0x00e4a12d
+/*  O  O  O  -  O  O  */  0x00e4c507  /* command ゲットゲームステータス */
+/*  -  -  -  -  O  O  */  0x00e4cea2  /* chara ゴルルゴン部位壊れ */
+/*  -  O  O  -  O  O  */  0x00e4d016  /* chara プロジェクタライト */
+/*  -  O  O  -  O  O  */  0x00e52073  /* chara エリアダスト */
+/*  -  O  -  -  O  O  */  0x00e5ff03  /* command プレイヤー主観腕壊れ手錠 */
+/*  O  O  O  O  O  O  */  0x00e6b658  /* command ゲット敵兵状態 */
+/*  -  O  -  -  O  O  */  0x00e73ac4  /* command カメラチェックキャラ削除 */
+/*  -  O  O  -  O  O  */  0x00e74f46  /* command ポーズセット */
+/*  -  O  O  O  O  O  */  0x00e76d74  /* command 解析封じ変数移動 */
+/*  -  O  O  -  O  O  */  0x00e79927  /* command シナリオデモ終了 */
+/*  O  O  O  -  O  O  */  0x00e9021d  /* chara トラップ専用C4 */
+/*  O  O  O  O  O  O  */  0x00e96d82  /* chara 無線システム */
+/*  -  O  O  -  O  O  */  0x00ea5215  /* chara 崩落床 */
+/*  O  O  O  -  O  O  */  0x00ead648  /* command 強制モーションキャンセル */
+/*  -  -  -  -  O  O  */  0x00eb7eda  /* chara 水中ゴルルゴン */
+/*  O  O  O  -  O  O  */  0x00ebec24  /* chara 水密ドア */
+/*  -  O  O  -  O  O  */  0x00ec084b  /* chara ステージ置き炎 */
+/*  -  -  O  -  -  -  */  0x00ec0fc6
+/*  -  O  -  -  O  O  */  0x00ec40c7  /* command カメラチェックキャラ登録 */
+/*  O  O  O  -  O  O  */  0x00ecc9de  /* chara メリケン粉 */
+/*  -  -  -  -  O  O  */  0x00ed1e0b  /* chara ＶＲオブジェ */
+/*  -  O  O  -  O  O  */  0x00ed4678  /* chara カメラ前曇り */
+/*  -  O  -  -  O  O  */  0x00ee8700  /* command ゲットスネーク座標 */
+/*  O  O  O  -  O  O  */  0x00ee8b90  /* command ＳＥセットモード */
+/*  -  O  -  -  O  O  */  0x00eee657  /* chara エマ・ロッカーの中にいる */
+/*  -  O  -  -  O  O  */  0x00efd440  /* command ゲットフォーチュングレネード座標 */
+/*  -  -  -  O  O  O  */  0x00effdac  /* command ＶＲステージポーズ */
+/*  O  O  -  -  O  O  */  0x00f005a3  /* command クリアリングキャンセル */
+/*  -  -  O  -  -  -  */  0x00f0c7f2
+/*  -  O  O  -  O  O  */  0x00f0f504  /* command 全体マップ選択可能範囲設定 */
+/*  -  O  O  -  O  O  */  0x00f15e47  /* command カメラチェック面ワーク確保 */
+/*  O  O  -  -  O  O  */  0x00f26728  /* chara 速度可変 */
+/*  -  O  -  -  O  O  */  0x00f2dfcd  /* command load_restart */
+/*  O  O  O  O  O  O  */  0x00f2eedc  /* command セットサウンドコード */
+/*  O  O  O  O  O  O  */  0x00f37560  /* chara 追跡血 */
+/*  -  -  O  -  -  -  */  0x00f40c20
+/*  -  -  -  -  O  O  */  0x00f466b6  /* chara ボスラッシュ２テロップ表示 */
+/*  -  O  O  -  O  O  */  0x00f4bbf5  /* chara ボスタイマー */
+/*  -  O  -  -  O  O  */  0x00f52ed4  /* chara オウム */
+/*  -  -  -  O  O  O  */  0x00f5bf46  /* chara あたり付き人形 */
+/*  O  O  -  -  O  O  */  0x00f5c132  /* command ゲットホロ状況 */
+/*  -  O  O  -  O  O  */  0x00f62833  /* chara フレーム退避 */
+/*  -  O  O  O  O  O  */  0x00f63b18  /* chara プラントカメラ */
+/*  -  O  O  -  O  O  */  0x00f6ada8  /* command ＵＳＰライトＯＮ */
+/*  -  -  O  -  -  -  */  0x00f6ef99
+/*  O  O  O  -  O  O  */  0x00f706cd  /* chara ＯＦＦ制御 */
+/*  -  O  O  -  O  O  */  0x00f74020  /* chara 画像転送端末 */
+/*  -  -  -  -  O  O  */  0x00f77507  /* chara パッド振動スクリプト */
+/*  -  O  O  -  O  O  */  0x00f7e492  /* command はしご設定 */
+/*  O  O  O  O  O  O  */  0x00f7f777  /* chara 警備兵 */
+/*  -  O  O  -  O  O  */  0x00f8f4e8  /* command デモローポリ劇場 */
+/*  -  O  O  -  O  O  */  0x00f91a08  /* chara 透明床 */
+/*  O  O  O  -  O  O  */  0x00f91b9f  /* chara 透明壁 */
+/*  -  -  -  O  O  O  */  0x00f92b8e  /* command プレイヤー消去キャラ */
+/*  O  O  O  -  O  O  */  0x00f9711e  /* chara ジョージワシントン橋のライン補強モデル */
+/*  -  O  O  -  O  O  */  0x00f9c62d  /* command スプレー当たり判定拡大 */
+/*  -  O  O  -  O  O  */  0x00fa4e80  /* chara 六角フェード */
+/*  -  O  O  -  O  O  */  0x00fad3ae  /* command 指向性マイク音量パン */
+/*  -  O  -  -  O  O  */  0x00faedf1  /* chara ソリダス */
+/*  -  O  O  O  O  O  */  0x00fb029a  /* command 武器ライト */
+/*  -  O  O  O  O  O  */  0x00fbeb7f  /* command ゲームオーバーチェック */
+/*  -  O  -  -  O  O  */  0x00fc14a5  /* chara タイトル画面マネージャー */
+/*  -  O  -  -  O  O  */  0x00fc6185  /* command 内包チェック */
+/*  -  O  O  -  O  O  */  0x00fca1a4  /* command ブレードエフェクトオン */
+/*  -  -  O  -  -  -  */  0x00fd6181
+/*  -  O  O  -  O  O  */  0x00fdda41  /* chara ターゲットプロック */
+/*  -  O  O  -  O  O  */  0x00fe39e8  /* command フォーチュン索敵初期化 */
+/*  -  O  O  -  O  O  */  0x00fe5c5b  /* chara 天狗兵Ａ */
+/*  -  O  O  -  O  O  */  0x00fe5c5c  /* chara 天狗兵Ｂ */
+/*  -  O  -  -  O  O  */  0x00fe5f3d  /* chara WEBサイト */
+/*  -  O  -  O  O  O  */  0x00fe6730  /* chara sound_test */
+/*  O  O  O  -  O  O  */  0x00fe6f50  /* chara モデル切り替えアニメ */
+/*  -  O  -  -  O  O  */  0x00fea0c9  /* command ジャンプ時重力セット */
+/*  -  -  O  -  -  -  */  0x00fed1b1
+/*  -  -  O  -  -  -  */  0x00fed582
+/*  -  O  O  -  O  O  */  0x00fef2d9  /* command ベルトコンベア時プロック設定 */
+/*  -  O  -  -  O  O  */  0x00ff5b55  /* command プラント編総ドッグタグ数 */
+/*  -  O  O  O  O  O  */  0x00ffbece  /* chara MOVIE再生 */
+/*  -  -  -  O  O  O  */  0x00ffc196  /* chara ステージアウトライン */
+/*  -  O  -  -  O  O  */  0x00ffd75e  /* command ゲット敵兵アクション */
+/*  -  O  O  -  O  O  */  0x00ffe7a7  /* command ゲットカサッカライフ */
+/*  -  O  O  -  O  O  */  0x00ffed03  /* chara プロック連続実行 */
+/*  -  -  -  -  O  O  */  0x00fff6c6  /* command ＵＳＰライト鏡面 */
 
 /*--- Polygon Demo Charas ---*/
-#define CHARA_01000000          0x01000000  // --> d_fog_set.c
-#define CHARA_01000001          0x01000001  // --> f_focus.c
-#define CHARA_01000002          0x01000002  // --> n_focus.c
-#define CHARA_01000003          0x01000003  // --> d_fade_io_prog.c
-#define CHARA_01000004          0x01000004  // --> d_rain_cm.c
-#define CHARA_01000005          0x01000005  // --> flush_man.c
-#define CHARA_01000006          0x01000006
-#define CHARA_01000007          0x01000007
-#define CHARA_01000008          0x01000008  // --> d_fade_io_prog.c
-#define CHARA_01000009          0x01000009  // --> d_contrast.c
-#define CHARA_0100000a          0x0100000a  // --> d_contrast.c
-#define CHARA_0100000b          0x0100000b  // --> scope_layout.c
-#define CHARA_0100000c          0x0100000c  // --> scr_crack.c
-#define CHARA_0100000d          0x0100000d  // --> 2d_sprt.c
-#define CHARA_0100000e          0x0100000e  // --> cigarette.c
-#define CHARA_0100000f          0x0100000f  // --> lens_flare.c
-#define CHARA_01000011          0x01000011  // --> blur.c
-#define CHARA_01000012          0x01000012  // --> crosfade.c
-#define CHARA_01000013          0x01000013  // --> crosfade.c
-#define CHARA_01000014          0x01000014  // --> scr_water_demo.c
-#define CHARA_01000015          0x01000015  // --> scr_conblur.c
-#define CHARA_01000016          0x01000016  // --> ray_layout.c
-#define CHARA_01000017          0x01000017  // --> vtr_layout.c
-#define CHARA_01000018          0x01000018
-#define CHARA_01000019          0x01000019  // --> gas_pers_fast.c
-#define CHARA_0100001a          0x0100001a  // --> demo_dgcam_mng.c
-#define CHARA_0100001c          0x0100001c  // --> psg_layout.c
-#define CHARA_0100001d          0x0100001d  // --> equip_layout.c
-#define CHARA_0100001f          0x0100001f  // --> demo_sun.c
-#define CHARA_01000020          0x01000020  // --> ai_ray_layout.c
-#define CHARA_01000021          0x01000021  // --> explosion_controler.c
-#define CHARA_01000022          0x01000022  // --> blood_bio.c
-#define CHARA_01000023          0x01000023  // --> forttear.c
-#define CHARA_01000024          0x01000024  // --> scr_goggles_demo.c
-#define CHARA_01000025          0x01000025  // --> scr_drop_demo.c --> NewScrDrop
-#define CHARA_01000026          0x01000026  // --> scr_waterfilm.c
-#define CHARA_01000031          0x01000031  // --> gas2_pers_fast.c
-#define CHARA_01000033          0x01000033  // --> rain_gas_pers_demo.c
-#define CHARA_01000100          0x01000100  // --> d_splash_motion.c
-#define CHARA_01000101          0x01000101  // --> d_splash_ripple.c
-#define CHARA_01000103          0x01000103  // --> ft_splsh.c
-#define CHARA_01000104          0x01000104  // --> body_sph.c
-#define CHARA_01000105          0x01000105  // --> dive_splash.c
-#define CHARA_01000106          0x01000106  // --> splush_big.c
-#define CHARA_01000107          0x01000107  // --> splash.c
-#define CHARA_01000108          0x01000108  // --> wall_tidal.c
-#define CHARA_01000109          0x01000109  // --> water_wind.c
-#define CHARA_01000201          0x01000201  // --> ripple_bubble.c
-#define CHARA_01000202          0x01000202  // --> raiden_mask_bubble.c
-#define CHARA_010007d1          0x010007d1  // --> traffic.c
-#define CHARA_01001000          0x01001000  // --> drop_shadow.c
-#define CHARA_01001001          0x01001001  // --> foot_shadow.c
-#define CHARA_01001002          0x01001002  // --> eneequip.c
-#define CHARA_01001005          0x01001005  // --> raincoat.c
-#define CHARA_01001006          0x01001006  // --> putatach.c
-#define CHARA_01001007          0x01001007  // --> putatach.c
-#define CHARA_01001008          0x01001008  // --> source/user/sigeno/effect/handanim.c
-#define CHARA_01001009          0x01001009  // --> facedemo.c
-#define CHARA_0100100a          0x0100100a  // --> d_vol_shadow.c
-#define CHARA_0100100c          0x0100100c  // --> putatach.c
-#define CHARA_0100100d          0x0100100d  // --> eye_ctrl.c
-#define CHARA_0100100f          0x0100100f  // --> demo_arkms.c
-#define CHARA_01001010          0x01001010  // --> arms_con.c
-#define CHARA_01001011          0x01001011  // --> demo_arkms_nyp.c
-#define CHARA_01001012          0x01001012  // --> equip.c
-#define CHARA_01001013          0x01001013  // --> eye_ctrl2.c
-#define CHARA_01001014          0x01001014  // --> fort_equip.c
-#define CHARA_01001015          0x01001015  // --> emma_equip.c
-#define CHARA_01001016          0x01001016  // --> demo_eye.c
-#define CHARA_01001017          0x01001017  // --> fort_sling.c
-#define CHARA_01001018          0x01001018  // --> fort_bul.c
-#define CHARA_01001019          0x01001019  // --> liner_gun_init.c
-#define CHARA_0100101a          0x0100101a  // --> orn_face.c
-#define CHARA_0100101b          0x0100101b  // --> demo_arms.c --> NewDemoArmControl
-#define CHARA_0100101c          0x0100101c  // --> depend_arms.c
-#define CHARA_0100101d          0x0100101d  // --> depend_arms2.c
-#define CHARA_0100101e          0x0100101e  // --> breath_demo.c
-#define CHARA_0100101f          0x0100101f  // --> putatach.c
-#define CHARA_01001020          0x01001020  // --> rai_equip.c
-#define CHARA_01001021          0x01001021  // --> depend_arms3.c
-#define CHARA_01001022          0x01001022  // --> demo_evm_skirt.c
-#define CHARA_01001023          0x01001023  // --> demo_evm_skirt.c
-#define CHARA_01001024          0x01001024  // --> fort_sling2.c
-#define CHARA_01001027          0x01001027  // --> wine.c
-#define CHARA_01001028          0x01001028  // --> demo_arkms_cit_m.c
-#define CHARA_01001029          0x01001029  // --> demo_arkms_cit_f.c
-#define CHARA_0100102a          0x0100102a  // --> depend_arms4.c
-#define CHARA_01002000          0x01002000  // --> d_thunder.c
-#define CHARA_01002002          0x01002002  // --> wind_local.c
-#define CHARA_01002003          0x01002003  // --> slow_man.c
-#define CHARA_01002004          0x01002004  // --> wind_local2.c
-#define CHARA_01003000          0x01003000  // --> ropemain.c
-#define CHARA_01003004          0x01003004  // --> ropemain.c
-#define CHARA_01003007          0x01003007  // --> hairevm.c
-#define CHARA_01003009          0x01003009  // --> hairevm.c
-#define CHARA_01003010          0x01003010  // --> waving_cloth.c
-#define CHARA_01003011          0x01003011  // --> mm_orga_evm_main.c
-#define CHARA_01003012          0x01003012  // --> cergei_eri.c
-#define CHARA_01003013          0x01003013  // --> solmant2.c
-#define CHARA_01003014          0x01003014  // --> ropemain.c
-#define CHARA_01003015          0x01003015  // --> handcuff.c
-#define CHARA_01003017          0x01003017  // --> ropemain.c
-#define CHARA_01003019          0x01003019  // --> ropemain.c
-#define CHARA_01004000          0x01004000  // --> put_stanime.c
-#define CHARA_01004001          0x01004001
-#define CHARA_01004002          0x01004002  // --> d_inter_poly.c
-#define CHARA_01004004          0x01004004  // --> va_demo.c
-#define CHARA_01006000          0x01006000  // --> spark.c
-#define CHARA_01006002          0x01006002  // --> d_plasma_poly.c
-#define CHARA_01006004          0x01006004  // (TRIAL-EDITION-ONLY)
-#define CHARA_01006005          0x01006005  // --> demo_bullet.c
-#define CHARA_01006006          0x01006006  // --> optcmfbr.c
-#define CHARA_01006007          0x01006007  // --> debris_cm.c
-#define CHARA_01006008          0x01006008  // --> debris_tex.c
-#define CHARA_01006009          0x01006009  // --> bomb.c
-#define CHARA_0100600a          0x0100600a  // --> flying_smoke.c
-#define CHARA_0100600b          0x0100600b  // --> bomb_gas.c
-#define CHARA_0100600e          0x0100600e  // --> ts_spark.c
-#define CHARA_01006010          0x01006010  // --> mesg_bomb2.c
-#define CHARA_01006011          0x01006011  // --> gnrl_sprt2.c
-#define CHARA_01006012          0x01006012  // --> sonic_wave.c
-#define CHARA_01006013          0x01006013  // --> mesg_bomb3.c
-#define CHARA_01006014          0x01006014  // --> fort_barrier.c
-#define CHARA_01006015          0x01006015  // --> debris_cm.c
-#define CHARA_01006016          0x01006016  // --> debris_tex.c
-#define CHARA_01006017          0x01006017  // --> harrier_missile_fire2.c
-#define CHARA_01006018          0x01006018  // --> stage_fire.c
-#define CHARA_01006019          0x01006019  // --> solidas_dash_fire.c
-#define CHARA_0100601a          0x0100601a  // --> parfeather.c
-#define CHARA_0100601b          0x0100601b  // --> solidas_dash_fire.c
-#define CHARA_0100601c          0x0100601c  // --> maoparticle.c
-#define CHARA_0100601d          0x0100601d  // --> kmfeather.c
-#define CHARA_0100601f          0x0100601f  // --> hexagonal.c
-#define CHARA_01006020          0x01006020  // --> demo_body_plasma.c
-#define CHARA_01006021          0x01006021  // --> demo_electric_floor.c
-#define CHARA_01006022          0x01006022  // --> solidus_missile_fire.c
-#define CHARA_01006023          0x01006023  // --> solidus_missile_smoke.c
-#define CHARA_01006024          0x01006024  // --> blade_spark.c
-#define CHARA_01006025          0x01006025  // --> solidus_snakearm_flow.c
-#define CHARA_01006026          0x01006026  // --> solidus_blade_light.c
-#define CHARA_01006027          0x01006027  // --> solidus_energy_prim.c
-#define CHARA_01006028          0x01006028  // --> blade_flow.c
-#define CHARA_01006029          0x01006029  // --> plasmaevade.c
-#define CHARA_0100602a          0x0100602a  // --> demo_plasma_color.c
-#define CHARA_0100602c          0x0100602c  // --> cypher_plasma.c
-#define CHARA_01006030          0x01006030  // --> debris_cm.c
-#define CHARA_01006031          0x01006031  // --> debris_tex.c
-#define CHARA_01007001          0x01007001  // --> d_blood.c
-#define CHARA_01007002          0x01007002  // --> d_blood2.c
-#define CHARA_01007003          0x01007003  // --> anime.c
-#define CHARA_0100700b          0x0100700b  // --> bloodweep.c
-#define CHARA_0100700c          0x0100700c  // --> peter_blood.c
-#define CHARA_0100700d          0x0100700d  // --> demo_splash_blood.c
-#define CHARA_0100700e          0x0100700e  // --> demo_dummypoint_blood.c
-#define CHARA_0100700f          0x0100700f  // --> d_blood.c
-#define CHARA_01007100          0x01007100  // --> smk_blur.c
-#define CHARA_01007101          0x01007101  // --> common_smoke.c
-#define CHARA_01007102          0x01007102  // --> dynamic_flow.c
-#define CHARA_01007103          0x01007103  // --> line_smoke.c
-#define CHARA_01007104          0x01007104  // --> harrier_missile_smoke2.c
-#define CHARA_01007105          0x01007105  // --> har_demoeffect.c
-#define CHARA_01007106          0x01007106  // --> harrier_damage_smoke.c
-#define CHARA_01007107          0x01007107  // --> demo_rising_smoke.c
-#define CHARA_01007108          0x01007108  // --> smkreact.c
-#define CHARA_01007109          0x01007109  // --> demo_rising_smoke.c
-#define CHARA_0100710a          0x0100710a  // --> demo_rising_smoke.c
-#define CHARA_0100710c          0x0100710c  // --> fatman_demo_scratch_smoke.c
-#define CHARA_0100710d          0x0100710d  // --> smoke_strip_control.c
-#define CHARA_0100710e          0x0100710e  // --> smoke_mitsukoshi_man.c
-#define CHARA_0100710f          0x0100710f  // --> peter_blood.c
-#define CHARA_01008000          0x01008000
-#define CHARA_01009000          0x01009000  // --> vibrate.c
-#define CHARA_0100a002          0x0100a002  // --> telop_trial.c
-#define CHARA_0100a003          0x0100a003  // --> splush_surface_man.c
-#define CHARA_0100a004          0x0100a004  // --> ripple_man.c
-#define CHARA_0100b000          0x0100b000  // --> water_con.c
-#define CHARA_0100b001          0x0100b001  // --> drop_body_splush.c
-#define CHARA_0100b002          0x0100b002
-#define CHARA_0100b003          0x0100b003  // --> splush_tidal.c
-#define CHARA_0100b004          0x0100b004  // --> de_wave5.c
-#define CHARA_0100b005          0x0100b005
-#define CHARA_0100b006          0x0100b006  // --> auto_splush.c
-#define CHARA_0100b007          0x0100b007  // --> blood_water_demo.c
-#define CHARA_0100b040          0x0100b040
-#define CHARA_0100c100          0x0100c100
-#define CHARA_0100d000          0x0100d000
-#define CHARA_0100d001          0x0100d001
-#define CHARA_0100d002          0x0100d002
-#define CHARA_0100d003          0x0100d003
-#define CHARA_0100d004          0x0100d004
-#define CHARA_0100d005          0x0100d005
-#define CHARA_0100d006          0x0100d006
-#define CHARA_0100d007          0x0100d007
-#define CHARA_0100d008          0x0100d008
-#define CHARA_0100d009          0x0100d009
-#define CHARA_0100d00a          0x0100d00a  // --> ray_fall_blood.c
-#define CHARA_0100d00b          0x0100d00b  // --> ef_shck2.c
-#define CHARA_010fff00          0x010fff00  // --> (calls the printf stub??)
-#define CHARA_010fff01          0x010fff01
-#define CHARA_010fff02          0x010fff02
-#define CHARA_010fff03          0x010fff03  // --> demo_frmcnt.c
-#define CHARA_010fff04          0x010fff04  // --> demo_control.c
-#define CHARA_010fff05          0x010fff05  // --> demo_init.c
-#define CHARA_010ffff0          0x010ffff0
+/*  O  O  O  -  O  O  */  0x01000000  NewFogSet_Demo_0000Launch
+/*  O  O  O  -  O  O  */  0x01000001  NewFarFocusEffect_0001Launch
+/*  O  O  O  -  O  O  */  0x01000002  NewNearFocusEffect_0002Launch
+/*  O  O  O  -  O  O  */  0x01000003  NewFadeInOut_Demo_0003Launch
+/*  O  O  O  -  O  O  */  0x01000004  NewRainCamera_Demo_0004Launch
+/*  -  O  O  -  O  O  */  0x01000005  NewFlush_0005Launch
+/*  O  O  O  -  O  O  */  0x01000006  DM_ChangeAmbient_0006Launch
+/*  O  O  O  -  O  O  */  0x01000007  DM_ChangeParallel_0007Launch
+/*  O  O  O  -  O  O  */  0x01000008  NewFadeInOutForce_Demo_0008Launch
+/*  -  O  O  -  O  O  */  0x01000009  NewContrast_Demo_0009Launch
+/*  -  O  O  -  O  O  */  0x0100000a  NewContrastForce_Demo_000aLaunch
+/*  O  O  O  -  O  O  */  0x0100000b  NewSK_ScopeSight_000bLaunch
+/*  -  O  O  -  O  O  */  0x0100000c  NewScrCrack_000cLaunch
+/*  -  O  O  -  O  O  */  0x0100000d  New2DSprite_Prog_000dLaunch
+/*  O  O  O  -  O  O  */  0x0100000e  NewCigarette_Demo_000eLaunch
+/*  -  O  O  -  O  O  */  0x0100000f  NewLensFlare_Demo_000fLaunch
+/*  -  O  O  -  O  O  */  0x01000011  NewBlur_Demo_0011Launch
+/*  -  O  O  -  O  O  */  0x01000012  NewCrossFadeEffect_0012Launch
+/*  -  O  O  -  O  O  */  0x01000013  NewCrossFadeEffectCustom_0013Launch
+/*  -  O  O  -  O  O  */  0x01000014  NewScrWater_Demo_0014Launch
+/*  -  O  O  -  O  O  */  0x01000015  NewScrConcentrateBlur_0015Launch
+/*  -  O  O  -  O  O  */  0x01000016  NewRaySight_0016Launch
+/*  -  O  O  -  O  O  */  0x01000017  NewVtrSight_0017Launch
+/*  -  O  O  -  O  O  */  0x01000018  OK_FogStatusSet_0018Launch
+/*  -  O  O  -  O  O  */  0x01000019  NewRainFogPersFast_0019Launch
+/*  -  O  O  -  O  O  */  0x0100001a  NewDEMODigitalCamera_001aLaunch
+/*  -  O  O  -  O  O  */  0x0100001c  NewPsg1Sight_001cLaunch
+/*  -  O  O  -  O  O  */  0x0100001d  NewDEMO_Equip_001dLaunch
+/*  -  O  O  -  O  O  */  0x0100001f  NewDemoSun_001fLaunch
+/*  -  O  O  -  O  O  */  0x01000020  NewScnAiRaySight_0020Launch
+/*  -  O  O  -  O  O  */  0x01000021  NewExplosionControl_Demo_0021Launch
+/*  -  O  O  -  O  O  */  0x01000022  NewNyou_0022Launch
+/*  -  O  O  -  O  O  */  0x01000023  NewFortuneTear_0023Launch
+/*  -  O  O  -  O  O  */  0x01000024  NewScrGoggles_demo_0024Launch
+/*  -  O  O  -  O  O  */  0x01000025  NewScrDrop_demo_0025Launch
+/*  -  O  O  -  O  O  */  0x01000026  NewScrWaterFilm_0026Launch
+/*  -  O  O  -  O  O  */  0x01000031  NewRainFogPersFast2_0031Launch
+/*  -  O  O  -  O  O  */  0x01000033  NewRainFogPersDemo_0033Launch
+/*  O  O  O  -  O  O  */  0x01000100  NewSplashMotion_Demo_0100Launch
+/*  O  O  O  -  O  O  */  0x01000101  NewSplashRipple_Demo_0101Launch
+/*  O  O  O  -  O  O  */  0x01000103  NewFootSplash_0103Launch
+/*  O  O  O  -  O  O  */  0x01000104  NewBodySplash3_0104Launch
+/*  O  O  O  -  O  O  */  0x01000105  NewDiveSplash_Parent_0105Launch
+/*  -  O  O  -  O  O  */  0x01000106  NewSphereSplush_0106Launch
+/*  -  O  O  -  O  O  */  0x01000107  NewWaveSplash_Demo_0107Launch
+/*  -  O  O  -  O  O  */  0x01000108  NewWallTidal_0108Launch
+/*  -  O  O  -  O  O  */  0x01000109  NewWaterWindSplush_DEMO_0109Launch
+/*  -  O  O  -  O  O  */  0x01000201  NewRipBubbleMan_DEMO_0201Launch
+/*  -  O  O  -  O  O  */  0x01000202  NewRaidenMaskBubbleDemo_0202Launch
+/*  O  O  O  -  O  O  */  0x010007d1  NewTraffic_Demo_07d1Launch
+/*  O  O  O  -  O  O  */  0x01001000  NewDropShadow_1000Launch
+/*  O  O  O  -  O  O  */  0x01001001  NewShadow_1001Launch
+/*  O  O  O  -  O  O  */  0x01001002  NewEneEquip_1002Launch
+/*  O  O  O  -  O  O  */  0x01001005  NewRaincoat_called_1005Launch
+/*  O  O  O  -  O  O  */  0x01001006  NewPutAttachments_1006Launch
+/*  O  O  O  -  O  O  */  0x01001007  NewPutAttachments_1007Launch
+/*  O  O  O  -  O  O  */  0x01001008  NewGbsHandDemo_1008Launch
+/*  O  O  O  -  O  O  */  0x01001009  NewGbsFaceDemo_1009Launch
+/*  O  O  O  -  O  O  */  0x0100100a  NewBodyShadowVolume_Demo_100aLaunch
+/*  O  O  O  -  O  O  */  0x0100100c  NewPutAttachments_100cLaunch
+/*  -  O  O  -  O  O  */  0x0100100d  NewEyeControl_100dLaunch
+/*  -  O  O  -  O  O  */  0x0100100f  NewDemoArkms_100fLaunch
+/*  -  O  O  -  O  O  */  0x01001010  NewArmsEffectControl_1010Launch
+/*  -  O  O  -  O  O  */  0x01001011  NewDemoArkms_NYPD_1011Launch
+/*  -  O  O  -  O  O  */  0x01001012  NewCreateEquipment_1012Launch
+/*  -  O  O  -  O  O  */  0x01001013  NewEyeControl2_1013Launch
+/*  -  O  O  -  O  O  */  0x01001014  NewFortEquip_1014Launch
+/*  -  O  O  -  O  O  */  0x01001015  NewEmmaEquip_1015Launch
+/*  -  O  O  -  O  O  */  0x01001016  NewEyeAnimSEALS_Demo_1016Launch
+/*  -  O  O  -  O  O  */  0x01001017  NewFortSling_1017Launch
+/*  -  O  O  -  O  O  */  0x01001018  NewFortBulletDemo_1018Launch
+/*  -  O  O  -  O  O  */  0x01001019  NewLinerGunInitEffect_1019Launch
+/*  -  O  O  -  O  O  */  0x0100101a  NewOrgFaceEft_101aLaunch
+/*  -  O  O  -  O  O  */  0x0100101b  NewDemoArmControl_101bLaunch
+/*  -  O  O  -  O  O  */  0x0100101c  NewDependArms_101cLaunch
+/*  -  O  O  -  O  O  */  0x0100101d  NewDependArms_Aks_101dLaunch
+/*  -  O  O  -  O  O  */  0x0100101e  NewBreathDemo_101eLaunch
+/*  -  O  O  -  O  O  */  0x0100101f  NewPutAttachments_101fLaunch
+/*  -  O  O  -  O  O  */  0x01001020  PL_RaidenEquipmentManager_1020Launch
+/*  -  O  O  -  O  O  */  0x01001021  NewDependArms_USP_SP_1021Launch
+/*  -  O  O  -  O  O  */  0x01001022  NewScnEvm_SkirtA_1022Launch
+/*  -  O  O  -  O  O  */  0x01001023  NewScnEvm_SkirtB_1023Launch
+/*  -  O  O  -  O  O  */  0x01001024  NewFortSling2_1024Launch
+/*  -  O  O  -  O  O  */  0x01001027  NewWine_1027Launch
+/*  -  O  O  -  O  O  */  0x01001028  NewDemoArkms_CitMale_1028Launch
+/*  -  O  O  -  O  O  */  0x01001029  NewDemoArkms_CitFemale_1029Launch
+/*  -  O  O  -  O  O  */  0x0100102a  NewDependArms_Kill_102aLaunch
+/*  O  O  O  -  O  O  */  0x01002000  NewThunder_Demo_2000Launch
+/*  O  O  O  -  O  O  */  0x01002002  NewLocalWind_Demo_2002Launch
+/*  O  O  O  -  O  O  */  0x01002003  NewSlowParamMan_prog_2003Launch
+/*  -  O  O  -  O  O  */  0x01002004  NewLocalWind2_Demo_2004Launch
+/*  O  O  O  -  O  O  */  0x01003000  NewRopeModel3_called_3000Launch
+/*  O  O  O  -  O  O  */  0x01003004  NewRopeModel3_called_3004Launch
+/*  -  O  O  -  O  O  */  0x01003007  NewEvmHairModel_Demo_3007Launch
+/*  -  O  O  -  O  O  */  0x01003009  NewEvmHairModel_Demo2_3009Launch
+/*  -  O  O  -  O  O  */  0x01003010  NewWavingClothModelW_called_3010Launch
+/*  O  O  O  -  O  O  */  0x01003011  NewEvmMMOrga_called_3011Launch
+/*  -  O  O  -  O  O  */  0x01003012  NewCergeiEri_demo_3012Launch
+/*  -  O  O  -  O  O  */  0x01003013  NewSolMant_called_3013Launch
+/*  -  O  O  -  O  O  */  0x01003014  NewRopeModel3_called_3014Launch
+/*  -  O  O  -  O  O  */  0x01003015  NewHandcuff_called_3015Launch
+/*  -  O  O  -  O  O  */  0x01003017  NewRopeModel3_called_3017Launch
+/*  -  O  O  -  O  O  */  0x01003019  NewRopeModel3_called_3019Launch
+/*  O  O  O  -  O  O  */  0x01004000  NewPutSTanimeObjectCall_4000Launch
+/*  O  O  O  -  O  O  */  0x01004001  DM_SendEffectMessage_4001Launch
+/*  O  O  O  -  O  O  */  0x01004002  NewInterPoly_Demo_4002Launch
+/*  -  O  O  -  O  O  */  0x01004004  NewVADemo_4004Launch
+/*  O  O  O  -  O  O  */  0x01006000  NewSpark_6000Launch
+/*  O  O  O  -  O  O  */  0x01006002  NewPlasmaPoly_Demo_6002Launch
+/*  O  -  -  -  -  -  */  0x01006004  NewVanimeBullerCall_6004Launch
+/*  O  O  O  -  O  O  */  0x01006005  NewDemoBulletCall_6005Launch
+/*  O  O  O  -  O  O  */  0x01006006  NewOpticalCamouflageBreakDemo2_6006Launch
+/*  -  O  O  -  O  O  */  0x01006007  NewDebris_Cm_Demo_6007Launch
+/*  -  O  O  -  O  O  */  0x01006008  NewDebris_Tex_Demo_6008Launch
+/*  -  O  O  -  O  O  */  0x01006009  NewBombEffect_6009Launch
+/*  -  O  O  -  O  O  */  0x0100600a  NewFlyingSmoke_600aLaunch
+/*  -  O  O  -  O  O  */  0x0100600b  NewBombGasEffect_600bLaunch
+/*  -  O  O  -  O  O  */  0x0100600e  NewTs_Spark_600eLaunch
+/*  -  O  O  -  O  O  */  0x01006010  NewMesgBomb2_6010Launch
+/*  -  O  O  -  O  O  */  0x01006011  NewGeneralSprite2_6011Launch
+/*  -  O  O  -  O  O  */  0x01006012  NewSonicWave_6012Launch
+/*  -  O  O  -  O  O  */  0x01006013  NewMesgBomb3_6013Launch
+/*  -  O  O  -  O  O  */  0x01006014  NewFortBarrierDemo_6014Launch
+/*  -  O  O  -  O  O  */  0x01006015  NewDebris_Cm_Demo2_6015Launch
+/*  -  O  O  -  O  O  */  0x01006016  NewDebris_Tex_Demo2_6016Launch
+/*  -  O  O  -  O  O  */  0x01006017  NewDemoHarrierMissileFire2_6017Launch
+/*  -  O  O  -  O  O  */  0x01006018  NewDemoStageFire_6018Launch
+/*  -  O  O  -  O  O  */  0x01006019  NewDemoSolidusDashFire_6019Launch
+/*  -  O  O  -  O  O  */  0x0100601a  NewParrotFeather_601aLaunch
+/*  -  O  O  -  O  O  */  0x0100601b  NewDemoSolidusDashFire2_601bLaunch
+/*  -  O  O  -  O  O  */  0x0100601c  NewMAOParticle_601cLaunch
+/*  -  O  O  -  O  O  */  0x0100601d  NewKamomeFeather_601dLaunch
+/*  -  O  O  -  O  O  */  0x0100601f  NewHexagonalPattern_601fLaunch
+/*  -  O  O  -  O  O  */  0x01006020  NewDemoBodyPlasma_6020Launch
+/*  -  O  O  -  O  O  */  0x01006021  NewDemoElectricFloor_6021Launch
+/*  -  O  O  -  O  O  */  0x01006022  NewDemoSolidusMissileFire_6022Launch
+/*  -  O  O  -  O  O  */  0x01006023  NewDemoSolidusMissileSmoke_6023Launch
+/*  -  O  O  -  O  O  */  0x01006024  NewDemoBladeSpark_6024Launch
+/*  -  O  O  -  O  O  */  0x01006025  NewDemoSolidusSnakearmFlow_6025Launch
+/*  -  O  O  -  O  O  */  0x01006026  NewDemoSolidusBladeLight_6026Launch
+/*  -  O  O  -  O  O  */  0x01006027  NewDemoSolidusEnergyPrim_6027Launch
+/*  -  O  O  -  O  O  */  0x01006028  NewDemoBladeFlow_6028Launch
+/*  -  O  O  -  O  O  */  0x01006029  NewPlasmaEvade_6029Launch
+/*  -  O  O  -  O  O  */  0x0100602a  NewDemoPlasmaLineColor_602aLaunch
+/*  -  O  O  -  O  O  */  0x0100602c  NewDemoCypherPlasma_602cLaunch
+/*  -  O  O  -  O  O  */  0x01006030  NewDebris_Cm_DemoBlood_6030Launch
+/*  -  O  O  -  O  O  */  0x01006031  NewDebris_Tex_DemoBlood_6031Launch
+/*  O  O  O  -  O  O  */  0x01007001  NewBlood_Demo_7001Launch
+/*  -  O  O  -  O  O  */  0x01007002  NewBlood2_Demo_7002Launch
+/*  -  O  O  -  O  O  */  0x01007003  AN_Blood_Mist_7003Launch
+/*  -  O  O  -  O  O  */  0x0100700b  NewBloodWeep_700bLaunch
+/*  -  O  O  -  O  O  */  0x0100700c  NewPeterBlood_700cLaunch
+/*  -  O  O  -  O  O  */  0x0100700d  NewDemoSplashBlood_700dLaunch
+/*  -  O  O  -  O  O  */  0x0100700e  NewDemoDummyPointBlood_700eLaunch
+/*  -  O  O  -  O  O  */  0x0100700f  NewBlood_Demo2_700fLaunch
+/*  O  O  O  -  O  O  */  0x01007100  NewSmokeBlurEffect_7100Launch
+/*  O  O  O  -  O  O  */  0x01007101  NewCommonSmoke_7101Launch
+/*  -  O  O  -  O  O  */  0x01007102  NewDynamicFlow_Demo_7102Launch
+/*  -  O  O  -  O  O  */  0x01007103  NewLineSmoke_7103Launch
+/*  -  O  O  -  O  O  */  0x01007104  NewDemoHarrierMissileSmokeLine2_7104Launch
+/*  -  O  O  -  O  O  */  0x01007105  NewDemoHarEffect_7105Launch
+/*  -  O  O  -  O  O  */  0x01007106  NewDemoHarrierDamageSmoke_7106Launch
+/*  -  O  O  -  O  O  */  0x01007107  NewDemoRisingSmoke_7107Launch
+/*  -  O  O  -  O  O  */  0x01007108  NewSmokeReactionClient_7108Launch
+/*  -  O  O  -  O  O  */  0x01007109  NewDemoRisingSmokeFix_7109Launch
+/*  -  O  O  -  O  O  */  0x0100710a  NewDemoRisingSmokeDummy_710aLaunch
+/*  -  O  O  -  O  O  */  0x0100710c  NewFatmanDemoScratchSmoke_710cLaunch
+/*  -  O  O  -  O  O  */  0x0100710d  NewSmokeStripControl_710dLaunch
+/*  -  O  O  -  O  O  */  0x0100710e  NewSmokeMitsukoshiMan_710eLaunch
+/*  -  O  O  -  O  O  */  0x0100710f  NewPeterBlood_Gas_710fLaunch
+/*  O  O  O  -  O  O  */  0x01008000  DM_SendEffectMessage_8000Launch
+/*  O  O  O  -  O  O  */  0x01009000  NewPadVibration2_9000Launch
+/*  O  O  O  -  O  O  */  0x0100a002  NewRunTelop_Trial_a002Launch
+/*  -  O  O  -  O  O  */  0x0100a003  NewSplushSurfaceMan_a003Launch
+/*  -  O  O  -  O  O  */  0x0100a004  NewRippleMan_a004Launch
+/*  -  O  O  -  O  O  */  0x0100b000  NewWaterLevelControl_Demo_b000Launch
+/*  -  O  O  -  O  O  */  0x0100b001  NewDropBodySplush_b001Launch
+/*  -  O  O  -  O  O  */  0x0100b002  OK_PutSplushSurface_b002Launch
+/*  -  O  O  -  O  O  */  0x0100b003  NewSplushTidal_b003Launch
+/*  -  O  O  -  O  O  */  0x0100b004  NewSeaSurfaceReactionObject_b004Launch
+/*  -  O  O  -  O  O  */  0x0100b005  NewAutoSplush_b005Launch
+/*  -  O  O  -  O  O  */  0x0100b006  NewAutoSplush_EftCtrl_b006Launch
+/*  -  O  O  -  O  O  */  0x0100b007  NewBloodWater_demo_b007Launch
+/*  -  O  O  -  O  O  */  0x0100b040  TAKABE_RiseWaveEx_b040Launch
+/*  -  O  O  -  O  O  */  0x0100c100  NewEvmLateControl_c100Launch
+/*  -  O  O  -  O  O  */  0x0100d000  NewRayConsol_d000Launch
+/*  -  O  O  -  O  O  */  0x0100d001  NewRayEye_d001Launch
+/*  -  O  O  -  O  O  */  0x0100d002  NewWaterPollute_demo_d002Launch
+/*  -  O  O  -  O  O  */  0x0100d003  NewRayMissileShower_d003Launch
+/*  -  O  O  -  O  O  */  0x0100d004  NewRayMonoEye_Demo_d004Launch
+/*  -  O  O  -  O  O  */  0x0100d005  NewRayMissileForDemo_d005Launch
+/*  -  O  O  -  O  O  */  0x0100d006  NewRayFootSplash_d006Launch
+/*  -  O  O  -  O  O  */  0x0100d007  NewRayOozeBloodDemo_d007Launch
+/*  -  O  O  -  O  O  */  0x0100d008  PDRAY_OozeBloodAddDemo_d008Launch
+/*  -  O  O  -  O  O  */  0x0100d009  PDRAY_CLOUD_DeleteDensity_d009Launch
+/*  -  O  O  -  O  O  */  0x0100d00a  NewDemoRayFallBlood_d00aLaunch
+/*  -  O  O  -  O  O  */  0x0100d00b  NewFogWave_d00bLaunch
+/*  O  O  O  -  O  O  */  0x010fff00  DM_DebugPrint_fff00Launch
+/*  O  O  O  -  O  O  */  0x010fff01  DM_ExecProc_fff01Launch
+/*  O  O  O  -  O  O  */  0x010fff02  DM_SetClipParam_fff02Launch
+/*  O  O  O  -  O  O  */  0x010fff03  NewDemoFrameCountCall_fff03Launch
+/*  -  O  O  -  O  O  */  0x010fff04  NewControlBoy_fff04Launch
+/*  -  O  O  -  O  O  */  0x010fff05  NewDemoEffectInitialize_fff05Launch
+/*  -  O  O  -  O  O  */  0x010ffff0  DM_ControlChange_ffff0Launch
 
+#endif // 0
 #endif // {{{ END OF FILE }}}
